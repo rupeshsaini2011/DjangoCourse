@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insititutes</title>
+</head>
+<body>
+  Institute:{{institutes.name}}
+  Teachers: 
+  <ul>
+  {% for m in teachers %}
+  <li>{{m.full_name}}</li>
+  {% endfor %}
+
+  </ul>
+
+</body>
+</html>

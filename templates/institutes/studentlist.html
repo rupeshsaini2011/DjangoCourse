@@ -1,0 +1,20 @@
+{% extends 'institutes/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studentlist</title>
+</head>
+<body>
+  {% block content %}
+  lets bring 
+  hey the info is about the studenst who are dying hard
+  {% for i in students %} <br>
+    <a href="{% url 'institute:studentinfo' i.id %}"> {{i}}</a><br>
+  {% endfor %}
+  {% endblock %}
+</body>
+</html>
