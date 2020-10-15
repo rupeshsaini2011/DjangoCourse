@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model 
+from .models import Institute
 
 User=get_user_model()
 
@@ -11,10 +12,12 @@ class Loginform(forms.Form):
     
 
 class Registerform(forms.Form):
+    name=forms.CharField()
     username = forms.CharField()
     email= forms.EmailField()
     phone =forms.CharField()
     address=forms.CharField()
+
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
 
@@ -60,6 +63,7 @@ class Studentform(forms.Form):
 class Teacherform(forms.Form):
     name = forms.CharField()
     email= forms.EmailField()
+    institute=forms.ModelChoiceField(queryset=Institute.objects.all())
     # institute=forms.ModelChoiceFiel/d(Registerform)
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)

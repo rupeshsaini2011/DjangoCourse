@@ -4,7 +4,13 @@ from .forms import Loginform, Registerform, guest_form , Teacherform, Studentfor
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.views import LogoutView
 from schema.models import Tenant, TenantUser
+from django.db import connection, transaction
+from django.conf import settings
+
+from django.core.management import call_command
 # Create your views here.
+
+
 
 # def home(request):
 #   return HttpResponse ("this is the home page of our LMS")
@@ -44,11 +50,22 @@ def instituteregister(request):
         email = form.cleaned_data.get("email")
         phone=form.cleaned_data.get("phone")
         address=form.cleaned_data.get("address")
+        name=form.cleaned_data.get("name")
         password =form.cleaned_data.get("password")
-        newuser = User.objects.create_user(username, email, password)
-        institute=Institute.objects.create(user=newuser, phone=phone, address=address)
-        tenant=Tenant.objects.create(name = username)
-        # tenantuser=TenantUser.objects.create(username = username)
+        divi_user=settings.DATABASES["default"]["USER"]
+        name=name.split(" ")
+        schema= name[0].lower()
+        # with transaction.atomic():
+        with connection.cursor() as cursor:
+          tenant=Tenant.objects.create(name = schema)
+          tenantuser=TenantUser.objects.create(username=username, tenant=tenant)
+          cursor.execute(f"create schema {schema}")
+          cursor.execute(f"grant all privileges on {schema} to {divi_user};")  
+          cursor.execute(f"set search_path to {schema}")
+          call_command("migrate")
+          newuser = User.objects.createsuperuser(username, email, password)
+          institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=name)
+            
         print(institute)
         print(newuser)
         print(form.cleaned_data)
@@ -81,6 +98,7 @@ def teacherregister(request):
         # institute=form.cleaned_data.get("institute")
         password = form.cleaned_data.get("password")
         newuser = User.objects.create_user(username, email, password)
+        
 
         print(newuser)
         print(form.cleaned_data)
