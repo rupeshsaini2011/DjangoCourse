@@ -60,15 +60,15 @@ def instituteregister(request):
           tenant=Tenant.objects.create(name = schema)
           tenantuser=TenantUser.objects.create(username=username, tenant=tenant)
           cursor.execute(f"create schema {schema}")
-          cursor.execute(f"grant all privileges on {schema} to {divi_user};")  
+          cursor.execute(f"grant all privileges on schema {schema} to {divi_user};")  
           cursor.execute(f"set search_path to {schema}")
           call_command("migrate")
-          newuser = User.objects.createsuperuser(username, email, password)
+          newuser = User.objects.create_superuser(username, email, password)
           institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=name)
             
-        print(institute)
-        print(newuser)
-        print(form.cleaned_data)
+        # print(institute)
+        # print(newuser)
+        # print(form.cleaned_data)
     return render(request, "institutes/instituteregister.html", context)
 
 def studentregister(request):
@@ -76,6 +76,7 @@ def studentregister(request):
     context = {
         "form": form
     }
+    print(form)
     if form.is_valid():
         username = form.cleaned_data.get("name")
         email = form.cleaned_data.get("email")
