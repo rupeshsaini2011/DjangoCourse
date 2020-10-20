@@ -53,22 +53,30 @@ def instituteregister(request):
         name=form.cleaned_data.get("name")
         password =form.cleaned_data.get("password")
         divi_user=settings.DATABASES["default"]["USER"]
-        name=name.split(" ")
-        schema= name[0].lower()
-        # with transaction.atomic():
-        with connection.cursor() as cursor:
-          tenant=Tenant.objects.create(name = schema)
-          tenantuser=TenantUser.objects.create(username=username, tenant=tenant)
-          cursor.execute(f"create schema {schema}")
-          cursor.execute(f"grant all privileges on schema {schema} to {divi_user};")  
-          cursor.execute(f"set search_path to {schema}")
-          call_command("migrate")
-          newuser = User.objects.create_superuser(username, email, password)
-          institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=name)
-            
+        schema=name.split(" ")
+        schema= schema[0].lower()    
         # print(institute)
         # print(newuser)
         # print(form.cleaned_data)
+        with transaction.atomic():
+          with connection.cursor() as cursor:
+             tenant=Tenant.objects.create(name = schema)
+             tenantuser=TenantUser.objects.create(username=username, tenant=tenant)
+             main_user = User.objects.first()
+             cursor.execute(f"create schema {schema}")
+             cursor.execute(f"grant all privileges on schema {schema} to {divi_user};")  
+             cursor.execute(f"set search_path to {schema}")
+             call_command("migrate")
+             main_user.pk = None
+             main_user.save()
+             newuser = User.objects.create_superuser(username, email, password)
+             institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=name)
+             
+
+        # print(institute)
+        # print(newuser)
+        # print(form.cleaned_data)
+
     return render(request, "institutes/instituteregister.html", context)
 
 def studentregister(request):

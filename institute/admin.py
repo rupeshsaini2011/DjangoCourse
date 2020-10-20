@@ -1,22 +1,35 @@
 from django.contrib import admin
 
 from .models import *
-# Register your models her
-
-class ItemAdmin(admin.ModelAdmin):    
-      # list_per_page = 5
-      # list_display = ['menu','name','menu_creator']
-      def get_readonly_fields(self, request, obj=None):
-        if not request.user.is_superuser and request.user.has_perm('items.read_item'):
-            return [f.name for f in self.model._meta.fields]        
-        return super(ItemAdmin, self).get_readonly_fields(
-            request, obj=obj
-        )
+from .utils import getInstitute, getTeacher, getStudent
 
 
-admin.site.register(Institute)
+def is_main_user(request):
+	return (request.user.is_superuser) and (getInstitute(request.user)==None and getTeacher(request.user)==None and getStudent(request.user)==None)
+
+class InstituteAdmin(admin.ModelAdmin):
+	def has_module_permission(self, request,  obj=None, null=True):
+		if is_main_user(request):
+			return True
+		else:
+  			return False
+		# return is_main_user(request) (SHORTCUT)
+
+class TeacherAdmin(admin.ModelAdmin):
+	def has_module_permission(self,  request, obj=None, null=True):
+		print("get teacher")
+		if is_main_user(request):
+			return True
+		elif getInstitute(request.user):
+			return True
+		else:
+			return False
+		
+
+
+admin.site.register(Institute, InstituteAdmin)
 admin.site.register(InstituteClass)
-admin.site.register(Teacher)
+admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Student)
 admin.site.register(Subject)
 admin.site.register(Schedule)
