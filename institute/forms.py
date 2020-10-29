@@ -12,7 +12,8 @@ class Loginform(forms.Form):
     
 
 class Registerform(forms.Form):
-    name=forms.CharField()
+    firstname=forms.CharField()
+    lastname=forms.CharField()
     username = forms.CharField()
     email= forms.EmailField()
     phone =forms.CharField()
@@ -38,12 +39,12 @@ class Registerform(forms.Form):
         # return data
 
 class Studentform(forms.Form):
-    name = forms.CharField()
+    firstname = forms.CharField()
+    lastname=forms.CharField()
     email= forms.EmailField()
     phone=forms.CharField(max_length=10)
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
-    
     
     def clean_username(self):
         username= self.cleaned_data.get("username")
@@ -61,13 +62,13 @@ class Studentform(forms.Form):
         # return data
 
 class Teacherform(forms.Form):
-    name = forms.CharField()
+    firstname = forms.CharField()
+    lastname = forms.CharField()
     email= forms.EmailField()
     institute=forms.ModelChoiceField(queryset=Institute.objects.all())
     # institute=forms.ModelChoiceFiel/d(Registerform)
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
-    
     
     def clean_username(self):
         username= self.cleaned_data.get("username")

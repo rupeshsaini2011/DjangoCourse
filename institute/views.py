@@ -50,10 +50,12 @@ def instituteregister(request):
         email = form.cleaned_data.get("email")
         phone=form.cleaned_data.get("phone")
         address=form.cleaned_data.get("address")
-        name=form.cleaned_data.get("name")
+        first_name=form.cleaned_data.get("firstname")
+        last_name=form.cleaned_data.get("lastname")
+        # name=form.cleaned_data.get("name")
         password =form.cleaned_data.get("password")
         divi_user=settings.DATABASES["default"]["USER"]
-        schema=name.split(" ")
+        schema=first_name.split(" ")
         schema= schema[0].lower()    
         # print(institute)
         # print(newuser)
@@ -68,9 +70,9 @@ def instituteregister(request):
              cursor.execute(f"set search_path to {schema}")
              call_command("migrate")
              main_user.pk = None
-             main_user.save()
-             newuser = User.objects.create_superuser(username, email, password)
-             institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=name)
+            #  main_user.save()
+             newuser = User.objects.create_superuser(username, email, password, first_name, last_name)
+             institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=first_name)
              
 
         # print(institute)
@@ -90,7 +92,8 @@ def studentregister(request):
         email = form.cleaned_data.get("email")
         phone=form.clean_data.get("phone")
         password = form.cleaned_data.get("password")
-        newuser = User.objects.create_user(username, email, phone, password)
+        studentuser=User.objects.create_user(username, email, password)
+        newstudent= Student.create(user=studentuser)
         print(newuser)
         print(form.cleaned_data)
     return render(request, "institutes/studentregister.html", context)
@@ -103,12 +106,13 @@ def teacherregister(request):
     }
     if form.is_valid():
         username = form.cleaned_data.get("name")
+        firstname=form.cleaned_data.get("firstname")
+        lastname=form.cleaned_data.get("lastname")
         email = form.cleaned_data.get("email")
-        # institute=form.cleaned_data.get("institute")
+        institute=form.cleaned_data.get("institute")
         password = form.cleaned_data.get("password")
-        newuser = User.objects.create_user(username, email, password)
-        
-
+        newuser = User.objects.create_superuser(username, email, firstname, lastname, password)
+        teacheruser=Teacher.objects.create(user=newuser, institute=institute)
         print(newuser)
         print(form.cleaned_data)
     return render(request, "institutes/teacherregister.html", context)

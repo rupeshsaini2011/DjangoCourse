@@ -54,8 +54,6 @@ class Schedule(models.Model):
   time_to=models.TimeField()
   year=models.IntegerField(default=2020)
   is_active=models.BooleanField(default=True)
-
- 
   
 class Period(models.Model):
 
@@ -63,7 +61,7 @@ class Period(models.Model):
   timstamp=models.DateField()
  
 
-class Student (models.Model):
+class Student(models.Model):
   user=models.OneToOneField(User, on_delete=models.CASCADE, related_name= "user_student")
   phone=models.CharField(max_length=50)
   classes=models.ManyToManyField(InstituteClass, related_name="class_students")
