@@ -43,6 +43,7 @@ class Studentform(forms.Form):
     lastname=forms.CharField()
     email= forms.EmailField()
     phone=forms.CharField(max_length=10)
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
     
@@ -66,7 +67,7 @@ class Teacherform(forms.Form):
     lastname = forms.CharField()
     email= forms.EmailField()
     institute=forms.ModelChoiceField(queryset=Institute.objects.all())
-    # institute=forms.ModelChoiceFiel/d(Registerform)
+    username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
     

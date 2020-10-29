@@ -15,9 +15,9 @@ class Teacher(models.Model):
   institute=models.ForeignKey(Institute, on_delete=models.CASCADE, related_name="teachers")
   phone=models.CharField(max_length=10)
   user=models.OneToOneField(User, on_delete=models.CASCADE)
-  salary=models.DecimalField(max_digits=8, decimal_places=2)
-  qualification=models.CharField(max_length=100)
-  staff=models.CharField(max_length=50)
+  salary=models.DecimalField(default=0, max_digits=8, decimal_places=2)
+  qualification=models.CharField(default='',max_length=100)
+  staff=models.CharField(default='',max_length=50)
   
   @property
   def full_name(self):

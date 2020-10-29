@@ -71,7 +71,7 @@ def instituteregister(request):
              call_command("migrate")
              main_user.pk = None
             #  main_user.save()
-             newuser = User.objects.create_superuser(username, email, password, first_name, last_name)
+             newuser = User.objects.create_superuser(username, email, password, first_name=first_name, last_name=last_name)
              institute=Institute.objects.create(user=newuser, phone=phone, address=address, name=first_name)
              
 
@@ -105,13 +105,13 @@ def teacherregister(request):
         "form": form
     }
     if form.is_valid():
-        username = form.cleaned_data.get("name")
+        username = form.cleaned_data.get("username")
         firstname=form.cleaned_data.get("firstname")
         lastname=form.cleaned_data.get("lastname")
         email = form.cleaned_data.get("email")
         institute=form.cleaned_data.get("institute")
         password = form.cleaned_data.get("password")
-        newuser = User.objects.create_superuser(username, email, firstname, lastname, password)
+        newuser = User.objects.create_superuser(username, email, password, first_name=firstname, last_name=lastname)
         teacheruser=Teacher.objects.create(user=newuser, institute=institute)
         print(newuser)
         print(form.cleaned_data)
