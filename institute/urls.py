@@ -1,7 +1,7 @@
 
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from institute.views import Login, instituteregister, studentregister, teacherregister,  schedule, studentinfo, studentlist, teacherinfo, insititutelist, institute, subjectlist, subjectsinfo
+from institute.views import InstituteView, Login, instituteregister, studentregister, teacherregister,  schedule, studentinfo, studentlist, teacherinfo, insititutelist, institute, subjectlist, subjectsinfo
 app_name="institute"
 
 urlpatterns = [
@@ -18,6 +18,8 @@ urlpatterns = [
     path("studentlist", studentlist, name="studentlist"),
     path("students<int:sid>", studentinfo, name="studentinfo"),
     path("schedule/<int:sid>", schedule, name="schedule"),
+
+    path('institute_detail/<int:pk>/',  InstituteView.as_view() , name='institute_detail_view'),
     
 ]
 

@@ -8,12 +8,18 @@ from django.db import connection, transaction
 from django.conf import settings
 
 from django.core.management import call_command
+
+from django.views.generic import TemplateView, ListView, DetailView
+
 # Create your views here.
 
 
 
 # def home(request):
 #   return HttpResponse ("this is the home page of our LMS")
+
+
+
 
 def Login(request):
 	
@@ -92,10 +98,10 @@ def studentregister(request):
         email = form.cleaned_data.get("email")
         phone=form.clean_data.get("phone")
         password = form.cleaned_data.get("password")
-        studentuser=User.objects.create_user(username, email, password)
-        newstudent= Student.create(user=studentuser)
-        print(newuser)
-        print(form.cleaned_data)
+        with transaction.atomic():
+          studentuser=User.objects.create_user(username, email, password)
+          newstudent= Student.create(user=studentuser)
+       
     return render(request, "institutes/studentregister.html", context)
 
 
@@ -111,8 +117,10 @@ def teacherregister(request):
         email = form.cleaned_data.get("email")
         institute=form.cleaned_data.get("institute")
         password = form.cleaned_data.get("password")
+        
         newuser = User.objects.create_superuser(username, email, password, first_name=firstname, last_name=lastname)
         teacheruser=Teacher.objects.create(user=newuser, institute=institute)
+        
         print(newuser)
         print(form.cleaned_data)
     return render(request, "institutes/teacherregister.html", context)
@@ -121,6 +129,12 @@ def teacherregister(request):
 ###############################################################################
 def studentlist(request):
   return HttpResponse("studentlist")
+
+
+class InstituteView(DetailView):
+  model = Institute
+  template_name = 'institutes/institute.html'
+
 
 def institute(request, iid):
   

@@ -6,13 +6,20 @@
   <title>Insititutes</title>
 </head>
 <body>
-  Institute:{{institutes.name}}
+  Institute:{{institute.name}}
+  <br />
   Teachers: 
   <ul>
-  {% for m in teachers %}
+  {% for m in institute.teachers.all %}
   <li>{{m.full_name}}</li>
+  Classes
+  <ol>
+    {% for c in m.teacher_classes.all %}
+    <li>{{c.name}}</li>
+    {% endfor %}
+  </ol>
   {% endfor %}
-
+ 
   </ul>
 
 </body>
