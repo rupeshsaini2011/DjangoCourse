@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="jumbotron">
+   <form method="POST" class="register-form" id="register-form" > 
+      {% csrf_token %}		
+         {{form}}
+         <br>
+         <div class="form-group form-button">
+            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+        </div>
+    </form>
+      </form>         
+         </div>
+</div>
+{% endblock %}
