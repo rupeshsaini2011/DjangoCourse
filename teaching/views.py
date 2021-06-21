@@ -44,26 +44,51 @@ class SubjectListView(ListView):
     model = Subject
     template_name = 'subject_list.html'
 
-# ---------------------------------registration for institutions---------------------------------------
+reg_type = ('I','T','S')
+
+def registeration(data, reg_type):
+    username = data['username']
+    phone_number=data['phone_number']
+    name =data['name']
+    email = data['email']
+    address = data['address']
+    password = data['password']
+    first_name =data['first_name']
+    last_name = data['last_name']
+    about = data['email']
+    institue= data['institue']
+    course = data['course']
+    with transaction.atomic():
+        user = User.objects.create_user(username=username,password=password, email=email, first_name=first_name, last_name=last_name)
+        if reg_type=='I':
+                Institute.objects.create(user=user, contact=phone_number, address=address,name=name)
+        elif reg_type=='T':
+                Teacher.objects.create(user=user, contact=phone_number,about=about,institue=institue)
+        elif reg_type=='S':
+                Student.objects.create(user=user, contact=phone_number, about=about, course=course)
+            
+            
+            
+            
+            
+        
+                    
+
+                    
+         
+# ---------------------------------registration for institutions---------------------------------------  
 class InstituteRegisterView(FormView):
-    form_class =InstituteRegistrationForm
-    template_name = 'signup_institute.html'       
-    success_url= '/'    
+    form_class=InstituteRegistrationForm
+    template_name='signup_institute.html'
+    success_url='/'
 
     def form_valid(self, form):
-        username = form.cleaned_data['username']
-        phone_number=form.cleaned_data['phone_number']
-        name =form.cleaned_data['name']
-        email = form.cleaned_data['email']
-        address = form.cleaned_data['address']
-        password = form.cleaned_data['password']
-        with transaction.atomic():
-            user = User.objects.create_user(username=username,password=password, email=email )
-            Institute.objects.create(user=user, contact=phone_number, address=address,name=name)
+        registeration(InstituteRegistrationForm, 'I')
         return super().form_valid(form)
+
     
 # ----------------------------------registration for Teacher------------------------------------------    
-# in template use hidden field 'reg_type
+# in template use hidden field reg_type
 #('T', 'S', 'I')
 #<input type="hidden" value='T">
 
@@ -73,18 +98,9 @@ class TeacherRegistration(FormView):
     success_url='/'
 
     def form_valid(self, form):
-        username=form.cleaned_data['username']
-        phone_number = form.cleaned_data['phone_number']
-        first_name =form.cleaned_data['first_name']
-        last_name = form.cleaned_data['last_name']
-        email =form.cleaned_data['email']
-        about = form.cleaned_data['email']
-        institue= form.cleaned_data['institue']
-        password = form.cleaned_data['password']
-        with transaction.atomic():
-            user = User.objects.create_user(username=username,first_name=first_name, last_name=last_name, password=password, email=email )
-            Teacher.objects.create(user=user, contact=phone_number,about=about,institution=institue)
+        registeration(InstituteRegistrationForm, 'T')
         return super().form_valid(form)
+
 
 # -------------------------------registration for student --------------------------------
 
@@ -94,17 +110,7 @@ class StudentRegistration(FormView):
     success_url='/'    
 
     def form_valid(self, form):
-        username=form.cleaned_data['username']
-        phone_number = form.cleaned_data['phone_number']
-        first_name =form.cleaned_data['first_name']
-        last_name = form.cleaned_data['last_name']
-        email =form.cleaned_data['email']
-        about = form.cleaned_data['email']
-        course= form.cleaned_data['course']
-        password = form.cleaned_data['password']
-        with transaction.atomic():
-            user = User.objects.create_user(username=username,first_name=first_name, last_name=last_name, password=password, email=email )
-            Student.objects.create(user=user, contact=phone_number,about=about,course=course)
+        registeration(InstituteRegistrationForm, 'S')
         return super().form_valid(form)
 
 #ERROR IN course=course
