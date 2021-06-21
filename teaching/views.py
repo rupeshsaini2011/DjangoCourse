@@ -50,33 +50,26 @@ reg_type = ('I','T','S')
 def registeration(data, reg_type):
     username = data['username']
     phone_number=data['phone_number']
-    name =data['name']
     email = data['email']
-    address = data['address']
     password = data['password']
     first_name =data['first_name']
     last_name = data['last_name']
-    about = data['about']
-    institue= data['institue']
-    course = data['course']
     with transaction.atomic():
         user = User.objects.create_user(username=username,password=password, email=email, first_name=first_name, last_name=last_name)
         if reg_type=='I':
+                name =data['name']
+                address = data['address']
                 Institute.objects.create(user=user, contact=phone_number, address=address,name=name)
         elif reg_type=='T':
-                Teacher.objects.create(user=user, contact=phone_number,about=about,institue=institue)
+                institue= data['institue']
+                Teacher.objects.create(user=user, contact=phone_number,institue=institue)
         elif reg_type=='S':
-                Student.objects.create(user=user, contact=phone_number, about=about, course=course)
+                Course = data['course']
+                Student.objects.create(user=user, contact=phone_number,course=course)
             
-            
-            
-            
-            
-        
                     
 
-                    
-         
+
 # ---------------------------------registration for institutions---------------------------------------  
 class InstituteRegisterView(FormView):
     form_class=InstituteRegistrationForm
@@ -84,7 +77,7 @@ class InstituteRegisterView(FormView):
     success_url='/'
 
     def form_valid(self, form):
-        registeration(InstituteRegistrationForm, 'I')
+        registeration(form.cleaned_data, 'I')
         return super().form_valid(form)
 
     
@@ -99,7 +92,7 @@ class TeacherRegistration(FormView):
     success_url='/'
 
     def form_valid(self, form):
-        registeration(InstituteRegistrationForm, 'T')
+        registeration(form.cleaned_data, 'T')
         return super().form_valid(form)
 
 
@@ -111,7 +104,7 @@ class StudentRegistration(FormView):
     success_url='/'    
 
     def form_valid(self, form):
-        registeration(InstituteRegistrationForm, 'S')
+        registeration(form.cleaned_data, 'S')
         return super().form_valid(form)
 
 #ERROR IN course=course
