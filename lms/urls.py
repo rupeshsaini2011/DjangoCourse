@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import *
-
+from teaching.views import IndexTemplateView
+from django.urls import include, path
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),    
-    path('', include('teaching.urls')),
-    
-
+    path('', IndexTemplateView.as_view(), name='IndexTemplateView'),
+    path('', include('teaching.urls', namespace='teaching_urls')),
+   
     
 ]
+
