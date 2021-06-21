@@ -8,6 +8,7 @@ from django.urls import *
 from django.http import HttpResponse
 # Create your views here.
 from django.contrib import messages
+from django.contrib.auth import authenticate
 
 # ------------------------------------------------index page-------------------------------------------
 class IndexTemplateView(TemplateView):
@@ -55,7 +56,7 @@ def registeration(data, reg_type):
     password = data['password']
     first_name =data['first_name']
     last_name = data['last_name']
-    about = data['email']
+    about = data['about']
     institue= data['institue']
     course = data['course']
     with transaction.atomic():
