@@ -1,29 +1,2198 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <form action="{% url 'teaching_urls:search-results' %}" method="post" novalidate="novalidate">
-        Search for subjects:-
-            {% csrf_token %}
-            <div class="row">
-                <div class="col-sm-7">
-                    <label>Enter the Course name<span>*</span></label>
-                    <select name="course" class="required">
-                        {% for c in course %}
-                        <option value={{c.id}}>{{c.name}}</option>
-                        {% endfor %}
 
-                    </select>
-                </div>
+{% block main %}
 
-            </div>
-            <div class="col-sm-5">
-                <input type="submit" name="submit" value="SEARCH">
-            </div>
-    </div>
-    </form>
+<div class="edgt-content">
+	<div class="edgt-content-inner">
+		<div class="edgt-full-width">
+			<div class="edgt-full-width-inner">
+				<div class="edgt-grid-row">
+					<div class="edgt-page-content-holder edgt-grid-col-12">
+						<div data-parallax-bg-image="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image.jpg' %}"
+							data-parallax-bg-speed="1"
+							class="vc_row wpb_row vc_row-fluid vc_custom_1499868510526 edgt-parallax-row-holder edgt-content-aligment-center"
+							style="background-image: url(&quot;https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image.jpg&quot;); background-position: 50% 52px;">
+							<div class="wpb_column vc_column_container vc_col-sm-12">
+								<div class="vc_column-inner">
+									<div class="wpb_wrapper">
+										<div class="edgt-row-grid-section-wrapper edgt-content-aligment-center">
+											<div class="edgt-row-grid-section">
+												<div class="vc_row wpb_row vc_inner vc_row-fluid">
+													<div class="wpb_column vc_column_container vc_col-sm-12">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<h2 class="edgt-custom-font-holder  edgt-cf-2121"
+																	style="font-family: Montserrat;font-size: 52px;line-height: 52px;font-weight: 600;font-style: normal;text-transform: none;text-align: center;color: #ffffff"
+																	data-item-class="edgt-cf-2121"
+																	data-font-size-680="33px"
+																	data-line-height-680="35px">
+																	Browse through our courses</h2>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="vc_empty_space" style="height: 13px"><span
+												class="vc_empty_space_inner"></span></div>
+										<div class="edgt-row-grid-section-wrapper ">
+											<div class="edgt-row-grid-section">
+												<div class="vc_row wpb_row vc_inner vc_row-fluid">
+													<div
+														class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-4 vc_col-lg-4 vc_col-md-offset-2 vc_col-md-8">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="wpb_widgetised_column wpb_content_element">
+																	<div class="wpb_wrapper">
+																		<div
+																			class="widget edgt-search-post-type-widget">
+																			<div data-post-type="course"
+																				class="edgt-search-post-type">
+																				<input
+																					class="edgt-post-type-search-field"
+																					value="" placeholder="Search here">
+																				<span class="edgt-seach-icon-holder">
+																					<i class="edgt-search-icon fa fa-search"
+																						aria-hidden="true"></i>
+																					<i class="edgt-search-loading fa fa-spinner fa-spin edgt-hidden"
+																						aria-hidden="true"></i>
+																				</span>
+																			</div>
+																			<div class="edgt-post-type-search-results">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="vc_row wpb_row vc_inner vc_row-fluid">
+											<div
+												class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-lg vc_hidden-md vc_hidden-sm">
+												<div class="vc_column-inner">
+													<div class="wpb_wrapper">
+														<div class="vc_empty_space" style="height: 47px">
+															<span class="vc_empty_space_inner"></span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper ">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1501750247488">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner vc_custom_1501589290645">
+											<div class="wpb_wrapper">
+												<div
+													class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1501590315608 vc_row-has-fill">
+													<div
+														class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="vc_empty_space" style="height: 10px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/it-software/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-1.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-1.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-1-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						it-software </h3>
+																					<div class="edgt-cc-number">
+																						1 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+																<div class="vc_empty_space" style="height: 23px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/sports/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-4.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-4.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-4-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						sports </h3>
+																					<div class="edgt-cc-number">
+																						4 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="vc_empty_space" style="height: 10px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/business/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-2.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-2.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-2-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						business </h3>
+																					<div class="edgt-cc-number">
+																						6 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+																<div class="vc_empty_space" style="height: 23px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/art-design/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-5.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-5.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-5-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						art-design </h3>
+																					<div class="edgt-cc-number">
+																						4 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div
+														class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-4 vc_col-md-4">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="vc_empty_space" style="height: 10px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/art-design/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-3.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-3.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-3-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						art-design </h3>
+																					<div class="edgt-cc-number">
+																						4 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+																<div class="vc_empty_space" style="height: 23px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div class="edgt-cc-holder light-skin">
+																	<a
+																		href="https://educator.qodeinteractive.com/course-category/languages/">
+																		<div class="edgt-cc-image">
+																			<img width="748" height="285"
+																				src="{% static 'images/h4-courses-6.jpg' %}"
+																				class="attachment-full size-full"
+																				alt="g"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-6.jpg 748w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-courses-6-300x114.jpg 300w"
+																				sizes="(max-width: 748px) 100vw, 748px">
+																		</div>
+																		<div class="edgt-cc-text-wrapper">
+																			<div class="edgt-cc-text-holder">
+																				<div class="edgt-cc-text">
+																					<h3 class="edgt-cc-category-title">
+																						languages </h3>
+																					<div class="edgt-cc-number">
+																						6 courses </div>
+																				</div>
+																			</div>
+																		</div>
+																	</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="vc_row wpb_row vc_row-fluid">
+							<div class="wpb_column vc_column_container vc_col-sm-12">
+								<div class="vc_column-inner">
+									<div class="wpb_wrapper">
+										<div class="wpb_revslider_element wpb_content_element">
+											<link href="{% static 'css/style2.css' %}" rel="stylesheet"
+												property="stylesheet" type="text/css" media="all">
+											<div class="forcefullwidth_wrapper_tp_banner"
+												id="rev_slider_9_2_forcefullwidth"
+												style="position:relative;width:100%;height:auto;margin-top:0px;margin-bottom:0px">
+												<div id="rev_slider_9_2_wrapper"
+													class="rev_slider_wrapper fullwidthbanner-container"
+													data-source="gallery"
+													style="margin: 0px auto; background: transparent; padding: 0px; height: 427px; position: absolute; overflow: visible; width: 1349px; left: 0px;">
+
+													<div id="rev_slider_9_2"
+														class="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive rev_redraw_on_blurfocus"
+														style="max-height: 427px; margin-top: 0px; margin-bottom: 0px; height: 427px;"
+														data-version="5.4.5.1" data-slideactive="rs-40">
+														<ul class="tp-revslider-mainul"
+															style="visibility: visible; display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
+															<li data-index="rs-40" data-transition="fade"
+																data-slotamount="default" data-hideafterloop="0"
+																data-hideslideonmobile="off" data-easein="default"
+																data-easeout="default" data-masterspeed="300"
+																data-rotate="0" data-saveperformance="off"
+																data-title="Slide" data-param1="" data-param2=""
+																data-param3="" data-param4="" data-param5=""
+																data-param6="" data-param7="" data-param8=""
+																data-param9="" data-param10="" data-description=""
+																class="tp-revslider-slidesli active-revslide"
+																style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1; background-color: rgba(255, 255, 255, 0);">
+
+																<div class="slotholder"
+																	style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+																	<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://educator.qodeinteractive.com/wp-content/plugins/revslider/admin/assets/images/transparent.png' %}" alt="" title="Online Courses" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg defaultimg" data-no-retina="">-->
+																	<div class="tp-bgimg defaultimg "
+																		data-bgcolor="undefined"
+																		style="background-repeat: no-repeat; background-image: url(&quot;https://educator.qodeinteractive.com/wp-content/plugins/revslider/admin/assets/images/transparent.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;"
+																		src="https://educator.qodeinteractive.com/wp-content/plugins/revslider/admin/assets/images/transparent.png' %}">
+																	</div>
+																</div>
+
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 748px; top: 50px; z-index: 5;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-1"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;741&#39;,&#39;623&#39;,&#39;50&#39;,&#39;0&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;60&#39;,&#39;50&#39;,&#39;420&#39;,&#39;250&#39;]"
+																				data-fontsize="[&#39;37&#39;,&#39;37&#39;,&#39;37&#39;,&#39;28&#39;]"
+																				data-lineheight="[&#39;45&#39;,&#39;45&#39;,&#39;45&#39;,&#39;34&#39;]"
+																				data-width="none" data-height="none"
+																				data-whitespace="nowrap"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 5; white-space: nowrap; font-size: 37px; line-height: 45px; font-weight: 600; color: rgb(67, 67, 67); letter-spacing: 0px; font-family: Montserrat; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				Learn a new skill </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 750px; top: 122px; z-index: 6;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-2"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;743&#39;,&#39;625&#39;,&#39;50&#39;,&#39;0&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;132&#39;,&#39;122&#39;,&#39;489&#39;,&#39;304&#39;]"
+																				data-fontsize="[&#39;15&#39;,&#39;15&#39;,&#39;15&#39;,&#39;14&#39;]"
+																				data-width="[&#39;433&#39;,&#39;433&#39;,&#39;499&#39;,&#39;301&#39;]"
+																				data-height="[&#39;none&#39;,&#39;none&#39;,&#39;106&#39;,&#39;none&#39;]"
+																				data-whitespace="normal"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 6; min-width: 433px; max-width: 433px; white-space: normal; font-size: 15px; line-height: 26px; font-weight: 400; color: rgb(128, 128, 128); letter-spacing: 0px; font-family: &quot;Open Sans&quot;; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 0px; max-height: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				Lorem ipsum dolor sit amet,
+																				consectetur adipiscing elit,
+																				sed do eiusmod tempor
+																				incididunt ut labore et
+																				dolore magna aliqua. Ut enim
+																				ad minim veniam, quis
+																				nostrud exercitation.
+																				Nullamco laboris nisi ut
+																				aliquip ex ea commodo
+																				consequat. </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 750px; top: 269px; z-index: 7;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-3"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;743&#39;,&#39;625&#39;,&#39;50&#39;,&#39;-1&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;279&#39;,&#39;269&#39;,&#39;631&#39;,&#39;487&#39;]"
+																				data-fontsize="[&#39;46&#39;,&#39;46&#39;,&#39;46&#39;,&#39;39&#39;]"
+																				data-width="none" data-height="none"
+																				data-whitespace="normal"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 7; white-space: normal; font-size: 46px; line-height: 46px; font-weight: 600; color: rgb(45, 118, 178); letter-spacing: 0px; font-family: Montserrat; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				168k </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 925px; top: 269px; z-index: 8;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-4"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;918&#39;,&#39;800&#39;,&#39;223&#39;,&#39;152&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;279&#39;,&#39;269&#39;,&#39;631&#39;,&#39;487&#39;]"
+																				data-fontsize="[&#39;46&#39;,&#39;46&#39;,&#39;46&#39;,&#39;39&#39;]"
+																				data-width="none" data-height="none"
+																				data-whitespace="normal"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 8; white-space: normal; font-size: 46px; line-height: 46px; font-weight: 600; color: rgb(45, 118, 178); letter-spacing: 0px; font-family: Montserrat; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				347k </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 749px; top: 322px; z-index: 9;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-5"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;742&#39;,&#39;624&#39;,&#39;50&#39;,&#39;0&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;332&#39;,&#39;322&#39;,&#39;684&#39;,&#39;537&#39;]"
+																				data-width="122" data-height="20"
+																				data-whitespace="nowrap"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 9; min-width: 122px; max-width: 122px; white-space: nowrap; font-size: 14px; line-height: 18px; font-weight: 400; color: rgb(78, 78, 78); letter-spacing: 0px; font-family: &quot;Open Sans&quot;; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 20px; max-height: 20px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				Online Courses </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 926px; top: 322px; z-index: 10;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption  "
+																				id="slide-40-layer-6"
+																				data-x="[&#39;left&#39;,&#39;left&#39;,&#39;left&#39;,&#39;left&#39;]"
+																				data-hoffset="[&#39;920&#39;,&#39;801&#39;,&#39;223&#39;,&#39;154&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;332&#39;,&#39;322&#39;,&#39;684&#39;,&#39;537&#39;]"
+																				data-width="122" data-height="20"
+																				data-whitespace="nowrap"
+																				data-type="text"
+																				data-responsive_offset="on"
+																				data-responsive="off"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:300,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 10; min-width: 122px; max-width: 122px; white-space: nowrap; font-size: 14px; line-height: 18px; font-weight: 400; color: rgb(78, 78, 78); letter-spacing: 0px; font-family: &quot;Open Sans&quot;; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; border-width: 0px; margin: 0px; padding: 0px; min-height: 20px; max-height: 20px; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				Students </div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 62px; top: 22px; z-index: 11;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption   tp-resizeme"
+																				id="slide-40-layer-7"
+																				data-x="[&#39;right&#39;,&#39;right&#39;,&#39;center&#39;,&#39;center&#39;]"
+																				data-hoffset="[&#39;610&#39;,&#39;515&#39;,&#39;0&#39;,&#39;0&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;22&#39;,&#39;22&#39;,&#39;0&#39;,&#39;0&#39;]"
+																				data-width="none" data-height="none"
+																				data-whitespace="nowrap"
+																				data-type="image"
+																				data-responsive_offset="on"
+																				data-frames="[{&quot;delay&quot;:10,&quot;speed&quot;:600,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 11; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; line-height: 0px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 15px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				<img src="{% static 'images/h4-content-slide-2.png' %}"
+																					alt="a"
+																					data-ww="[&#39;720px&#39;,&#39;648px&#39;,&#39;640px&#39;,&#39;349px&#39;]"
+																					data-hh="[&#39;422px&#39;,&#39;380px&#39;,&#39;375px&#39;,&#39;205px&#39;]"
+																					width="720" height="422"
+																					data-no-retina=""
+																					style="width: 648px; height: 380px; transition: none 0s ease 0s; text-align: inherit; line-height: 0px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 15px;">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="tp-parallax-wrap"
+																	style="position: absolute; display: block; visibility: visible; left: 537px; top: 108px; z-index: 12;">
+																	<div class="tp-loop-wrap"
+																		style="position:absolute;display:block;;">
+																		<div class="tp-mask-wrap"
+																			style="position: absolute; display: block; overflow: visible;">
+																			<div class="tp-caption   tp-resizeme"
+																				id="slide-40-layer-8"
+																				data-x="[&#39;right&#39;,&#39;right&#39;,&#39;right&#39;,&#39;right&#39;]"
+																				data-hoffset="[&#39;648&#39;,&#39;545&#39;,&#39;11&#39;,&#39;-10&#39;]"
+																				data-y="[&#39;top&#39;,&#39;top&#39;,&#39;top&#39;,&#39;top&#39;]"
+																				data-voffset="[&#39;121&#39;,&#39;108&#39;,&#39;86&#39;,&#39;46&#39;]"
+																				data-width="none" data-height="none"
+																				data-whitespace="nowrap"
+																				data-type="image"
+																				data-responsive_offset="on"
+																				data-frames="[{&quot;delay&quot;:260,&quot;speed&quot;:600,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;x:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:300,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]"
+																				data-textalign="[&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;,&#39;inherit&#39;]"
+																				data-paddingtop="[0,0,0,0]"
+																				data-paddingright="[0,0,0,0]"
+																				data-paddingbottom="[0,0,0,0]"
+																				data-paddingleft="[0,0,0,0]"
+																				style="z-index: 12; visibility: inherit; transition: none 0s ease 0s; text-align: inherit; line-height: 0px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 15px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;">
+																				<img src="{% static 'images/h4-content-slide-1.png' %}"
+																					alt="a"
+																					data-ww="[&#39;156px&#39;,&#39;143px&#39;,&#39;142px&#39;,&#39;77px&#39;]"
+																					data-hh="[&#39;323px&#39;,&#39;296px&#39;,&#39;293px&#39;,&#39;158px&#39;]"
+																					width="156" height="323"
+																					data-no-retina=""
+																					style="width: 143px; height: 296px; transition: none 0s ease 0s; text-align: inherit; line-height: 0px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 15px;">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+														</ul>
+														<div class="tp-bannertimer tp-bottom"
+															style="visibility: hidden !important; width: 0%;">
+														</div>
+														<div class="tp-loader off" style="display: none;">
+															<div class="dot1"></div>
+															<div class="dot2"></div>
+															<div class="bounce1"></div>
+															<div class="bounce2"></div>
+															<div class="bounce3"></div>
+														</div>
+													</div>
+													<script>
+														var htmlDiv = document.getElementById("rs-plugin-settings-inline-css");
+														var htmlDivCss = "";
+														if (htmlDiv) {
+															htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+														} else {
+															var htmlDiv = document.createElement("div");
+															htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+															document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+														}
+													</script>
+													<script type="text/javascript">
+														setREVStartSize({
+															c: jQuery('#rev_slider_9_2'),
+															responsiveLevels: [1920, 1720, 778, 480],
+															gridwidth: [1300, 1100, 600, 300],
+															gridheight: [465, 427, 720, 580],
+															sliderLayout: 'fullwidth'
+														});
+
+														var revapi9,
+															tpj = jQuery;
+
+														tpj(document).ready(function () {
+															if (tpj("#rev_slider_9_2").revolution == undefined) {
+																revslider_showDoubleJqueryError("#rev_slider_9_2");
+															} else {
+																revapi9 = tpj("#rev_slider_9_2").show().revolution({
+																	sliderType: "hero",
+																	jsFileLocation: "//educator.qodeinteractive.com/wp-content/plugins/revslider/public/assets/js/",
+																	sliderLayout: "fullwidth",
+																	dottedOverlay: "none",
+																	delay: 9000,
+																	viewPort: {
+																		enable: true,
+																		outof: "wait",
+																		visible_area: "80%",
+																		presize: false
+																	},
+																	responsiveLevels: [1920, 1720, 778, 480],
+																	visibilityLevels: [1920, 1720, 778, 480],
+																	gridwidth: [1300, 1100, 600, 300],
+																	gridheight: [465, 427, 720, 580],
+																	lazyType: "none",
+																	shadow: 0,
+																	spinner: "off",
+																	autoHeight: "off",
+																	disableProgressBar: "on",
+																	hideThumbsOnMobile: "off",
+																	hideSliderAtLimit: 0,
+																	hideCaptionAtLimit: 0,
+																	hideAllCaptionAtLilmit: 0,
+																	debugMode: false,
+																	fallbacks: {
+																		simplifyAll: "off",
+																		disableFocusListener: false,
+																	}
+																});
+															}
+
+														}); /*ready*/
+													</script>
+												</div>
+												<div class="tp-fullwidth-forcer" style="width: 100%; height: 427px;">
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper edgt-content-aligment-center">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1501750306888">
+									<div
+										class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-2 vc_col-lg-8">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+													style="text-align: center">
+													<div class="edgt-st-inner">
+														<h2 class="edgt-st-title">
+															Popular courses this month </h2>
+														<p class="edgt-st-text"
+															style="color: #888;font-size: 18px;line-height: 30px;margin-top: 19px">
+															Etiam porttitor risus massa nec condiment
+															gravida nibh vel velit auctor aliquetnean
+															sollicitudin, lorem quis bibendum auci elit
+															consequat </p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper ">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1502372235602">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="edgt-course-list-holder edgt-cl-gallery edgt-normal-space edgt-cl-four-columns edgt-cl-standard edgt-cl-pag-no-pagination     "
+													data-number-of-columns="4" data-space-between-items="normal"
+													data-number-of-items="8" data-enable-image="yes"
+													data-image-proportions="large"
+													data-selected-courses="1104, 1114, 1140, 1143, 1156, 1159, 1161, 1163"
+													data-order-by="date" data-order="ASC" data-item-layout="standard"
+													data-enable-title="yes" data-title-tag="h4"
+													data-enable-instructor="yes" data-enable-price="yes"
+													data-enable-excerpt="yes" data-excerpt-length="70"
+													data-enable-students="yes" data-enable-category="no"
+													data-enable-duration="yes" data-pagination-type="no-pagination"
+													data-filter="no" data-enable-article-animation="no"
+													data-course-slider-on="no" data-enable-loop="yes"
+													data-enable-autoplay="yes" data-slider-speed="5000"
+													data-slider-speed-animation="600" data-enable-navigation="yes"
+													data-enable-pagination="yes" data-widget="no" data-max-num-pages="1"
+													data-next-page="2">
+													<div class="edgt-cl-inner  clearfix">
+														<article
+															class="edgt-cl-item post-1104 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
+															data-name="photography" data-date="1500595200">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-2.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1104">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/photography/"
+																						target="_self">
+																						Photography </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$120 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Amy Drufesne </span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/photography/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1114 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-professional"
+															data-name="statistics" data-date="1500595200">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-3.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1114">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/statistics/"
+																						target="_self">
+																						Statistics </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$190 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/martina-moore/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Martina Moore
+																					</span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/statistics/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1140 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-creative"
+															data-name="cad-drawing" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-6.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1140">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/cad-drawing/"
+																						target="_self">
+																						CAD Drawing </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$160 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/taylor-fink/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Taylor Fink </span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/cad-drawing/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1143 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-creative"
+															data-name="modeling" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-7.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-7.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-7-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-7-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1143">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/modeling/"
+																						target="_self">
+																						Modeling </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$140 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/preston-marshall/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Preston Marshall
+																					</span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/modeling/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1156 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-professional"
+															data-name="marketing" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-8.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-8.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-8-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-8-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1156">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/marketing/"
+																						target="_self">
+																						Marketing </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$160 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/keith-taylor/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Keith Taylor </span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/marketing/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1159 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-creative"
+															data-name="photo-editing" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-9.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-9.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-9-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-9-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1159">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/photo-editing/"
+																						target="_self">
+																						Photo Editing </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$170 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/clare-forest/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Clare Forest </span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/photo-editing/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1161 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-creative"
+															data-name="painting" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-10.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-10.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-10-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-10-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1161">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/painting/"
+																						target="_self">
+																						Painting </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$120 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/craig-toms/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Craig Toms </span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/painting/"
+																	target="_self"></a>
+															</div>
+														</article>
+														<article
+															class="edgt-cl-item post-1163 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-digital"
+															data-name="seo-training" data-date="1500854400">
+															<div class="edgt-cl-item-inner">
+																<div class="edgt-cli-image-wrapper">
+																	<div class="edgt-cli-image">
+																		<img width="965" height="617"
+																			src="{% static 'images/course-img-11.jpg' %}"
+																			class="attachment-large size-large wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-11.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-11-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-11-768x491.jpg 768w"
+																			sizes="(max-width: 965px) 100vw, 965px">
+																	</div><a href="javascript:void(0)"
+																		class="edgt-course-wishlist edgt-icon-only"
+																		data-course-id="1163">
+																		<i class="fa fa-heart-o" aria-hidden="true"></i>
+																	</a>
+																</div>
+																<div class="edgt-cli-text-holder">
+																	<div class="edgt-cli-text-wrapper">
+																		<div class="edgt-cli-text">
+																			<div class="edgt-cli-top-info">
+																				<h4 itemprop="name"
+																					class="edgt-cli-title entry-title">
+																					<a itemprop="url"
+																						href="https://educator.qodeinteractive.com/course/seo-training/"
+																						target="_self">
+																						SEO Training </a>
+																				</h4>
+																				<div
+																					class="edgt-ci-price-holder clearfix">
+																					<span class="edgt-ci-price-value">
+																						$140 </span>
+																				</div>
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/instructor/melissa-jones/"
+																					target="_self">
+																					<span class="edgt-instructor-name">
+																						Melissa Jones
+																					</span>
+																				</a>
+																			</div>
+																			<p itemprop="description"
+																				class="edgt-cli-excerpt">
+																				Blandit accumsan ei vis,
+																				maiorum epicurei at mei nibh
+																				viderer ius pri</p>
+																			<div class="edgt-cli-bottom-info">
+																				<div
+																					class="edgt-students-number-holder">
+																					<span aria-hidden="true"
+																						class="lnr lnr-users edgt-student-icon"></span>
+																					<span>
+																						1 </span>
+																				</div>
+																				<div class="edgt-cli-duration-holder">
+																					<span
+																						class="edgt-duration-icon icon_clock_alt"></span>
+																					<span class="edgt-duration-period">2
+																						hours</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div> <a itemprop="url"
+																	class="edgt-cli-link edgt-block-drag-link"
+																	href="https://educator.qodeinteractive.com/course/seo-training/"
+																	target="_self"></a>
+															</div>
+														</article>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper edgt-parallax-row-holder"
+							data-parallax-bg-image="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-parallax.jpg' %}"
+							data-parallax-bg-speed="1"
+							style="background-image: url(&quot;https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-parallax.jpg&quot;);">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500641679298">
+									<div
+										class="wpb_column vc_column_container vc_col-sm-8 vc_col-lg-offset-0 vc_col-lg-4 vc_col-md-offset-3 vc_col-md-6 vc_col-sm-offset-2">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div
+													class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1500470479493 vc_row-has-fill">
+													<div class="wpb_column vc_column_container vc_col-sm-12">
+														<div class="vc_column-inner vc_custom_1500470556022">
+															<div class="wpb_wrapper">
+																<div class="wpb_text_column wpb_content_element ">
+																	<div class="wpb_wrapper">
+																		<h4>Get Online Courses for <span
+																				style="color: #2d76b2;">Free</span>
+																		</h4>
+																	</div>
+																</div>
+																<div class="vc_empty_space" style="height: 28px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div role="form" class="wpcf7" id="wpcf7-f748-p255-o2"
+																	lang="en-US" dir="ltr">
+																	<div class="screen-reader-response" role="alert"
+																		aria-live="polite">
+																	</div>
+																	<form
+																		action="https://educator.qodeinteractive.com/online-courses#wpcf7-f748-p255-o2"
+																		method="post" class="wpcf7-form init"
+																		novalidate="novalidate">
+																		<div style="display: none;">
+																			<input type="hidden" name="_wpcf7"
+																				value="748">
+																			<input type="hidden" name="_wpcf7_version"
+																				value="5.2.2">
+																			<input type="hidden" name="_wpcf7_locale"
+																				value="en_US">
+																			<input type="hidden" name="_wpcf7_unit_tag"
+																				value="wpcf7-f748-p255-o2">
+																			<input type="hidden"
+																				name="_wpcf7_container_post"
+																				value="255">
+																			<input type="hidden"
+																				name="_wpcf7_posted_data_hash" value="">
+																		</div>
+																		<div class="edgt-signup-home-4">
+																			<label
+																				style="color:#000; font-weight:600; font-size:12px;">Name*</label><span
+																				class="wpcf7-form-control-wrap your-name"><input
+																					type="text" name="your-name"
+																					value="" size="40"
+																					class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+																					aria-required="true"
+																					aria-invalid="false"
+																					placeholder="Your Name"></span><label
+																				style="color:#000; font-weight:600; font-size:12px;">Email*</label><span
+																				class="wpcf7-form-control-wrap your-email"><input
+																					type="email" name="your-email"
+																					value="" size="40"
+																					class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+																					aria-required="true"
+																					aria-invalid="false"
+																					placeholder="Your Email Address"></span><input
+																				type="submit" value="GET IT NOW"
+																				class="wpcf7-form-control wpcf7-submit"><span
+																				class="ajax-loader"></span>
+																		</div>
+																		<div class="wpcf7-response-output" role="alert"
+																			aria-hidden="true">
+																		</div>
+																	</form>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="vc_empty_space" style="height: 20px"><span
+														class="vc_empty_space_inner"></span></div>
+											</div>
+										</div>
+									</div>
+									<div
+										class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-1 vc_col-lg-7 vc_col-md-offset-1 vc_col-md-10 vc_col-sm-offset-0">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="vc_empty_space" style="height: 45px"><span
+														class="vc_empty_space_inner"></span></div>
+												<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+													style="text-align: left">
+													<div class="edgt-st-inner">
+														<h1 class="edgt-st-title" style="color: #ffffff">
+															Register Now! </h1>
+														<p class="edgt-st-text"
+															style="color: #ffffff;font-size: 18px;line-height: 30px;margin-top: 15px">
+															Lorem Ipsn gravida nibh vel velit auctor
+															aliquetnean sollicitudin, lorem quis bibendum
+															auci elit consequatipsutis sem nibh id eis sed
+															odio sit ame. </p>
+													</div>
+												</div>
+												<div
+													class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1500562906328">
+													<div class="wpb_column vc_column_container vc_col-sm-12">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="edgt-countdown  edgt-light-skin  text-align-left is-countdown"
+																	id="countdown3569" data-year="2021" data-month="5"
+																	data-day="31" data-hour="" data-minute=""
+																	data-timezone="0" data-month-label="Months"
+																	data-day-label="Days" data-hour-label="Hours"
+																	data-minute-label="Minutes"
+																	data-second-label="Seconds" data-digit-size="48"
+																	data-label-size="17"><span
+																		class="countdown-row countdown-show4"><span
+																			class="countdown-section"><span
+																				class="countdown-amount"
+																				style="font-size: 48px; line-height: 48px;">07</span><span
+																				class="countdown-period"
+																				style="font-size: 17px;">Days</span></span><span
+																			class="countdown-section"><span
+																				class="countdown-amount"
+																				style="font-size: 48px; line-height: 48px;">12</span><span
+																				class="countdown-period"
+																				style="font-size: 17px;">Hours</span></span><span
+																			class="countdown-section"><span
+																				class="countdown-amount"
+																				style="font-size: 48px; line-height: 48px;">37</span><span
+																				class="countdown-period"
+																				style="font-size: 17px;">Minutes</span></span><span
+																			class="countdown-section"><span
+																				class="countdown-amount"
+																				style="font-size: 48px; line-height: 48px;">51</span><span
+																				class="countdown-period"
+																				style="font-size: 17px;">Seconds</span></span></span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="vc_empty_space" style="height: 20px"><span
+														class="vc_empty_space_inner"></span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper edgt-content-aligment-center">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1503413858235">
+									<div
+										class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-2 vc_col-lg-8">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+													style="text-align: center">
+													<div class="edgt-st-inner">
+														<h2 class="edgt-st-title">
+															The Best Online Tutoring of 2017 </h2>
+														<p class="edgt-st-text"
+															style="color: #888;font-size: 18px;line-height: 30px;margin-top: 19px">
+															Lorem ipsum gravida nibh vel velit auctor
+															aliquetnean sollicitudin, lorem quis bibendum
+															auci elit consequatipsutis sem nibh id eis sed
+															odio sit ame. </p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper ">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500622188007">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div
+													class="edgt-instructor-list-holder edgt-tl-normal-space  edgt-tl-three-columns">
+													<div class="edgt-tl-inner " data-number-of-items="3"
+														data-enable-navigation="no" data-enable-pagination="no">
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/preston-marshall/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-2.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/preston-marshall/">Preston
+																				Marshall</a>
+																		</h5>
+																		<span
+																			class="edgt-instructor-position">Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/preston-marshall/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/keith-taylor/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-3.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-3.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-3-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-3-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-3-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-3-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/keith-taylor/">Keith
+																				Taylor</a>
+																		</h5>
+																		<span class="edgt-instructor-position">Associate
+																			Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/keith-taylor/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/craig-toms/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-4.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-4.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-4-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-4-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-4-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-4-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/craig-toms/">Craig
+																				Toms</a>
+																		</h5>
+																		<span
+																			class="edgt-instructor-position">Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/craig-toms/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/melissa-jones/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-5.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt=""
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-5.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-5-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-5-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-5-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-5-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/melissa-jones/">Melissa
+																				Jones</a>
+																		</h5>
+																		<span class="edgt-instructor-position">Associate
+																			Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/melissa-jones/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/kate-smith/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-6.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-6.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-6-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-6-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-6-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-6-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/kate-smith/">Kate
+																				Smith</a>
+																		</h5>
+																		<span
+																			class="edgt-instructor-position">Kindergarten
+																			Teacher</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/kate-smith/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/clare-forest/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-7.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-7.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-7-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-7-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-7-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-7-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/clare-forest/">Clare
+																				Forest</a>
+																		</h5>
+																		<span class="edgt-instructor-position">Associate
+																			Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/clare-forest/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/morgan-key/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-8.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-8.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-8-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-8-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-8-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-8-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/morgan-key/">Morgan
+																				Key</a>
+																		</h5>
+																		<span class="edgt-instructor-position">Course
+																			Mentor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/morgan-key/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/taylor-fink/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-9.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-9.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-9-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-9-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-9-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-9-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/taylor-fink/">Taylor
+																				Fink</a>
+																		</h5>
+																		<span class="edgt-instructor-position">Assistant
+																			Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/taylor-fink/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+														<div class="edgt-instructor simple">
+															<div class="edgt-instructor-inner">
+																<div class="edgt-instructor-image">
+																	<a itemprop="url"
+																		href="https://educator.qodeinteractive.com/instructor/martina-moore/">
+																		<img width="600" height="600"
+																			src="{% static 'images/instructor-img-10.jpg' %}"
+																			class="attachment-full size-full wp-post-image"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-10.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-10-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-10-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-10-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-10-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</a>
+																</div>
+																<div class="edgt-instructor-info">
+																	<div class="edgt-instructor-title-holder">
+																		<h5 itemprop="name"
+																			class="edgt-instructor-name entry-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/instructor/martina-moore/">Martina
+																				Moore</a>
+																		</h5>
+																		<span
+																			class="edgt-instructor-position">Professor</span>
+																	</div>
+																</div>
+																<a itemprop="url"
+																	href="https://educator.qodeinteractive.com/instructor/martina-moore/"
+																	class="edgt-instructor-link"></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper " style="background-color:#f8f8f8">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500469591450">
+									<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div
+													class="edgt-testimonials-holder edgt-testimonials-standard   edgt-testimonials-disable-padding clearfix">
+													<div class="edgt-testimonials edgt-owl-slider owl-loaded owl-drag"
+														data-number-of-items="1" data-enable-loop="yes"
+														data-enable-autoplay="yes" data-slider-speed="5000"
+														data-slider-speed-animation="600" data-enable-navigation="no"
+														data-enable-pagination="yes" style="visibility: visible;">
+														<div class="owl-stage-outer">
+															<div class="owl-stage"
+																style="transform: translate3d(-1940px, 0px, 0px); transition: all 0.6s ease 0s; width: 3395px;">
+																<div class="owl-item cloned"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-311">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-2.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Curabitur ut arcu luctus,
+																				ultrices est id, lobortis
+																				massa. Vestibulum vulputate
+																				dictum egestas. Nunc
+																				eleifend, enim et dictum
+																				mollis, felis nulla”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Arron
+																					Matheny</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Professor</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item cloned"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-306">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-3.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Duis a eros non mi
+																				malesuada semper quis eu
+																				ipsum. Nam vitae est cursus,
+																				iaculis ligula et, faucibus
+																				erat. Mauris fermentum justo
+																				non”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Angela
+																					Lane</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Graduate</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-310">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-1.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Mroin gravida nibh vel
+																				veliauctor aliquenean
+																				sollicitudin, lorem quis
+																				bibendum auctor, nisi elit
+																				consequat ipsut tis sem nibh
+																				id elituis sed odio”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Virginia
+																					Foster</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Student</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-311">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-2.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Curabitur ut arcu luctus,
+																				ultrices est id, lobortis
+																				massa. Vestibulum vulputate
+																				dictum egestas. Nunc
+																				eleifend, enim et dictum
+																				mollis, felis nulla”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Arron
+																					Matheny</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Professor</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item active"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-306">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-3.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Duis a eros non mi
+																				malesuada semper quis eu
+																				ipsum. Nam vitae est cursus,
+																				iaculis ligula et, faucibus
+																				erat. Mauris fermentum justo
+																				non”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Angela
+																					Lane</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Graduate</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item cloned"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-310">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-1.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Mroin gravida nibh vel
+																				veliauctor aliquenean
+																				sollicitudin, lorem quis
+																				bibendum auctor, nisi elit
+																				consequat ipsut tis sem nibh
+																				id elituis sed odio”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Virginia
+																					Foster</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Student</span>
+																		</div>
+																	</div>
+																</div>
+																<div class="owl-item cloned"
+																	style="width: 435px; margin-right: 50px;">
+																	<div class="edgt-testimonial-content"
+																		id="edgt-testimonials-311">
+																		<div class="edgt-testimonial-image">
+																			<img width="110" height="110"
+																				src="{% static 'images/testimonial-2.png' %}"
+																				class="attachment-110x110 size-110x110 wp-post-image"
+																				alt="a"> </div>
+																		<div class="edgt-testimonial-text-holder">
+																			<p class="edgt-testimonial-text">
+																				“Curabitur ut arcu luctus,
+																				ultrices est id, lobortis
+																				massa. Vestibulum vulputate
+																				dictum egestas. Nunc
+																				eleifend, enim et dictum
+																				mollis, felis nulla”</p>
+																			<h3 class="edgt-testimonial-author">
+																				<span
+																					class="edgt-testimonials-author-name">Arron
+																					Matheny</span>
+																			</h3>
+																			<span
+																				class="edgt-testimonials-author-job">Professor</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="owl-nav disabled">
+															<div class="owl-prev"><span class="edgt-prev-icon"><span
+																		class="edgt-icon-arrow fa fa-angle-left"></span></span>
+															</div>
+															<div class="owl-next"><span class="edgt-next-icon"><span
+																		class="edgt-icon-arrow fa fa-angle-right"></span></span>
+															</div>
+														</div>
+														<div class="owl-dots">
+															<div class="owl-dot"><span></span></div>
+															<div class="owl-dot"><span></span></div>
+															<div class="owl-dot active"><span></span></div>
+														</div>
+													</div>
+												</div>
+												<div class="vc_empty_space" style="height: 50px"><span
+														class="vc_empty_space_inner"></span></div>
+											</div>
+										</div>
+									</div>
+									<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="edgt-video-button-holder ">
+													<div class="edgt-video-button-image">
+														<img width="573" height="349"
+															src="{% static 'images/h4-image-3.jpg' %}"
+															class="attachment-full size-full" alt="a"
+															srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image-3.jpg 573w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image-3-300x183.jpg 300w"
+															sizes="(max-width: 573px) 100vw, 573px"> </div>
+													<a class="edgt-video-button-play-image "
+														href="https://www.youtube.com/watch?v=fhpToky5SvQ"
+														target="_self"
+														data-rel="prettyPhoto[video_button_pretty_photo_80]">
+														<span class="edgt-video-button-play-inner">
+															<img width="36" height="50"
+																src="{% static 'images/video-button.png' %}"
+																class="attachment-full size-full" alt="a">
+														</span>
+													</a>
+												</div>
+												<div class="vc_empty_space" style="height: 50px"><span
+														class="vc_empty_space_inner"></span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="edgt-row-grid-section-wrapper ">
+							<div class="edgt-row-grid-section">
+								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500622680725">
+									<div class="wpb_column vc_column_container vc_col-sm-12">
+										<div class="vc_column-inner">
+											<div class="wpb_wrapper">
+												<div class="edgt-blog-list-holder edgt-bl-standard edgt-bl-three-columns edgt-bl-normal-space edgt-bl-pag-no-pagination"
+													data-type="standard" data-number-of-posts="3"
+													data-number-of-columns="3" data-space-between-columns="normal"
+													data-category="motivation" data-order-by="date" data-order="ASC"
+													data-image-size="full" data-title-tag="h3" data-excerpt-length="25"
+													data-post-info-section="yes" data-post-info-image="no"
+													data-post-info-author="yes" data-post-info-date="yes"
+													data-post-info-category="no" data-post-info-comments="no"
+													data-post-info-like="no" data-post-info-share="no"
+													data-pagination-type="no-pagination" data-max-num-pages="1"
+													data-next-page="2">
+													<div class="edgt-bl-wrapper">
+														<ul class="edgt-blog-list">
+															<li class="edgt-bl-item clearfix">
+																<div class="edgt-bli-inner">
+																	<div class="edgt-bli-content">
+																		<div class="edgt-bli-info">
+																			<div itemprop="dateCreated"
+																				class="edgt-post-info-date entry-date published updated">
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/2017/07/">
+																					July 18, 2017 </a>
+																				<meta itemprop="interactionCount"
+																					content="UserComments: 0">
+																			</div>
+																		</div>
+																		<h3 itemprop="name"
+																			class="entry-title edgt-post-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/graduate-admissions/"
+																				title="Graduate Admissions">
+																				Graduate Admissions </a>
+																		</h3>
+																		<div class="edgt-bli-excerpt">
+																			<div class="edgt-post-excerpt-holder">
+																				<p itemprop="description"
+																					class="edgt-post-excerpt">
+																					Lorem Ipsn gravida nibh
+																					vel velit auctor
+																					aliquet.Aenean
+																					sollicitudin, lorem quis
+																					bibendum auci elit
+																					consequat ipsutis sem
+																					nibh id elit. Duis sed
+																					odio sit amet </p>
+																			</div>
+																		</div>
+																		<div class="edgt-bli-info edgt-bli-info-bottom">
+																			<div class="edgt-post-info-author">
+																				<span
+																					class="edgt-post-info-author-avatar-holder">
+																					<img alt=""
+																						src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png' %}"
+																						class="avatar avatar-30 photo"
+																						height="30" width="30"> </span>
+																				<span
+																					class="edgt-post-info-author-text">
+																					by </span>
+																				<a itemprop="author"
+																					class="edgt-post-info-author-link"
+																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
+																					Craig Murphy </a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															<li class="edgt-bl-item clearfix">
+																<div class="edgt-bli-inner">
+																	<div class="edgt-bli-content">
+																		<div class="edgt-bli-info">
+																			<div itemprop="dateCreated"
+																				class="edgt-post-info-date entry-date published updated">
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/2017/07/">
+																					July 18, 2017 </a>
+																				<meta itemprop="interactionCount"
+																					content="UserComments: 0">
+																			</div>
+																		</div>
+																		<h3 itemprop="name"
+																			class="entry-title edgt-post-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/continuing-education/"
+																				title="Continuing Education">
+																				Continuing Education </a>
+																		</h3>
+																		<div class="edgt-bli-excerpt">
+																			<div class="edgt-post-excerpt-holder">
+																				<p itemprop="description"
+																					class="edgt-post-excerpt">
+																					Lorem Ipsn gravida nibh
+																					vel velit auctor
+																					aliquet.Aenean
+																					sollicitudin, lorem quis
+																					bibendum auci elit
+																					consequat ipsutis sem
+																					nibh id elit. Duis sed
+																					odio sit amet </p>
+																			</div>
+																		</div>
+																		<div class="edgt-bli-info edgt-bli-info-bottom">
+																			<div class="edgt-post-info-author">
+																				<span
+																					class="edgt-post-info-author-avatar-holder">
+																					<img alt=""
+																						src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png' %}"
+																						class="avatar avatar-30 photo"
+																						height="30" width="30"> </span>
+																				<span
+																					class="edgt-post-info-author-text">
+																					by </span>
+																				<a itemprop="author"
+																					class="edgt-post-info-author-link"
+																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
+																					Craig Murphy </a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															<li class="edgt-bl-item clearfix">
+																<div class="edgt-bli-inner">
+																	<div class="edgt-bli-content">
+																		<div class="edgt-bli-info">
+																			<div itemprop="dateCreated"
+																				class="edgt-post-info-date entry-date published updated">
+																				<a itemprop="url"
+																					href="https://educator.qodeinteractive.com/2017/07/">
+																					July 18, 2017 </a>
+																				<meta itemprop="interactionCount"
+																					content="UserComments: 0">
+																			</div>
+																		</div>
+																		<h3 itemprop="name"
+																			class="entry-title edgt-post-title">
+																			<a itemprop="url"
+																				href="https://educator.qodeinteractive.com/current-students/"
+																				title="Current Students">
+																				Current Students </a>
+																		</h3>
+																		<div class="edgt-bli-excerpt">
+																			<div class="edgt-post-excerpt-holder">
+																				<p itemprop="description"
+																					class="edgt-post-excerpt">
+																					Lorem Ipsn gravida nibh
+																					vel velit auctor
+																					aliquet.Aenean
+																					sollicitudin, lorem quis
+																					bibendum auci elit
+																					consequat ipsutis sem
+																					nibh id elit. Duis sed
+																					odio sit amet </p>
+																			</div>
+																		</div>
+																		<div class="edgt-bli-info edgt-bli-info-bottom">
+																			<div class="edgt-post-info-author">
+																				<span
+																					class="edgt-post-info-author-avatar-holder">
+																					<img alt=""
+																						src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png' %}"
+																						class="avatar avatar-30 photo"
+																						height="30" width="30"> </span>
+																				<span
+																					class="edgt-post-info-author-text">
+																					by </span>
+																				<a itemprop="author"
+																					class="edgt-post-info-author-link"
+																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
+																					Craig Murphy </a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-
-{% endblock %}
+{% endblock main %}
