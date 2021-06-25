@@ -99,6 +99,7 @@ class Enrollment(models.Model):
 class Testimonial(models.Model):
     review = models.TextField(blank=True,null=True)
     name = models.CharField(max_length=127)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_testimonial")
 
     def __str__(self):
         return self.name

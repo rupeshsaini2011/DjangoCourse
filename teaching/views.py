@@ -21,7 +21,8 @@ class IndexTemplateView(TemplateView):
 		context['teachers'] = Teacher.objects.all() 
 		context['categories'] = Category.objects.all() 
 		context['popular_courses'] = Course.objects.filter(is_popular=True)
-		#context['testimonial'] = Testimonial.object.filter.all()   
+		context['testimonial'] = Testimonial.objects.all()  
+	 
 		    
 		return context
          

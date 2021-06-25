@@ -953,6 +953,7 @@
 								</div>
 							</div>
 						</div>
+						{% for test in testimonial %}
 						<div class="edgt-row-grid-section-wrapper " style="background-color:#f8f8f8">
 							<div class="edgt-row-grid-section">
 								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500469591450">
@@ -980,235 +981,18 @@
 																				alt="a"> </div>
 																		<div class="edgt-testimonial-text-holder">
 																			<p class="edgt-testimonial-text">
-																				“Curabitur ut arcu luctus,
-																				ultrices est id, lobortis
-																				massa. Vestibulum vulputate
-																				dictum egestas. Nunc
-																				eleifend, enim et dictum
-																				mollis, felis nulla”</p>
+																				{{test.testimonial.review}}</p>
 																			<h3 class="edgt-testimonial-author">
 																				<span
-																					class="edgt-testimonials-author-name">Arron
-																					Matheny</span>
+																					class="edgt-testimonials-author-name">{{test.testimonial.name}}
+																					</span>
 																			</h3>
 																			<span
-																				class="edgt-testimonials-author-job">Professor</span>
+																				class="edgt-testimonials-author-job">{{test.testimonial.user}}</span>
 																		</div>
 																	</div>
 																</div>
-																<div class="owl-item cloned"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-306">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-3.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Duis a eros non mi
-																				malesuada semper quis eu
-																				ipsum. Nam vitae est cursus,
-																				iaculis ligula et, faucibus
-																				erat. Mauris fermentum justo
-																				non”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Angela
-																					Lane</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Graduate</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="owl-item"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-310">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-1.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Mroin gravida nibh vel
-																				veliauctor aliquenean
-																				sollicitudin, lorem quis
-																				bibendum auctor, nisi elit
-																				consequat ipsut tis sem nibh
-																				id elituis sed odio”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Virginia
-																					Foster</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Student</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="owl-item"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-311">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-2.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Curabitur ut arcu luctus,
-																				ultrices est id, lobortis
-																				massa. Vestibulum vulputate
-																				dictum egestas. Nunc
-																				eleifend, enim et dictum
-																				mollis, felis nulla”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Arron
-																					Matheny</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Professor</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="owl-item active"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-306">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-3.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Duis a eros non mi
-																				malesuada semper quis eu
-																				ipsum. Nam vitae est cursus,
-																				iaculis ligula et, faucibus
-																				erat. Mauris fermentum justo
-																				non”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Angela
-																					Lane</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Graduate</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="owl-item cloned"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-310">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-1.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Mroin gravida nibh vel
-																				veliauctor aliquenean
-																				sollicitudin, lorem quis
-																				bibendum auctor, nisi elit
-																				consequat ipsut tis sem nibh
-																				id elituis sed odio”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Virginia
-																					Foster</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Student</span>
-																		</div>
-																	</div>
-																</div>
-																<div class="owl-item cloned"
-																	style="width: 435px; margin-right: 50px;">
-																	<div class="edgt-testimonial-content"
-																		id="edgt-testimonials-311">
-																		<div class="edgt-testimonial-image">
-																			<img width="110" height="110"
-																				src="{% static 'images/testimonial-2.png' %}"
-																				class="attachment-110x110 size-110x110 wp-post-image"
-																				alt="a"> </div>
-																		<div class="edgt-testimonial-text-holder">
-																			<p class="edgt-testimonial-text">
-																				“Curabitur ut arcu luctus,
-																				ultrices est id, lobortis
-																				massa. Vestibulum vulputate
-																				dictum egestas. Nunc
-																				eleifend, enim et dictum
-																				mollis, felis nulla”</p>
-																			<h3 class="edgt-testimonial-author">
-																				<span
-																					class="edgt-testimonials-author-name">Arron
-																					Matheny</span>
-																			</h3>
-																			<span
-																				class="edgt-testimonials-author-job">Professor</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-														<div class="owl-nav disabled">
-															<div class="owl-prev"><span class="edgt-prev-icon"><span
-																		class="edgt-icon-arrow fa fa-angle-left"></span></span>
-															</div>
-															<div class="owl-next"><span class="edgt-next-icon"><span
-																		class="edgt-icon-arrow fa fa-angle-right"></span></span>
-															</div>
-														</div>
-														<div class="owl-dots">
-															<div class="owl-dot"><span></span></div>
-															<div class="owl-dot"><span></span></div>
-															<div class="owl-dot active"><span></span></div>
-														</div>
-													</div>
-												</div>
-												<div class="vc_empty_space" style="height: 50px"><span
-														class="vc_empty_space_inner"></span></div>
-											</div>
-										</div>
-									</div>
-									<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-6 vc_col-md-6">
-										<div class="vc_column-inner">
-											<div class="wpb_wrapper">
-												<div class="edgt-video-button-holder ">
-													<div class="edgt-video-button-image">
-														<img width="573" height="349"
-															src="{% static 'images/h4-image-3.jpg' %}"
-															class="attachment-full size-full" alt="a"
-															srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image-3.jpg 573w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/h4-image-3-300x183.jpg 300w"
-															sizes="(max-width: 573px) 100vw, 573px"> </div>
-													<a class="edgt-video-button-play-image "
-														href="https://www.youtube.com/watch?v=fhpToky5SvQ"
-														target="_self"
-														data-rel="prettyPhoto[video_button_pretty_photo_80]">
-														<span class="edgt-video-button-play-inner">
-															<img width="36" height="50"
-																src="{% static 'images/video-button.png' %}"
-																class="attachment-full size-full" alt="a">
-														</span>
-													</a>
-												</div>
-												<div class="vc_empty_space" style="height: 50px"><span
-														class="vc_empty_space_inner"></span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+																{% endfor %}
 						<div class="edgt-row-grid-section-wrapper ">
 							<div class="edgt-row-grid-section">
 								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500622680725">
