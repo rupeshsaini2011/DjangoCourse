@@ -104,3 +104,11 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.name
 
+class Blog(models.Model):
+    date = models.DateField()
+    blog_subject = models.CharField(max_length=127)
+    context =  models.TextField(blank=True,null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_Blog")
+
+    def __str__(self):
+        return self.user

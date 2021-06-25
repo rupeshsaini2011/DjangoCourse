@@ -993,6 +993,7 @@
 																	</div>
 																</div>
 																{% endfor %}
+						{% for log in blog %}										
 						<div class="edgt-row-grid-section-wrapper ">
 							<div class="edgt-row-grid-section">
 								<div class="vc_row wpb_row vc_row-fluid vc_custom_1500622680725">
@@ -1020,7 +1021,7 @@
 																				class="edgt-post-info-date entry-date published updated">
 																				<a itemprop="url"
 																					href="https://educator.qodeinteractive.com/2017/07/">
-																					July 18, 2017 </a>
+																					{{log.blog.date}} </a>
 																				<meta itemprop="interactionCount"
 																					content="UserComments: 0">
 																			</div>
@@ -1030,20 +1031,13 @@
 																			<a itemprop="url"
 																				href="https://educator.qodeinteractive.com/graduate-admissions/"
 																				title="Graduate Admissions">
-																				Graduate Admissions </a>
+																				{{log.blog.blog_subject}} </a>
 																		</h3>
 																		<div class="edgt-bli-excerpt">
 																			<div class="edgt-post-excerpt-holder">
 																				<p itemprop="description"
 																					class="edgt-post-excerpt">
-																					Lorem Ipsn gravida nibh
-																					vel velit auctor
-																					aliquet.Aenean
-																					sollicitudin, lorem quis
-																					bibendum auci elit
-																					consequat ipsutis sem
-																					nibh id elit. Duis sed
-																					odio sit amet </p>
+																					{{log.blog.context}} </p>
 																			</div>
 																		</div>
 																		<div class="edgt-bli-info edgt-bli-info-bottom">
@@ -1060,119 +1054,12 @@
 																				<a itemprop="author"
 																					class="edgt-post-info-author-link"
 																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
-																					Craig Murphy </a>
+																					{{log.blog.user}}</a>
 																			</div>
 																		</div>
 																	</div>
 																</div>
-															</li>
-															<li class="edgt-bl-item clearfix">
-																<div class="edgt-bli-inner">
-																	<div class="edgt-bli-content">
-																		<div class="edgt-bli-info">
-																			<div itemprop="dateCreated"
-																				class="edgt-post-info-date entry-date published updated">
-																				<a itemprop="url"
-																					href="https://educator.qodeinteractive.com/2017/07/">
-																					July 18, 2017 </a>
-																				<meta itemprop="interactionCount"
-																					content="UserComments: 0">
-																			</div>
-																		</div>
-																		<h3 itemprop="name"
-																			class="entry-title edgt-post-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/continuing-education/"
-																				title="Continuing Education">
-																				Continuing Education </a>
-																		</h3>
-																		<div class="edgt-bli-excerpt">
-																			<div class="edgt-post-excerpt-holder">
-																				<p itemprop="description"
-																					class="edgt-post-excerpt">
-																					Lorem Ipsn gravida nibh
-																					vel velit auctor
-																					aliquet.Aenean
-																					sollicitudin, lorem quis
-																					bibendum auci elit
-																					consequat ipsutis sem
-																					nibh id elit. Duis sed
-																					odio sit amet </p>
-																			</div>
-																		</div>
-																		<div class="edgt-bli-info edgt-bli-info-bottom">
-																			<div class="edgt-post-info-author">
-																				<span
-																					class="edgt-post-info-author-avatar-holder">
-																					<img alt=""
-																						src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png' %}"
-																						class="avatar avatar-30 photo"
-																						height="30" width="30"> </span>
-																				<span
-																					class="edgt-post-info-author-text">
-																					by </span>
-																				<a itemprop="author"
-																					class="edgt-post-info-author-link"
-																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
-																					Craig Murphy </a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</li>
-															<li class="edgt-bl-item clearfix">
-																<div class="edgt-bli-inner">
-																	<div class="edgt-bli-content">
-																		<div class="edgt-bli-info">
-																			<div itemprop="dateCreated"
-																				class="edgt-post-info-date entry-date published updated">
-																				<a itemprop="url"
-																					href="https://educator.qodeinteractive.com/2017/07/">
-																					July 18, 2017 </a>
-																				<meta itemprop="interactionCount"
-																					content="UserComments: 0">
-																			</div>
-																		</div>
-																		<h3 itemprop="name"
-																			class="entry-title edgt-post-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/current-students/"
-																				title="Current Students">
-																				Current Students </a>
-																		</h3>
-																		<div class="edgt-bli-excerpt">
-																			<div class="edgt-post-excerpt-holder">
-																				<p itemprop="description"
-																					class="edgt-post-excerpt">
-																					Lorem Ipsn gravida nibh
-																					vel velit auctor
-																					aliquet.Aenean
-																					sollicitudin, lorem quis
-																					bibendum auci elit
-																					consequat ipsutis sem
-																					nibh id elit. Duis sed
-																					odio sit amet </p>
-																			</div>
-																		</div>
-																		<div class="edgt-bli-info edgt-bli-info-bottom">
-																			<div class="edgt-post-info-author">
-																				<span
-																					class="edgt-post-info-author-avatar-holder">
-																					<img alt=""
-																						src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png' %}"
-																						class="avatar avatar-30 photo"
-																						height="30" width="30"> </span>
-																				<span
-																					class="edgt-post-info-author-text">
-																					by </span>
-																				<a itemprop="author"
-																					class="edgt-post-info-author-link"
-																					href="https://educator.qodeinteractive.com/forums/users/craig-murphy/">
-																					Craig Murphy </a>
-																			</div>
-																		</div>
-																	</div>
-																</div>
+																{% endfor %}
 															</li>
 														</ul>
 													</div>

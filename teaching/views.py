@@ -22,7 +22,7 @@ class IndexTemplateView(TemplateView):
 		context['categories'] = Category.objects.all() 
 		context['popular_courses'] = Course.objects.filter(is_popular=True)
 		context['testimonial'] = Testimonial.objects.all()  
-	 
+		context['blog'] = Blog.objects.all()
 		    
 		return context
          
