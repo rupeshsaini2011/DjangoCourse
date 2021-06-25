@@ -1,5 +1,5 @@
 from django.shortcuts import *
-from django.views.generic import *
+from django.views.generic import TemplateView, ListView, FormView, View
 from .models import *
 from django.contrib.auth import *
 from .forms import *
@@ -12,25 +12,32 @@ from django.contrib.auth import authenticate
 
 # ------------------------------------------------index page-------------------------------------------
 class IndexTemplateView(TemplateView):
-    template_name = "index.html"
+	template_name = "index.html"
 #---------------------------------------------searching algo-------------------------------------------
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        course = Course.objects.all()        
-        context['course'] = course        
-        return context
-  
-#------------------------------------------search results----------------------------------------------
-class SearchResultsView(ListView):
-    model= Course #course
-    template_name='search_results.html'  
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+      
+		context['courses'] = Course.objects.all()     
+		context['teachers'] = Teacher.objects.all() 
+		context['categories'] = Category.objects.all() 
+		context['popular_courses'] = Course.objects.filter(is_popular=True)
+		#context['testimonial'] = Testimonial.object.filter.all()   
+		    
+		return context
+         
+ 
 
-    def post(self, request, *args, **kwargs):
-        course = request.POST.get('course', "")
-        sechedule= Schedule.objects.all()        
-        if course:
-            sechedule= sechedule.filter(subject__course=course)
-        return render(self.request, self.template_name, context={'sechedule': sechedule})    
+#------------------------------------------search results----------------------------------------------
+class SearchResultView(ListView):
+	model= Course #course
+	template_name='search_results.html'  
+
+	def post(self, request, *args, **kwargs):
+		course = request.POST.get('course', "")
+		sechedule= Schedule.objects.all()        
+		if course:
+			sechedule= sechedule.filter(subject__course=course)
+		return render(self.request, self.template_name, context={'sechedule': sechedule})    
 #------------------------------------------------------------------------------------------------------
 
 class TeacherListView(ListView):

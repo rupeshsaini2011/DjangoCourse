@@ -26,15 +26,26 @@ class Currency(models.Model):
     def __str__(self):
         return self.name 
 
+class Category(models.Model):
+    category = models.CharField(max_length=127)
+
+    def __str__(self):
+        return self.category 
+    
+
 class Course(models.Model):
     name = models.CharField(max_length=127)
     institution= models.ForeignKey(Institute, on_delete=models.CASCADE, related_name='institutes')
     main_teacher= models.ForeignKey(Teacher, on_delete=models.CASCADE,related_name="teacher_courses") 
     price= models.DecimalField(max_digits=11, decimal_places=2)
     currency= models.ForeignKey(Currency, on_delete=models.CASCADE, related_name="currency_courses")
-
+    category= models.ForeignKey(Category, on_delete=models.CASCADE, related_name="category_courses" , null = True, blank= True)
+    is_popular = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.name 
+
+ 
 
 class Subject(models.Model):
     name = models.CharField(max_length=127)
@@ -84,4 +95,11 @@ class Enrollment(models.Model):
     def __str__(self):
         return self.order_id 
     
+
+class Testimonial(models.Model):
+    review = models.TextField(blank=True,null=True)
+    name = models.CharField(max_length=127)
+
+    def __str__(self):
+        return self.name
 
