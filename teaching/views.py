@@ -13,7 +13,6 @@ from django.contrib.auth import authenticate
 # ------------------------------------------------index page-------------------------------------------
 class IndexTemplateView(TemplateView):
 	template_name = "index.html"
-#---------------------------------------------searching algo-------------------------------------------
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
       
@@ -22,11 +21,29 @@ class IndexTemplateView(TemplateView):
 		context['categories'] = Category.objects.all() 
 		context['popular_courses'] = Course.objects.filter(is_popular=True)
 		context['testimonial'] = Testimonial.objects.all()  
-		context['blog'] = Blog.objects.all()
+		context['blogs'] = Blog.objects.all()
 		    
 		return context
          
  
+
+class IndexTemplateView2(TemplateView):
+	template_name = "index2.html"
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+      
+		context['courses'] = Course.objects.all()     
+		context['teachers'] = Teacher.objects.all() 
+		context['categories'] = Category.objects.all() 
+		context['popular_courses'] = Course.objects.filter(is_popular=True)
+		context['testimonial'] = Testimonial.objects.all()  
+		context['blogs'] = Blog.objects.all()
+		    
+		return context
+
+
+
+
 
 #------------------------------------------search results----------------------------------------------
 class SearchResultView(ListView):
