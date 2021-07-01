@@ -91,7 +91,7 @@ Click the help icon above to learn more.
 <div class="edgt-content">
 	<div class="edgt-content-inner">
 		<div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image edgt-bg-parallax"
-			style="height: 262px; background-image: url(&quot;https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-tittle-area.jpg' %}&quot;); background-position: center 0px;"
+			style="height: 262px; background-image: url(&quot;{% static 'images/coursebanner.jpg' %}&quot;); background-position: center 0px;"
 			data-height="262">
 			<div class="edgt-title-image">
 				<img itemprop="image" src="{% static 'images/course-tittle-area.jpg' %}" alt="a">
@@ -177,6 +177,7 @@ Click the help icon above to learn more.
 												</div>
 											</div>
 											<div class="edgt-cl-inner  clearfix">
+												{% for course in courses %}
 												<article
 													class="edgt-cl-item post-804 course type-course status-publish has-post-thumbnail hentry course-category-it-software course-tag-digital"
 													data-name="development" data-date="1500508800">
@@ -187,9 +188,8 @@ Click the help icon above to learn more.
 																	src="{% static 'images/course-img-1.jpg' %}"
 																	class="attachment-full size-full wp-post-image"
 																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1-768x491.jpg' %} 768w"
 																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
+															</div><a href="{% url 'teaching:coursedetail' pk=course.id %}"
 																class="edgt-course-wishlist edgt-icon-only"
 																data-course-id="804">
 																<i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -202,24 +202,23 @@ Click the help icon above to learn more.
 																		<h4 itemprop="name"
 																			class="edgt-cli-title entry-title">
 																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/development/"
+																				href="{% url 'teaching:coursedetail' pk=course.id %} "
 																				target="_self">
-																				Development </a>
+																				{{course.name}} </a>
 																		</h4>
 																		<div class="edgt-ci-price-holder clearfix">
 																			<span class="edgt-ci-price-value">
-																				$65 </span>
+																				{{course.price}} </span>
 																		</div>
 																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
+																			href=""
 																			target="_self">
 																			<span class="edgt-instructor-name">
-																				Amy Drufesne </span>
+																				{{course.main_teacher}} </span>
 																		</a>
 																	</div>
 																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
+																		{{course.institution}} </p>
 																	<div class="edgt-cli-bottom-info">
 																		<div class="edgt-students-number-holder">
 																			<span aria-hidden="true"
@@ -238,335 +237,11 @@ Click the help icon above to learn more.
 															</div>
 														</div> <a itemprop="url"
 															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/development/"
+															href="{% url 'teaching:coursedetail' pk=course.id %}"
 															target="_self"></a>
 													</div>
 												</article>
-												<article
-													class="edgt-cl-item post-1104 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
-													data-name="photography" data-date="1500595200">
-													<div class="edgt-cl-item-inner">
-														<div class="edgt-cli-image-wrapper">
-															<div class="edgt-cli-image">
-																<img width="965" height="617"
-																	src="{% static 'images/course-img-2.jpg' %}"
-																	class="attachment-full size-full wp-post-image"
-																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-768x491.jpg' %} 768w"
-																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
-																class="edgt-course-wishlist edgt-icon-only"
-																data-course-id="1104">
-																<i class="fa fa-heart-o" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="edgt-cli-text-holder">
-															<div class="edgt-cli-text-wrapper">
-																<div class="edgt-cli-text">
-																	<div class="edgt-cli-top-info">
-																		<h4 itemprop="name"
-																			class="edgt-cli-title entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/photography/"
-																				target="_self">
-																				Photography </a>
-																		</h4>
-																		<div class="edgt-ci-price-holder clearfix">
-																			<span class="edgt-ci-price-value">
-																				$120 </span>
-																		</div>
-																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
-																			target="_self">
-																			<span class="edgt-instructor-name">
-																				Amy Drufesne </span>
-																		</a>
-																	</div>
-																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
-																	<div class="edgt-cli-bottom-info">
-																		<div class="edgt-students-number-holder">
-																			<span aria-hidden="true"
-																				class="lnr lnr-users edgt-student-icon"></span>
-																			<span>
-																				1 </span>
-																		</div>
-																		<div class="edgt-cli-duration-holder">
-																			<span
-																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div> <a itemprop="url"
-															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/photography/"
-															target="_self"></a>
-													</div>
-												</article>
-												<article
-													class="edgt-cl-item post-1114 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-professional"
-													data-name="statistics" data-date="1500595200">
-													<div class="edgt-cl-item-inner">
-														<div class="edgt-cli-image-wrapper">
-															<div class="edgt-cli-image">
-																<img width="965" height="617"
-																	src="{% static 'images/course-img-3.jpg' %}"
-																	class="attachment-full size-full wp-post-image"
-																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-768x491.jpg' %} 768w"
-																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
-																class="edgt-course-wishlist edgt-icon-only"
-																data-course-id="1114">
-																<i class="fa fa-heart-o" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="edgt-cli-text-holder">
-															<div class="edgt-cli-text-wrapper">
-																<div class="edgt-cli-text">
-																	<div class="edgt-cli-top-info">
-																		<h4 itemprop="name"
-																			class="edgt-cli-title entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/statistics/"
-																				target="_self">
-																				Statistics </a>
-																		</h4>
-																		<div class="edgt-ci-price-holder clearfix">
-																			<span class="edgt-ci-price-value">
-																				$190 </span>
-																		</div>
-																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/martina-moore/"
-																			target="_self">
-																			<span class="edgt-instructor-name">
-																				Martina Moore </span>
-																		</a>
-																	</div>
-																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
-																	<div class="edgt-cli-bottom-info">
-																		<div class="edgt-students-number-holder">
-																			<span aria-hidden="true"
-																				class="lnr lnr-users edgt-student-icon"></span>
-																			<span>
-																				1 </span>
-																		</div>
-																		<div class="edgt-cli-duration-holder">
-																			<span
-																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div> <a itemprop="url"
-															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/statistics/"
-															target="_self"></a>
-													</div>
-												</article>
-												<article
-													class="edgt-cl-item post-1116 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
-													data-name="learning-cad" data-date="1500595200">
-													<div class="edgt-cl-item-inner">
-														<div class="edgt-cli-image-wrapper">
-															<div class="edgt-cli-image">
-																<img width="965" height="617"
-																	src="{% static 'images/course-img-4.jpg' %}"
-																	class="attachment-full size-full wp-post-image"
-																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4-768x491.jpg' %} 768w"
-																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
-																class="edgt-course-wishlist edgt-icon-only"
-																data-course-id="1116">
-																<i class="fa fa-heart-o" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="edgt-cli-text-holder">
-															<div class="edgt-cli-text-wrapper">
-																<div class="edgt-cli-text">
-																	<div class="edgt-cli-top-info">
-																		<h4 itemprop="name"
-																			class="edgt-cli-title entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/learning-cad/"
-																				target="_self">
-																				Learning CAD </a>
-																		</h4>
-																		<div class="edgt-ci-price-holder clearfix">
-																			<span class="edgt-ci-price-value">
-																				$190 </span>
-																		</div>
-																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/martina-moore/"
-																			target="_self">
-																			<span class="edgt-instructor-name">
-																				Martina Moore </span>
-																		</a>
-																	</div>
-																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
-																	<div class="edgt-cli-bottom-info">
-																		<div class="edgt-students-number-holder">
-																			<span aria-hidden="true"
-																				class="lnr lnr-users edgt-student-icon"></span>
-																			<span>
-																				1 </span>
-																		</div>
-																		<div class="edgt-cli-duration-holder">
-																			<span
-																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div> <a itemprop="url"
-															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/learning-cad/"
-															target="_self"></a>
-													</div>
-												</article>
-												<article
-													class="edgt-cl-item post-1118 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-professional"
-													data-name="sports-stats" data-date="1500595200">
-													<div class="edgt-cl-item-inner">
-														<div class="edgt-cli-image-wrapper">
-															<div class="edgt-cli-image">
-																<img width="965" height="617"
-																	src="{% static 'images/course-img-5.jpg' %}"
-																	class="attachment-full size-full wp-post-image"
-																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-5.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-5-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-5-768x491.jpg' %} 768w"
-																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
-																class="edgt-course-wishlist edgt-icon-only"
-																data-course-id="1118">
-																<i class="fa fa-heart-o" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="edgt-cli-text-holder">
-															<div class="edgt-cli-text-wrapper">
-																<div class="edgt-cli-text">
-																	<div class="edgt-cli-top-info">
-																		<h4 itemprop="name"
-																			class="edgt-cli-title entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/sports-stats/"
-																				target="_self">
-																				Sports Stats </a>
-																		</h4>
-																		<div class="edgt-ci-price-holder clearfix">
-																			<span class="edgt-ci-price-value">
-																				$160 </span>
-																		</div>
-																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/taylor-fink/"
-																			target="_self">
-																			<span class="edgt-instructor-name">
-																				Taylor Fink </span>
-																		</a>
-																	</div>
-																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
-																	<div class="edgt-cli-bottom-info">
-																		<div class="edgt-students-number-holder">
-																			<span aria-hidden="true"
-																				class="lnr lnr-users edgt-student-icon"></span>
-																			<span>
-																				1 </span>
-																		</div>
-																		<div class="edgt-cli-duration-holder">
-																			<span
-																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div> <a itemprop="url"
-															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/sports-stats/"
-															target="_self"></a>
-													</div>
-												</article>
-												<article
-													class="edgt-cl-item post-1140 course type-course status-publish has-post-thumbnail hentry course-category-business course-tag-creative"
-													data-name="cad-drawing" data-date="1500854400">
-													<div class="edgt-cl-item-inner">
-														<div class="edgt-cli-image-wrapper">
-															<div class="edgt-cli-image">
-																<img width="965" height="617"
-																	src="{% static 'images/course-img-6.jpg' %}"
-																	class="attachment-full size-full wp-post-image"
-																	alt="a"
-																	srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6.jpg' %} 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-6-768x491.jpg' %} 768w"
-																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="javascript:void(0)"
-																class="edgt-course-wishlist edgt-icon-only"
-																data-course-id="1140">
-																<i class="fa fa-heart-o" aria-hidden="true"></i>
-															</a>
-														</div>
-														<div class="edgt-cli-text-holder">
-															<div class="edgt-cli-text-wrapper">
-																<div class="edgt-cli-text">
-																	<div class="edgt-cli-top-info">
-																		<h4 itemprop="name"
-																			class="edgt-cli-title entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/course/cad-drawing/"
-																				target="_self">
-																				CAD Drawing </a>
-																		</h4>
-																		<div class="edgt-ci-price-holder clearfix">
-																			<span class="edgt-ci-price-value">
-																				$160 </span>
-																		</div>
-																		<a itemprop="url"
-																			href="https://educator.qodeinteractive.com/instructor/taylor-fink/"
-																			target="_self">
-																			<span class="edgt-instructor-name">
-																				Taylor Fink </span>
-																		</a>
-																	</div>
-																	<p itemprop="description" class="edgt-cli-excerpt">
-																		Blandit accumsan ei vis, maiorum epicurei at mei
-																		nibh viderer ius pri</p>
-																	<div class="edgt-cli-bottom-info">
-																		<div class="edgt-students-number-holder">
-																			<span aria-hidden="true"
-																				class="lnr lnr-users edgt-student-icon"></span>
-																			<span>
-																				1 </span>
-																		</div>
-																		<div class="edgt-cli-duration-holder">
-																			<span
-																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div> <a itemprop="url"
-															class="edgt-cli-link edgt-block-drag-link"
-															href="https://educator.qodeinteractive.com/course/cad-drawing/"
-															target="_self"></a>
-													</div>
-												</article>
+												{% endfor %}
 											</div>
 											<div class="edgt-cl-loading">
 												<div class="edgt-cl-loading-bounce1"></div>
@@ -616,31 +291,13 @@ Click the help icon above to learn more.
 									<h4 class="edgt-widget-title">Categories</h4>
 								</div>
 								<ul class="edgt-course-categories-list">
+									{% for cat in categories %}
 									<li>
 										<h6 class="edgt-course-categories-list-title"><a
-												href="https://educator.qodeinteractive.com/course-category/art-design/"
-												target="_self" itemprop="url">Art &amp; Design</a></h6>
+												href="#"
+												target="_self" itemprop="url">{{cat.category}} </a></h6>
 									</li>
-									<li>
-										<h6 class="edgt-course-categories-list-title"><a
-												href="https://educator.qodeinteractive.com/course-category/business/"
-												target="_self" itemprop="url">Business</a></h6>
-									</li>
-									<li>
-										<h6 class="edgt-course-categories-list-title"><a
-												href="https://educator.qodeinteractive.com/course-category/it-software/"
-												target="_self" itemprop="url">It &amp; Software</a></h6>
-									</li>
-									<li>
-										<h6 class="edgt-course-categories-list-title"><a
-												href="https://educator.qodeinteractive.com/course-category/languages/"
-												target="_self" itemprop="url">Languages</a></h6>
-									</li>
-									<li>
-										<h6 class="edgt-course-categories-list-title"><a
-												href="https://educator.qodeinteractive.com/course-category/sports/"
-												target="_self" itemprop="url">Sports</a></h6>
-									</li>
+									{% endfor %}
 								</ul>
 							</div>
 							<div class="widget edgt-course-list-widget">
@@ -661,6 +318,7 @@ Click the help icon above to learn more.
 									data-enable-pagination="yes" data-widget="yes" data-max-num-pages="2"
 									data-next-page="2">
 									<div class="edgt-cl-inner  clearfix">
+										{% for course in popular_courses %}
 										<article
 											class="edgt-cl-item post-1104 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
 											data-name="photography" data-date="1500595200">
@@ -679,75 +337,18 @@ Click the help icon above to learn more.
 																<a itemprop="url"
 																	href="https://educator.qodeinteractive.com/course/photography/"
 																	target="_self">
-																	Photography </a>
+																	{{course.name}} </a>
 															</h6>
 															<div class="edgt-ci-price-holder clearfix">
 																<span class="edgt-ci-price-value">
-																	$120 </span>
+																	{{course.price}} </span>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</article>
-										<article
-											class="edgt-cl-item post-1114 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-professional"
-											data-name="statistics" data-date="1500595200">
-											<div class="edgt-cl-item-inner">
-												<div class="edgt-cli-image">
-													<img width="300" height="192"
-														src="{% static 'images/course-img-3-300x192.jpg' %}"
-														class="attachment-medium size-medium wp-post-image" alt="a"
-														srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-768x491.jpg' %} 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3.jpg' %} 965w"
-														sizes="(max-width: 300px) 100vw, 300px">
-												</div>
-												<div class="edgt-cli-text-holder">
-													<div class="edgt-cli-text-wrapper">
-														<div class="edgt-cli-text">
-															<h6 itemprop="name" class="edgt-cli-title entry-title">
-																<a itemprop="url"
-																	href="https://educator.qodeinteractive.com/course/statistics/"
-																	target="_self">
-																	Statistics </a>
-															</h6>
-															<div class="edgt-ci-price-holder clearfix">
-																<span class="edgt-ci-price-value">
-																	$190 </span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</article>
-										<article
-											class="edgt-cl-item post-1116 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
-											data-name="learning-cad" data-date="1500595200">
-											<div class="edgt-cl-item-inner">
-												<div class="edgt-cli-image">
-													<img width="300" height="192"
-														src="{% static 'images/course-img-4-300x192.jpg' %}"
-														class="attachment-medium size-medium wp-post-image" alt="a"
-														srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4-768x491.jpg' %} 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-4.jpg' %} 965w"
-														sizes="(max-width: 300px) 100vw, 300px">
-												</div>
-												<div class="edgt-cli-text-holder">
-													<div class="edgt-cli-text-wrapper">
-														<div class="edgt-cli-text">
-															<h6 itemprop="name" class="edgt-cli-title entry-title">
-																<a itemprop="url"
-																	href="https://educator.qodeinteractive.com/course/learning-cad/"
-																	target="_self">
-																	Learning CAD </a>
-															</h6>
-															<div class="edgt-ci-price-holder clearfix">
-																<span class="edgt-ci-price-value">
-																	$190 </span>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</article>
+										{% endfor %}
 									</div>
 								</div>
 							</div>
@@ -760,4 +361,4 @@ Click the help icon above to learn more.
 </div>
 
 
-{% endblock main %}a
+{% endblock main %}

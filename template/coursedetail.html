@@ -1,0 +1,1498 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main %}
+
+<style type="text/css" id="wp-custom-css">
+    /*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+    /* Chrome Fix */
+    .edgt-vertical-align-containers .edgt-position-center:before,
+    .edgt-vertical-align-containers .edgt-position-left:before,
+    .edgt-vertical-align-containers .edgt-position-right:before {
+        margin-right: 0;
+    }
+
+    @media only screen and (min-width: 600px) {
+
+        .edgt-mobile-header .edgt-mobile-side-area.opened .edgt-mobile-nav,
+        .edgt-mobile-header .edgt-mobile-side-area .edgt-mobile-side-area-inner {
+            height: 100vh !important;
+        }
+
+        .edgt-mobile-header .edgt-mobile-side-area {
+            padding: 70px;
+        }
+    }
+
+    .edgt-parallax-row-holder {
+        transform: translateZ(0);
+    }
+
+    #tribe-events-content-wrapper #tribe-bar-views-toggle {
+        display: none;
+    }
+
+    #tribe-events-content-wrapper .tribe-bar-views-list li span {
+
+        font-size: 14px;
+        font-family: 'Montserrat', sans-serif;
+        color: #969696;
+        padding: 0 7px;
+    }
+
+    #tribe-events-content-wrapper .tribe-bar-views-list li.tribe-bar-active {
+        color: #2d76b2 !important;
+    }
+
+    #tribe-events-content-wrapper .tribe-bar-views-list li:hover {
+        color: #2d76b2 !important;
+        cursor: pointer;
+    }
+
+    #tribe-events-content-wrapper .tribe-events-calendar .tribe-events-tooltip .entry-title {
+        font-size: 17px !important;
+        font-weight: 700 !important;
+        margin-bottom: 5px !important;
+    }
+
+    #tribe-events-content-wrapper .tribe-events-calendar .tribe-events-tooltip {
+        box-shadow: none !important;
+        border: 1px solid #e1e1e1 !important;
+    }
+
+    article.format-audio .mejs-time-hovered,
+    article.format-audio .mejs-time-handle,
+    article.format-audio .mejs-time-float-corner,
+    article.format-audio .mejs-time-buffering {
+        display: none !important;
+    }
+
+    article.format-audio .mejs-time-total {
+        margin: 16px 0px !important;
+    }
+
+    article.format-audio .mejs-horizontal-volume-total {
+        top: 16px !important;
+    }
+
+    article.format-audio .mejs-horizontal-volume-current {
+        top: 0 !important;
+    }
+</style>
+
+<div class="edgt-wrapper">
+    <div class="edgt-cover"></div>
+    <div class="edgt-wrapper-inner">
+        <div class="edgt-course-popup">
+            <div class="edgt-course-popup-inner">
+                <div class="edgt-grid-row">
+                    <div class="edgt-grid-col-8">
+                        <div class="edgt-course-item-preloader edgt-hide">
+                            <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+                        </div>
+                        {% for course in courses %}
+                        <div class="edgt-popup-heading">
+                            <h5 class="edgt-course-popup-title">{{course.name}} </h5>
+                            <span class="edgt-course-popup-close"><i class="icon_close"></i></span>
+                        </div>
+                        {% endfor %}
+                        <div class="edgt-popup-content">
+                        </div>
+                    </div>
+                    <div class="edgt-grid-col-4">
+                        <div class="edgt-popup-info-wrapper">
+                            <div class="edgt-lms-search-holder">
+                                <div class="edgt-lms-search-field-wrapper">
+                                    <input class="edgt-lms-search-field" value="" placeholder="Search Courses">
+                                    <i class="edgt-search-icon icon_search" aria-hidden="true"></i>
+                                    <i class="edgt-search-loading fa fa-spinner fa-spin edgt-hidden"
+                                        aria-hidden="true"></i>
+                                </div>
+                                <div class="edgt-lms-search-results"></div>
+                            </div>
+                            <div class="edgt-course-popup-items">
+                                <div class="edgt-course-popup-items-list">
+                                    <div class="edgt-popup-items-section">
+                                        <h5 class="edgt-section-name">
+                                            Week 1 </h5>
+                                        <h5 class="edgt-section-title">
+                                            Design Research </h5>
+                                        <div class="edgt-section-content">
+                                            <div class="edgt-section-elements">
+                                                <div class="edgt-section-elements-summary">
+                                                    <i class="lnr lnr-book" aria-hidden="true"></i> <span
+                                                        class="edgt-summary-value">4 videos, 1 reading</span>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="987">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        The Interaction Design Specialization
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            20 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="988">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        Introducing Elizabeth Gerber
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            40 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="994">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        Who, What, Where, When and How People Work
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            35 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="998">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        Michael Chapman of IDEO on Interviewing
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            20 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="932">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-file-empty" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Reading: </span>
+                                                        Slides
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            30 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-quiz clearfix "
+                                                    data-section-element-id="878">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-license" aria-hidden="true"></i> </span>
+                                                        <span class="edgt-element-label">
+                                                            Graded: </span>
+                                                        Final Quiz: Design Research
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-extra-info-value">
+                                                            5 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            Questions </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="edgt-popup-items-section">
+                                        <h5 class="edgt-section-name">
+                                            Week 2 </h5>
+                                        <h5 class="edgt-section-title">
+                                            Ideation </h5>
+                                        <div class="edgt-section-content">
+                                            <div class="edgt-section-elements">
+                                                <div class="edgt-section-elements-summary">
+                                                    <i class="lnr lnr-book" aria-hidden="true"></i> <span
+                                                        class="edgt-summary-value">2 videos</span>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="987">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        The Interaction Design Specialization
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            20 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                    data-section-element-id="988">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-camera-video" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="edgt-element-label">
+                                                            Video: </span>
+                                                        Introducing Elizabeth Gerber
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                        <span class="edgt-element-extra-info-value">
+                                                            40 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            m </span>
+                                                    </div>
+                                                </div>
+                                                <div class="edgt-section-element edgt-section-quiz clearfix "
+                                                    data-section-element-id="879">
+                                                    <div class="edgt-element-title">
+                                                        <span class="edgt-element-icon">
+                                                            <i class="lnr lnr-license" aria-hidden="true"></i> </span>
+                                                        <span class="edgt-element-label">
+                                                            Graded: </span>
+                                                        Cumulative Quiz
+                                                    </div>
+                                                    <div class="edgt-element-info">
+                                                        <span class="edgt-element-extra-info-value">
+                                                            4 </span>
+                                                        <span class="edgt-element-extra-info-unit">
+                                                            Questions </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edgt-content">
+            <div class="edgt-content-inner">
+                <div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image"
+                    style="height: 175px;background-image:url(https://educator.qodeinteractive.com/wp-content/uploads/2017/07/breadcrumb-img-1.png);"
+                    data-height="175">
+                    <div class="edgt-title-image">
+                        <img itemprop="image" src="{% static 'images/breadcrumb-img-1.png" alt="a">
+                    </div>
+                    <div class="edgt-title-wrapper" style="height: 175px">
+                        <div class="edgt-title-inner">
+                            <div class="edgt-grid">
+                                <div class="edgt-title-inner-holder">
+                                    <div class="edgt-title-info">
+                                        <h3 class="edgt-page-title entry-title" > {{course.name}} </h3>
+                                    </div>
+                                    <div class="edgt-breadcrumbs-info">
+                                        <div itemprop="breadcrumb" class="edgt-breadcrumbs "> <a itemprop="url"
+                                                href="https://educator.qodeinteractive.com/">Home</a><span
+                                                class="edgt-delimiter">&nbsp; / &nbsp;</span><a
+                                                href="https://educator.qodeinteractive.com/course-category/it-software/">{{course.category}}
+                                                </a><span class="edgt-delimiter">&nbsp; /
+                                                &nbsp;</span><span class="edgt-current">{{course.name}}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="edgt-container">
+                    <div class="edgt-container-inner clearfix">
+                        <div class="edgt-course-single-holder">
+                            <div class="edgt-grid-row">
+                                <div class="edgt-page-content-holder edgt-grid-col-9 edgt-content-left">
+                                    <div class="edgt-course-single-outer">
+                                        <div class="edgt-course-single-wrapper">
+                                            <div class="edgt-course-title-wrapper">
+                                                <div class="edgt-course-left-section">
+                                                    <h2 class="edgt-course-single-title">
+                                                        {{course.name}}</h2>
+                                                </div>
+                                                <div class="edgt-course-right-section">
+                                                </div>
+                                            </div>
+                                            <div class="edgt-course-basic-info-wrapper">
+                                                <div class="edgt-grid-row">
+                                                    <div class="edgt-grid-col-6">
+                                                        <div class="edgt-grid-row">
+                                                            <div class="edgt-grid-col-6 edgt-course-info-wrapper">
+                                                                <div class="edgt-course-instructor">
+                                                                    <div class="edgt-instructor-image">
+                                                                        <img width="55" height="55"
+                                                                            src="{% static 'images/instructor-img-1-150x150.jpg' %}"
+                                                                            class="attachment-55x55 size-55x55 wp-post-image"
+                                                                            alt="a"
+                                                                            srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-768x768.jpg 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-600x600.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1-550x550.jpg 550w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-1.jpg 900w"
+                                                                            sizes="(max-width: 55px) 100vw, 55px">
+                                                                    </div>
+                                                                    <div class="edgt-instructor-info">
+                                                                        <span class="edgt-instructor-label">
+                                                                            Instructor: </span>
+                                                                        <a itemprop="url"
+                                                                            href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
+                                                                            target="_self">
+                                                                            <span class="edgt-instructor-name">
+                                                                                Amy Drufesne </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="edgt-grid-col-6 edgt-course-info-wrapper">
+                                                                <div class="edgt-course-categories">
+                                                                    <div class="edgt-course-categories-wrapper">
+                                                                        <div class="edgt-course-category-label">
+                                                                            Categories: </div>
+                                                                        <div class="edgt-course-category-items">
+                                                                            <a itemprop="url"
+                                                                                class="edgt-course-category"
+                                                                                href="https://educator.qodeinteractive.com/course-category/it-software/">It
+                                                                                &amp; Software</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="edgt-grid-col-6">
+                                                        <div class="edgt-course-price-detail ">
+                                                            <span class="edgt-course-single-type ">
+                                                                $65</span>
+                                                            <div class="edgt-course-action ">
+                                                                <form method="post" class="edgt-buy-item-form">
+                                                                    <input name="add-to-cart" type="hidden" value="804">
+                                                                    <input name="quantity" type="hidden" value="1">
+                                                                    <button type="submit"
+                                                                        class="edgt-btn edgt-btn-medium edgt-btn-solid">
+                                                                        <span class="edgt-btn-text">Buy Course</span>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="edgt-course-image-wrapper">
+                                                <div class="edgt-course-image">
+                                                    <img width="965" height="617"
+                                                        src="{% static 'images/course-img-1.jpg' %}"
+                                                        class="attachment-full size-full wp-post-image" alt="a"
+                                                        srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-1-768x491.jpg 768w"
+                                                        sizes="(max-width: 965px) 100vw, 965px">
+                                                </div>
+                                            </div>
+                                            <div class="edgt-course-tabs-wrapper">
+                                                <div
+                                                    class="edgt-tabs edgt-tabs-standard ui-tabs ui-widget ui-widget-content ui-corner-all">
+                                                    <ul class="edgt-tabs-nav clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all"
+                                                        role="tablist">
+                                                        <li class="description_tab ui-state-default ui-corner-top ui-tabs-active ui-state-active"
+                                                            role="tab" tabindex="0" aria-controls="tab-description"
+                                                            aria-labelledby="ui-id-9" aria-selected="true"
+                                                            aria-expanded="true">
+                                                            <a href="https://educator.qodeinteractive.com/course/development/#tab-description"
+                                                                class="ui-tabs-anchor" role="presentation" tabindex="-1"
+                                                                id="ui-id-9">
+                                                                <span class="edgt-tab-icon">
+                                                                    <i class="lnr lnr-license" aria-hidden="true"></i>
+                                                                </span>
+                                                                <span class="edgt-tab-title">
+                                                                    Overview </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="curriculum_tab ui-state-default ui-corner-top"
+                                                            role="tab" tabindex="-1" aria-controls="tab-curriculum"
+                                                            aria-labelledby="ui-id-10" aria-selected="false"
+                                                            aria-expanded="false">
+                                                            <a href="https://educator.qodeinteractive.com/course/development/#tab-curriculum"
+                                                                class="ui-tabs-anchor" role="presentation" tabindex="-1"
+                                                                id="ui-id-10">
+                                                                <span class="edgt-tab-icon">
+                                                                    <i class="lnr lnr-list" aria-hidden="true"></i>
+                                                                </span>
+                                                                <span class="edgt-tab-title">
+                                                                    Curriculum </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="reviews_tab ui-state-default ui-corner-top"
+                                                            role="tab" tabindex="-1" aria-controls="tab-reviews"
+                                                            aria-labelledby="ui-id-11" aria-selected="false"
+                                                            aria-expanded="false">
+                                                            <a href="https://educator.qodeinteractive.com/course/development/#tab-reviews"
+                                                                class="ui-tabs-anchor" role="presentation" tabindex="-1"
+                                                                id="ui-id-11">
+                                                                <span class="edgt-tab-icon">
+                                                                    <i class="lnr lnr-star" aria-hidden="true"></i>
+                                                                </span>
+                                                                <span class="edgt-tab-title">
+                                                                    Reviews </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="edgt-custom-tab-link ui-state-default ui-corner-top"
+                                                            role="tab" tabindex="-1" aria-controls="ui-id-13"
+                                                            aria-labelledby="ui-id-12" aria-selected="false"
+                                                            aria-expanded="false">
+                                                            <a class="edgt-external-link ui-tabs-anchor"
+                                                                href="https://educator.qodeinteractive.com/forums/forum/information-technology/"
+                                                                role="presentation" tabindex="-1" id="ui-id-12">
+                                                                <span class="edgt-tab-icon">
+                                                                    <i class="lnr lnr-bubble" aria-hidden="true"></i>
+                                                                </span>
+                                                                <span class="edgt-tab-title">
+                                                                    Forum </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="edgt-tab-container ui-tabs-panel ui-widget-content ui-corner-bottom edgt-visible"
+                                                        id="tab-description" aria-labelledby="ui-id-9" role="tabpanel"
+                                                        aria-hidden="false">
+                                                        <div class="edgt-course-content">
+                                                            <h3 class="edgt-course-content-title">About this course</h3>
+                                                            <div class="vc_row wpb_row vc_row-fluid">
+                                                                <div
+                                                                    class="wpb_column vc_column_container vc_col-sm-12">
+                                                                    <div class="vc_column-inner">
+                                                                        <div class="wpb_wrapper">
+                                                                            <div
+                                                                                class="wpb_text_column wpb_content_element ">
+                                                                                <div class="wpb_wrapper">
+                                                                                    <p>Lorem Ipsn gravida nibh vel velit
+                                                                                        auctor aliquet.Aenean
+                                                                                        sollicitudin, lorem quis
+                                                                                        bibendum auci elit consequat
+                                                                                        ipsutis sem nibh id elit. Duis
+                                                                                        sed odio sit amet nibh vulputate
+                                                                                        cursus a sit amet mauris. Morbi
+                                                                                        accumsan ipsum velit. Nam nec
+                                                                                        tellus a odio tincidunt auctor a
+                                                                                        ornare odio. Sed non mauris
+                                                                                        vitae erat consequat auctor eu
+                                                                                        in elit. Class aptent taciti
+                                                                                        sociosquad litora torquent per
+                                                                                        conubia nostra, per inceptos
+                                                                                        himenaeos. Mauris in erat justo.
+                                                                                        Nullam ac urna eu felis dapibus
+                                                                                        condimentum sit amet a augue.
+                                                                                    </p>
+                                                                                    <p>&nbsp;</p>
+                                                                                    <p>Sed non mauris vitae erat
+                                                                                        consequat auctor eu in elit.
+                                                                                        Class aptent taciti sociosqu ad
+                                                                                        litora torquent per conubia
+                                                                                        nostra, per inceptos himenaeos.
+                                                                                        Mauris in erat justo. Nullam ac
+                                                                                        urna eu felis dapibus
+                                                                                        condimentum sit amet a augue.
+                                                                                        Sed non neque elit. Sed ut
+                                                                                        imperdiet nisi. Proin
+                                                                                        condimentum fermentum nunc.</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="vc_empty_space"
+                                                                                style="height: 27px"><span
+                                                                                    class="vc_empty_space_inner"></span>
+                                                                            </div>
+                                                                            <div
+                                                                                class="edgt-social-share-holder edgt-list">
+                                                                                <p class="edgt-social-title">Share</p>
+                                                                                <ul>
+                                                                                    <li class="edgt-facebook-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="window.open(&#39;http://www.facebook.com/sharer.php?u=https%3A%2F%2Feducator.qodeinteractive.com%2Fcourse%2Fdevelopment%2F&#39;, &#39;sharer&#39;, &#39;toolbar=0,status=0,width=620,height=280&#39;);">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon social_facebook"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="edgt-twitter-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="window.open(&#39;http://twitter.com/home?status=Blandit+accumsan+ei+vis%2C+maiorum+epicurei+at+mei++nibh+viderer+ius+pri+te+fabulas+molestiae+necessitatibus.+Ea+https://educator.qodeinteractive.com/course/development/&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;);">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon social_twitter"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="edgt-google_plus-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="popUp=window.open(&#39;https://plus.google.com/share?url=https%3A%2F%2Feducator.qodeinteractive.com%2Fcourse%2Fdevelopment%2F&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;);popUp.focus();return false;">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon fa fa-google-plus"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="edgt-linkedin-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="popUp=window.open(&#39;http://linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Feducator.qodeinteractive.com%2Fcourse%2Fdevelopment%2F&amp;title=Development&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;);popUp.focus();return false;">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon social_linkedin"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="edgt-tumblr-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="popUp=window.open(&#39;http://www.tumblr.com/share/link?url=https%3A%2F%2Feducator.qodeinteractive.com%2Fcourse%2Fdevelopment%2F&amp;name=Development&amp;description=Blandit+accumsan+ei+vis%2C+maiorum+epicurei+at+mei++nibh+viderer+ius+pri+te+fabulas+molestiae+necessitatibus.+Ea+nonumes+molestie+facilisis+has.+Blandit+accumsan+ei+vis%2C+maiorum+epicurei+at+mei.&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;);popUp.focus();return false;">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon social_tumblr"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                    <li class="edgt-pinterest-share">
+                                                                                        <a itemprop="url"
+                                                                                            class="edgt-share-link"
+                                                                                            href="https://educator.qodeinteractive.com/course/development/#"
+                                                                                            onclick="popUp=window.open(&#39;http://pinterest.com/pin/create/button/?url=https%3A%2F%2Feducator.qodeinteractive.com%2Fcourse%2Fdevelopment%2F&amp;description=Development&amp;media=https%3A%2F%2Feducator.qodeinteractive.com%2Fwp-content%2Fuploads%2F2017%2F07%2Fcourse-img-1.jpg&#39;, &#39;popupwindow&#39;, &#39;scrollbars=yes,width=800,height=400&#39;);popUp.focus();return false;">
+                                                                                            <span
+                                                                                                class="edgt-social-network-icon social_pinterest"></span>
+                                                                                        </a>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="vc_empty_space"
+                                                                                style="height: 24px"><span
+                                                                                    class="vc_empty_space_inner"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div
+                                                                class="vc_row wpb_row vc_row-fluid vc_custom_1495700787120">
+                                                                <div
+                                                                    class="wpb_column vc_column_container vc_col-sm-12">
+                                                                    <div class="vc_column-inner">
+                                                                        <div class="wpb_wrapper">
+                                                                            <div
+                                                                                class="wpb_text_column wpb_content_element ">
+                                                                                <div class="wpb_wrapper">
+                                                                                    <h3>FAQs</h3>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="vc_empty_space"
+                                                                                style="height: 20px"><span
+                                                                                    class="vc_empty_space_inner"></span>
+                                                                            </div>
+                                                                            <div class="edgt-accordion-holder edgt-ac-default  edgt-accordion edgt-ac-boxed  clearfix ui-accordion ui-widget ui-helper-reset"
+                                                                                role="tablist">
+                                                                                <h6 class="edgt-accordion-title ui-accordion-header ui-state-default ui-accordion-header-active ui-state-active ui-corner-top"
+                                                                                    role="tab" id="ui-id-1"
+                                                                                    aria-controls="ui-id-2"
+                                                                                    aria-selected="true"
+                                                                                    aria-expanded="true" tabindex="0">
+                                                                                    <span class="edgt-accordion-mark">
+                                                                                        <span
+                                                                                            class="edgt_icon_plus arrow_carrot-right"></span>
+                                                                                        <span
+                                                                                            class="edgt_icon_minus arrow_carrot-down"></span>
+                                                                                    </span>
+                                                                                    <span class="edgt-tab-title">Can I
+                                                                                        just enroll in a single course?
+                                                                                        I'm not interested in the entire
+                                                                                        Specialization.</span>
+                                                                                </h6>
+                                                                                <div class="edgt-accordion-content ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active"
+                                                                                    id="ui-id-2"
+                                                                                    aria-labelledby="ui-id-1"
+                                                                                    role="tabpanel" aria-hidden="false"
+                                                                                    style="display: block;">
+                                                                                    <div
+                                                                                        class="edgt-accordion-content-inner">
+                                                                                        <div
+                                                                                            class="wpb_text_column wpb_content_element ">
+                                                                                            <div class="wpb_wrapper">
+                                                                                                <p>Lorem Ipsn gravida
+                                                                                                    nibh vel velit
+                                                                                                    auctor
+                                                                                                    aliquet.Aenean
+                                                                                                    sollicitudin, lorem
+                                                                                                    quis bibendum auci
+                                                                                                    elit consequat
+                                                                                                    ipsutis sem nibh id
+                                                                                                    elit. Duis sed odio
+                                                                                                    sit amet nibh
+                                                                                                    vulputate cursus a
+                                                                                                    sit amet mauris.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <h6 class="edgt-accordion-title ui-accordion-header ui-state-default ui-corner-all"
+                                                                                    role="tab" id="ui-id-3"
+                                                                                    aria-controls="ui-id-4"
+                                                                                    aria-selected="false"
+                                                                                    aria-expanded="false" tabindex="-1">
+                                                                                    <span class="edgt-accordion-mark">
+                                                                                        <span
+                                                                                            class="edgt_icon_plus arrow_carrot-right"></span>
+                                                                                        <span
+                                                                                            class="edgt_icon_minus arrow_carrot-down"></span>
+                                                                                    </span>
+                                                                                    <span class="edgt-tab-title">What is
+                                                                                        the refund policy?</span>
+                                                                                </h6>
+                                                                                <div class="edgt-accordion-content ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
+                                                                                    id="ui-id-4"
+                                                                                    aria-labelledby="ui-id-3"
+                                                                                    role="tabpanel" aria-hidden="true"
+                                                                                    style="display: none;">
+                                                                                    <div
+                                                                                        class="edgt-accordion-content-inner">
+                                                                                        <div
+                                                                                            class="wpb_text_column wpb_content_element ">
+                                                                                            <div class="wpb_wrapper">
+                                                                                                <p>Pri ferri lorem ea,
+                                                                                                    ei feugiat
+                                                                                                    democritum mei. Vide
+                                                                                                    veri nec cu. Duis
+                                                                                                    sed odio sit amet
+                                                                                                    nibh vulputate
+                                                                                                    cursus a sit amet
+                                                                                                    mauris.&nbsp;Lorem
+                                                                                                    Ipsn gravida nibh
+                                                                                                    vel velit auctor
+                                                                                                    aliquet.Aenean
+                                                                                                    sollicitudin, lorem
+                                                                                                    quis bibendum auci
+                                                                                                    elit consequat
+                                                                                                    ipsutis sem nibh id
+                                                                                                    elit.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <h6 class="edgt-accordion-title ui-accordion-header ui-state-default ui-corner-all"
+                                                                                    role="tab" id="ui-id-5"
+                                                                                    aria-controls="ui-id-6"
+                                                                                    aria-selected="false"
+                                                                                    aria-expanded="false" tabindex="-1">
+                                                                                    <span class="edgt-accordion-mark">
+                                                                                        <span
+                                                                                            class="edgt_icon_plus arrow_carrot-right"></span>
+                                                                                        <span
+                                                                                            class="edgt_icon_minus arrow_carrot-down"></span>
+                                                                                    </span>
+                                                                                    <span class="edgt-tab-title">What
+                                                                                        background knowledge is
+                                                                                        necessary?</span>
+                                                                                </h6>
+                                                                                <div class="edgt-accordion-content ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
+                                                                                    id="ui-id-6"
+                                                                                    aria-labelledby="ui-id-5"
+                                                                                    role="tabpanel" aria-hidden="true"
+                                                                                    style="display: none;">
+                                                                                    <div
+                                                                                        class="edgt-accordion-content-inner">
+                                                                                        <div
+                                                                                            class="wpb_text_column wpb_content_element ">
+                                                                                            <div class="wpb_wrapper">
+                                                                                                <p>Lorem Ipsn gravida
+                                                                                                    nibh vel velit
+                                                                                                    auctor
+                                                                                                    aliquet.Aenean
+                                                                                                    sollicitudin, lorem
+                                                                                                    quis bibendum auci
+                                                                                                    elit consequat
+                                                                                                    ipsutis sem nibh id
+                                                                                                    elit. Duis sed odio
+                                                                                                    sit amet nibh
+                                                                                                    vulputate cursus a
+                                                                                                    sit amet mauris.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <h6 class="edgt-accordion-title ui-accordion-header ui-state-default ui-corner-all"
+                                                                                    role="tab" id="ui-id-7"
+                                                                                    aria-controls="ui-id-8"
+                                                                                    aria-selected="false"
+                                                                                    aria-expanded="false" tabindex="-1">
+                                                                                    <span class="edgt-accordion-mark">
+                                                                                        <span
+                                                                                            class="edgt_icon_plus arrow_carrot-right"></span>
+                                                                                        <span
+                                                                                            class="edgt_icon_minus arrow_carrot-down"></span>
+                                                                                    </span>
+                                                                                    <span class="edgt-tab-title">Do I
+                                                                                        need to take the courses in a
+                                                                                        specific order?</span>
+                                                                                </h6>
+                                                                                <div class="edgt-accordion-content ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom"
+                                                                                    id="ui-id-8"
+                                                                                    aria-labelledby="ui-id-7"
+                                                                                    role="tabpanel" aria-hidden="true"
+                                                                                    style="display: none;">
+                                                                                    <div
+                                                                                        class="edgt-accordion-content-inner">
+                                                                                        <div
+                                                                                            class="wpb_text_column wpb_content_element ">
+                                                                                            <div class="wpb_wrapper">
+                                                                                                <p>Pri ferri lorem ea,
+                                                                                                    ei feugiat
+                                                                                                    democritum mei. Vide
+                                                                                                    veri nec cu. Duis
+                                                                                                    sed odio sit amet
+                                                                                                    nibh vulputate
+                                                                                                    cursus a sit amet
+                                                                                                    mauris.&nbsp;Lorem
+                                                                                                    Ipsn gravida nibh
+                                                                                                    vel velit auctor
+                                                                                                    aliquet.Aenean
+                                                                                                    sollicitudin, lorem
+                                                                                                    quis bibendum auci
+                                                                                                    elit consequat
+                                                                                                    ipsutis sem nibh id
+                                                                                                    elit.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="edgt-tab-container ui-tabs-panel ui-widget-content ui-corner-bottom"
+                                                        id="tab-curriculum" aria-labelledby="ui-id-10" role="tabpanel"
+                                                        aria-hidden="true" style="display: none;">
+                                                        <div class="edgt-course-curriculum">
+                                                            <div class="edgt-curriculum-description">
+                                                                <h3 class="edgt-curriculum-title">Course Curriculum</h3>
+                                                                <p>This course is a collection of short Photoshop and
+                                                                    Illustrator projects and creative effects that can
+                                                                    be completed in ten minutes or less. The series is
+                                                                    taught by computer graphics guru Deke McClelland,
+                                                                    and presented in his signature step-by-step style.
+                                                                </p>
+                                                            </div>
+                                                            <div class="edgt-course-curriculum-list">
+                                                                <div class="edgt-curriculum-section">
+                                                                    <h5 class="edgt-section-name">
+                                                                        Week 1 </h5>
+                                                                    <div class="edgt-section-content">
+                                                                        <h5 class="edgt-section-title">
+                                                                            Design Research </h5>
+                                                                        <p class="edgt-section-description">
+                                                                            Our course begins with the first step for
+                                                                            generating great user experiences:
+                                                                            understanding what people do, think, say,
+                                                                            and feel. In this module, you’ll learn how
+                                                                            to keep an open mind while learning. </p>
+                                                                        <div class="edgt-section-elements">
+                                                                            <div class="edgt-section-elements-summary">
+                                                                                <i class="lnr lnr-book"
+                                                                                    aria-hidden="true"></i> <span
+                                                                                    class="edgt-summary-value">4 videos,
+                                                                                    1 reading</span>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="987">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    The Interaction Design
+                                                                                    Specialization
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        20 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="988">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    Introducing Elizabeth Gerber
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        40 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="994">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    Who, What, Where, When and How
+                                                                                    People Work
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        35 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="998">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    Michael Chapman of IDEO on
+                                                                                    Interviewing
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        20 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="932">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-file-empty"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Reading: </span>
+                                                                                    Slides
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        30 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-quiz clearfix "
+                                                                                data-section-element-id="878">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-license"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Graded: </span>
+                                                                                    Final Quiz: Design Research
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        5 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        Questions </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="edgt-curriculum-section">
+                                                                    <h5 class="edgt-section-name">
+                                                                        Week 2 </h5>
+                                                                    <div class="edgt-section-content">
+                                                                        <h5 class="edgt-section-title">
+                                                                            Ideation </h5>
+                                                                        <p class="edgt-section-description">
+                                                                            Our course begins with the first step for
+                                                                            generating great user experiences:
+                                                                            understanding what people do, think, say,
+                                                                            and feel. In this module, you’ll learn how
+                                                                            to keep an open mind while learning. </p>
+                                                                        <div class="edgt-section-elements">
+                                                                            <div class="edgt-section-elements-summary">
+                                                                                <i class="lnr lnr-book"
+                                                                                    aria-hidden="true"></i> <span
+                                                                                    class="edgt-summary-value">2
+                                                                                    videos</span>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="987">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    The Interaction Design
+                                                                                    Specialization
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        20 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-lesson clearfix "
+                                                                                data-section-element-id="988">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-camera-video"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Video: </span>
+                                                                                    Introducing Elizabeth Gerber
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-clock-icon lnr lnr-clock"></span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        40 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        m </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="edgt-section-element edgt-section-quiz clearfix "
+                                                                                data-section-element-id="879">
+                                                                                <div class="edgt-element-title">
+                                                                                    <span class="edgt-element-icon">
+                                                                                        <i class="lnr lnr-license"
+                                                                                            aria-hidden="true"></i>
+                                                                                    </span>
+                                                                                    <span class="edgt-element-label">
+                                                                                        Graded: </span>
+                                                                                    Cumulative Quiz
+                                                                                </div>
+                                                                                <div class="edgt-element-info">
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-value">
+                                                                                        4 </span>
+                                                                                    <span
+                                                                                        class="edgt-element-extra-info-unit">
+                                                                                        Questions </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="edgt-tab-container ui-tabs-panel ui-widget-content ui-corner-bottom"
+                                                        id="tab-reviews" aria-labelledby="ui-id-11" role="tabpanel"
+                                                        aria-hidden="true" style="display: none;">
+                                                        <div class="edgt-course-reviews-main-title">
+                                                            <h3>Reviews</h3>
+                                                        </div>
+                                                        <div class="edgt-course-reviews-list-top">
+                                                            <div class="edgt-course-reviews-number-wrapper">
+                                                                <div class="edgt-course-reviews-number">5</div>
+                                                                <div class="edgt-course-stars-wrapper">
+                                                                    <span class="edgt-course-stars">
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                                    </span>
+                                                                    <span class="edgt-course-reviews-count">3
+                                                                        Ratings</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="edgt-course-rating-separator"></div>
+                                                            <div class="edgt-course-rating-percente-wrapper">
+                                                                <div class="edgt-progress-bar rating ">
+                                                                    <p class="edgt-pb-title-holder">
+                                                                        <span class="edgt-pb-title">5 Stars</span>
+                                                                    </p>
+                                                                    <div class="edgt-pb-content-holder">
+                                                                        <div data-percentage="67"
+                                                                            class="edgt-pb-content"></div>
+                                                                    </div>
+                                                                    <span class="edgt-pb-number-of-ratings">2</span>
+                                                                </div>
+                                                                <div class="edgt-progress-bar rating ">
+                                                                    <p class="edgt-pb-title-holder">
+                                                                        <span class="edgt-pb-title">4 Stars</span>
+                                                                    </p>
+                                                                    <div class="edgt-pb-content-holder">
+                                                                        <div data-percentage="33"
+                                                                            class="edgt-pb-content"></div>
+                                                                    </div>
+                                                                    <span class="edgt-pb-number-of-ratings">1</span>
+                                                                </div>
+                                                                <div class="edgt-progress-bar rating ">
+                                                                    <p class="edgt-pb-title-holder">
+                                                                        <span class="edgt-pb-title">3 Stars</span>
+                                                                    </p>
+                                                                    <div class="edgt-pb-content-holder">
+                                                                        <div data-percentage="0"
+                                                                            class="edgt-pb-content"></div>
+                                                                    </div>
+                                                                    <span class="edgt-pb-number-of-ratings">0</span>
+                                                                </div>
+                                                                <div class="edgt-progress-bar rating ">
+                                                                    <p class="edgt-pb-title-holder">
+                                                                        <span class="edgt-pb-title">2 Stars</span>
+                                                                    </p>
+                                                                    <div class="edgt-pb-content-holder">
+                                                                        <div data-percentage="0"
+                                                                            class="edgt-pb-content"></div>
+                                                                    </div>
+                                                                    <span class="edgt-pb-number-of-ratings">0</span>
+                                                                </div>
+                                                                <div class="edgt-progress-bar rating ">
+                                                                    <p class="edgt-pb-title-holder">
+                                                                        <span class="edgt-pb-title">1 Stars</span>
+                                                                    </p>
+                                                                    <div class="edgt-pb-content-holder">
+                                                                        <div data-percentage="0"
+                                                                            class="edgt-pb-content"></div>
+                                                                    </div>
+                                                                    <span class="edgt-pb-number-of-ratings">0</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="edgt-course-reviews-list">
+                                                            <div class="edgt-comment-holder clearfix" id="comments">
+                                                                <div class="edgt-comment-holder-inner">
+                                                                    <div class="edgt-comments-title">
+                                                                        <h4>Comments</h4>
+                                                                    </div>
+                                                                    <div class="edgt-comments">
+                                                                        <ul class="edgt-comment-list">
+                                                                            <li>
+                                                                                <div class="edgt-comment clearfix">
+                                                                                    <div class="edgt-comment-image">
+                                                                                        <img alt=""
+                                                                                            src="{% static 'images/0245b5dae5cdfe6a7bf50c9abbe71c31.png"
+                                                                                            class="avatar avatar-96 photo"
+                                                                                            height="96" width="96">
+                                                                                    </div>
+                                                                                    <div class="edgt-comment-text">
+                                                                                        <div class="edgt-comment-info">
+                                                                                            <h5
+                                                                                                class="edgt-comment-name vcard">
+                                                                                                Craig Murphy </h5>
+                                                                                            <span
+                                                                                                class="edgt-comment-date">
+                                                                                                August 3, 2017 </span>
+                                                                                            <div
+                                                                                                class="edgt-review-rating">
+                                                                                                <span
+                                                                                                    class="edgt-rating-inner">
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="edgt-text-holder"
+                                                                                            id="comment-37">
+                                                                                            <p>Legere dissentias eum eu,
+                                                                                                dolores accumsan
+                                                                                                deterruisset te sit, id
+                                                                                                ius agam congue. Ius cu
+                                                                                                virtute inermis
+                                                                                                delicata, ei fugit
+                                                                                                fierent vix. Id has
+                                                                                                debet argumentum. Cum ne
+                                                                                                nobis denique. Ad pro
+                                                                                                dolor assentior
+                                                                                                referrentur, populo
+                                                                                                cotidieque mea id.</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="edgt-comment clearfix">
+                                                                                    <div class="edgt-comment-image">
+                                                                                        <img alt=""
+                                                                                            src="{% static 'images/3876e4c56655b9771c75b9347ed52b57.png"
+                                                                                            class="avatar avatar-96 photo"
+                                                                                            height="96" width="96">
+                                                                                    </div>
+                                                                                    <div class="edgt-comment-text">
+                                                                                        <div class="edgt-comment-info">
+                                                                                            <h5
+                                                                                                class="edgt-comment-name vcard">
+                                                                                                Chelsea Gallagher </h5>
+                                                                                            <span
+                                                                                                class="edgt-comment-date">
+                                                                                                August 7, 2017 </span>
+                                                                                            <div
+                                                                                                class="edgt-review-rating">
+                                                                                                <span
+                                                                                                    class="edgt-rating-inner">
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="edgt-text-holder"
+                                                                                            id="comment-76">
+                                                                                            <p>Lorem ipsum dolor sit
+                                                                                                amet, consectetur
+                                                                                                adipiscing elit. Sed nec
+                                                                                                congue lacus.</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                            <li>
+                                                                                <div class="edgt-comment clearfix">
+                                                                                    <div class="edgt-comment-image">
+                                                                                        <img alt=""
+                                                                                            src="{% static 'images/c4d9dda29ba4dde4c51b19fd0da4862a.png"
+                                                                                            class="avatar avatar-96 photo"
+                                                                                            height="96" width="96">
+                                                                                    </div>
+                                                                                    <div class="edgt-comment-text">
+                                                                                        <div class="edgt-comment-info">
+                                                                                            <h5
+                                                                                                class="edgt-comment-name vcard">
+                                                                                                Mark Garcia </h5>
+                                                                                            <span
+                                                                                                class="edgt-comment-date">
+                                                                                                August 7, 2017 </span>
+                                                                                            <div
+                                                                                                class="edgt-review-rating">
+                                                                                                <span
+                                                                                                    class="edgt-rating-inner">
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                    <i class="fa fa-star"
+                                                                                                        aria-hidden="true"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="edgt-text-holder"
+                                                                                            id="comment-79">
+                                                                                            <p>Duis ullamcorper sagittis
+                                                                                                felis vel efficitur.
+                                                                                                Suspendisse potenti.
+                                                                                                Morbi eu imperdiet sem,
+                                                                                                in ornare augue. Nunc ut
+                                                                                                iaculis mauris.
+                                                                                                Curabitur quis felis
+                                                                                                est. Proin metus nunc,
+                                                                                                pulvinar eget lacus</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="ui-id-13"
+                                                        class="ui-tabs-panel ui-widget-content ui-corner-bottom"
+                                                        aria-live="polite" aria-labelledby="ui-id-12" role="tabpanel"
+                                                        aria-hidden="true" style="display: none;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="edgt-sidebar-holder edgt-grid-col-3 edgt-sidebar-right">
+                                    <aside class="edgt-sidebar">
+                                        <div class="widget edgt-course-features-widget">
+                                            <div class="edgt-widget-title-holder">
+                                                <h4 class="edgt-widget-title">Course Features</h4>
+                                            </div>
+                                            <div class="edgt-course-features-holder">
+                                                <ul class="edgt-course-features">
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><i
+                                                                class="lnr lnr-clock"
+                                                                aria-hidden="true"></i></span><span
+                                                            class="edgt-item-label">Duration</span><span
+                                                            class="edgt-item-value">2 hours</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><i
+                                                                class="lnr lnr-alarm"
+                                                                aria-hidden="true"></i></span><span
+                                                            class="edgt-item-label">Lectures</span><span
+                                                            class="edgt-item-value">7</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><i
+                                                                class="lnr lnr-dice" aria-hidden="true"></i></span><span
+                                                            class="edgt-item-label">Quizzes</span><span
+                                                            class="edgt-item-value">2</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><i
+                                                                class="lnr lnr-users"
+                                                                aria-hidden="true"></i></span><span
+                                                            class="edgt-item-label">Kids</span><span
+                                                            class="edgt-item-value">12</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><i
+                                                                class="lnr lnr-graduation-hat"
+                                                                aria-hidden="true"></i></span><span
+                                                            class="edgt-item-label">Pass Percentage</span><span
+                                                            class="edgt-item-value">60</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><span
+                                                                class="lnr lnr-spell-check"></span></span><span
+                                                            class="edgt-item-label">Max Retakes</span><span
+                                                            class="edgt-item-value">2</span></li>
+                                                    <li class="edgt-feature-item"><span class="edgt-item-icon"><span
+                                                                class="lnr lnr-star"></span></span><span
+                                                            class="edgt-item-label">Rating</span><span
+                                                            class="edgt-item-value">5 (3 reviews)</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="widget edgt-course-list-widget">
+                                            <div class="edgt-widget-title-holder">
+                                                <h4 class="edgt-widget-title">Related Courses</h4>
+                                            </div>
+                                            <div class="edgt-course-list-holder edgt-cl-gallery edgt-normal-space edgt-cl-one-column edgt-cl-minimal edgt-cl-pag-no-pagination     "
+                                                data-number-of-columns="1" data-space-between-items="normal"
+                                                data-number-of-items="3" data-enable-image="yes"
+                                                data-image-proportions="medium" data-category="sports"
+                                                data-order-by="date" data-order="DESC" data-item-layout="minimal"
+                                                data-enable-title="yes" data-title-tag="h6" data-enable-instructor="no"
+                                                data-enable-price="yes" data-enable-excerpt="yes"
+                                                data-excerpt-length="60" data-enable-students="yes"
+                                                data-enable-category="no" data-enable-duration="yes"
+                                                data-pagination-type="no-pagination" data-filter="no"
+                                                data-enable-article-animation="no" data-course-slider-on="no"
+                                                data-enable-loop="yes" data-enable-autoplay="yes"
+                                                data-slider-speed="5000" data-slider-speed-animation="600"
+                                                data-enable-navigation="yes" data-enable-pagination="yes"
+                                                data-widget="yes" data-max-num-pages="2" data-next-page="2">
+                                                <div class="edgt-cl-inner  clearfix">
+                                                    <article
+                                                        class="edgt-cl-item post-1504 course type-course status-publish has-post-thumbnail hentry course-category-sports course-tag-professional"
+                                                        data-name="fun-yoga-for-toddlers" data-date="1500940800">
+                                                        <div class="edgt-cl-item-inner">
+                                                            <div class="edgt-cli-image">
+                                                                <img width="300" height="192"
+                                                                    src="{% static 'images/course-img-16-300x192.jpg' %}"
+                                                                    class="attachment-medium size-medium wp-post-image"
+                                                                    alt="a"
+                                                                    srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-16-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-16-768x491.jpg 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-16.jpg 965w"
+                                                                    sizes="(max-width: 300px) 100vw, 300px">
+                                                            </div>
+                                                            <div class="edgt-cli-text-holder">
+                                                                <div class="edgt-cli-text-wrapper">
+                                                                    <div class="edgt-cli-text">
+                                                                        <h6 itemprop="name"
+                                                                            class="edgt-cli-title entry-title">
+                                                                            <a itemprop="url"
+                                                                                href="https://educator.qodeinteractive.com/course/fun-yoga-for-toddlers/"
+                                                                                target="_self">
+                                                                                Fun Yoga for Toddlers </a>
+                                                                        </h6>
+                                                                        <div class="edgt-ci-price-holder clearfix">
+                                                                            <span class="edgt-ci-price-value">
+                                                                                $190 </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article
+                                                        class="edgt-cl-item post-1505 course type-course status-publish has-post-thumbnail hentry course-category-sports course-tag-creative"
+                                                        data-name="after-school-sport" data-date="1500940800">
+                                                        <div class="edgt-cl-item-inner">
+                                                            <div class="edgt-cli-image">
+                                                                <img width="300" height="192"
+                                                                    src="{% static 'images/course-img-17-300x192.jpg' %}"
+                                                                    class="attachment-medium size-medium wp-post-image"
+                                                                    alt="a"
+                                                                    srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-17-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-17-768x491.jpg 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-17.jpg 965w"
+                                                                    sizes="(max-width: 300px) 100vw, 300px">
+                                                            </div>
+                                                            <div class="edgt-cli-text-holder">
+                                                                <div class="edgt-cli-text-wrapper">
+                                                                    <div class="edgt-cli-text">
+                                                                        <h6 itemprop="name"
+                                                                            class="edgt-cli-title entry-title">
+                                                                            <a itemprop="url"
+                                                                                href="https://educator.qodeinteractive.com/course/after-school-sport/"
+                                                                                target="_self">
+                                                                                After School Sport </a>
+                                                                        </h6>
+                                                                        <div class="edgt-ci-price-holder clearfix">
+                                                                            <span class="edgt-ci-price-value">
+                                                                                $220 </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article
+                                                        class="edgt-cl-item post-1503 course type-course status-publish has-post-thumbnail hentry course-category-sports course-tag-organized"
+                                                        data-name="little-champions" data-date="1500940800">
+                                                        <div class="edgt-cl-item-inner">
+                                                            <div class="edgt-cli-image">
+                                                                <img width="300" height="192"
+                                                                    src="{% static 'images/course-img-18-300x192.jpg' %}"
+                                                                    class="attachment-medium size-medium wp-post-image"
+                                                                    alt="a"
+                                                                    srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-18-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-18-768x491.jpg 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-18.jpg 965w"
+                                                                    sizes="(max-width: 300px) 100vw, 300px">
+                                                            </div>
+                                                            <div class="edgt-cli-text-holder">
+                                                                <div class="edgt-cli-text-wrapper">
+                                                                    <div class="edgt-cli-text">
+                                                                        <h6 itemprop="name"
+                                                                            class="edgt-cli-title entry-title">
+                                                                            <a itemprop="url"
+                                                                                href="https://educator.qodeinteractive.com/course/little-champions/"
+                                                                                target="_self">
+                                                                                Little Champions </a>
+                                                                        </h6>
+                                                                        <div class="edgt-ci-price-holder clearfix">
+                                                                            <span class="edgt-ci-price-value">
+                                                                                $220 </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="widget edgt-course-categories-widget">
+                                            <div class="edgt-widget-title-holder">
+                                                <h4 class="edgt-widget-title">Categories</h4>
+                                            </div>
+                                            <ul class="edgt-course-categories-list">
+                                                <li>
+                                                    <h6 class="edgt-course-categories-list-title"><a
+                                                            href="https://educator.qodeinteractive.com/course-category/art-design/"
+                                                            target="_self" itemprop="url">Art &amp; Design</a></h6>
+                                                </li>
+                                                <li>
+                                                    <h6 class="edgt-course-categories-list-title"><a
+                                                            href="https://educator.qodeinteractive.com/course-category/business/"
+                                                            target="_self" itemprop="url">Business</a></h6>
+                                                </li>
+                                                <li>
+                                                    <h6 class="edgt-course-categories-list-title"><a
+                                                            href="https://educator.qodeinteractive.com/course-category/it-software/"
+                                                            target="_self" itemprop="url">It &amp; Software</a></h6>
+                                                </li>
+                                                <li>
+                                                    <h6 class="edgt-course-categories-list-title"><a
+                                                            href="https://educator.qodeinteractive.com/course-category/languages/"
+                                                            target="_self" itemprop="url">Languages</a></h6>
+                                                </li>
+                                                <li>
+                                                    <h6 class="edgt-course-categories-list-title"><a
+                                                            href="https://educator.qodeinteractive.com/course-category/sports/"
+                                                            target="_self" itemprop="url">Sports</a></h6>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </aside>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock main %}

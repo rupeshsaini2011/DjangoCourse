@@ -469,57 +469,7 @@
 															document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
 														}
 													</script>
-													<script type="text/javascript">
-														setREVStartSize({
-															c: jQuery('#rev_slider_9_2'),
-															responsiveLevels: [1920, 1720, 778, 480],
-															gridwidth: [1300, 1100, 600, 300],
-															gridheight: [465, 427, 720, 580],
-															sliderLayout: 'fullwidth'
-														});
-
-														var revapi9,
-															tpj = jQuery;
-
-														tpj(document).ready(function () {
-															if (tpj("#rev_slider_9_2").revolution == undefined) {
-																revslider_showDoubleJqueryError("#rev_slider_9_2");
-															} else {
-																revapi9 = tpj("#rev_slider_9_2").show().revolution({
-																	sliderType: "hero",
-																	jsFileLocation: "//educator.qodeinteractive.com/wp-content/plugins/revslider/public/assets/js/",
-																	sliderLayout: "fullwidth",
-																	dottedOverlay: "none",
-																	delay: 9000,
-																	viewPort: {
-																		enable: true,
-																		outof: "wait",
-																		visible_area: "80%",
-																		presize: false
-																	},
-																	responsiveLevels: [1920, 1720, 778, 480],
-																	visibilityLevels: [1920, 1720, 778, 480],
-																	gridwidth: [1300, 1100, 600, 300],
-																	gridheight: [465, 427, 720, 580],
-																	lazyType: "none",
-																	shadow: 0,
-																	spinner: "off",
-																	autoHeight: "off",
-																	disableProgressBar: "on",
-																	hideThumbsOnMobile: "off",
-																	hideSliderAtLimit: 0,
-																	hideCaptionAtLimit: 0,
-																	hideAllCaptionAtLilmit: 0,
-																	debugMode: false,
-																	fallbacks: {
-																		simplifyAll: "off",
-																		disableFocusListener: false,
-																	}
-																});
-															}
-
-														}); /*ready*/
-													</script>
+												
 												</div>
 												<div class="tp-fullwidth-forcer" style="width: 100%; height: 427px;">
 												</div>
@@ -618,14 +568,12 @@
 																					href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
 																					target="_self">
 																					<span class="edgt-instructor-name">
-																						Amy Drufesne </span>
+																						{{course.main_teacher}} </span>
 																				</a>
 																			</div>
 																			<p itemprop="description"
 																				class="edgt-cli-excerpt">
-																				Blandit accumsan ei vis,
-																				maiorum epicurei at mei nibh
-																				viderer ius pri</p>
+																				{{course.institution}} </p>
 																			<div class="edgt-cli-bottom-info">
 																				<div
 																					class="edgt-students-number-holder">
@@ -646,76 +594,6 @@
 																</div> <a itemprop="url"
 																	class="edgt-cli-link edgt-block-drag-link"
 																	href="https://educator.qodeinteractive.com/course/photography/"
-																	target="_self"></a>
-															</div>
-														</article>
-														<article
-															class="edgt-cl-item post-1114 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-professional"
-															data-name="statistics" data-date="1500595200">
-															<div class="edgt-cl-item-inner">
-																<div class="edgt-cli-image-wrapper">
-																	<div class="edgt-cli-image">
-																		<img width="965" height="617"
-																			src="{% static 'images/course-img-3.jpg' %}"
-																			class="attachment-large size-large wp-post-image"
-																			alt="a"
-																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3.jpg 965w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-300x192.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-3-768x491.jpg 768w"
-																			sizes="(max-width: 965px) 100vw, 965px">
-																	</div><a href="javascript:void(0)"
-																		class="edgt-course-wishlist edgt-icon-only"
-																		data-course-id="1114">
-																		<i class="fa fa-heart-o" aria-hidden="true"></i>
-																	</a>
-																</div>
-																<div class="edgt-cli-text-holder">
-																	<div class="edgt-cli-text-wrapper">
-																		<div class="edgt-cli-text">
-																			<div class="edgt-cli-top-info">
-																				<h4 itemprop="name"
-																					class="edgt-cli-title entry-title">
-																					<a itemprop="url"
-																						href="https://educator.qodeinteractive.com/course/statistics/"
-																						target="_self">
-																						Statistics </a>
-																				</h4>
-																				<div
-																					class="edgt-ci-price-holder clearfix">
-																					<span class="edgt-ci-price-value">
-																						$190 </span>
-																				</div>
-																				<a itemprop="url"
-																					href="https://educator.qodeinteractive.com/instructor/martina-moore/"
-																					target="_self">
-																					<span class="edgt-instructor-name">
-																						Martina Moore
-																					</span>
-																				</a>
-																			</div>
-																			<p itemprop="description"
-																				class="edgt-cli-excerpt">
-																				Blandit accumsan ei vis,
-																				maiorum epicurei at mei nibh
-																				viderer ius pri</p>
-																			<div class="edgt-cli-bottom-info">
-																				<div
-																					class="edgt-students-number-holder">
-																					<span aria-hidden="true"
-																						class="lnr lnr-users edgt-student-icon"></span>
-																					<span>
-																						1 </span>
-																				</div>
-																				<div class="edgt-cli-duration-holder">
-																					<span
-																						class="edgt-duration-icon icon_clock_alt"></span>
-																					<span class="edgt-duration-period">2
-																						hours</span>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div> <a itemprop="url"
-																	class="edgt-cli-link edgt-block-drag-link"
-																	href="https://educator.qodeinteractive.com/course/statistics/"
 																	target="_self"></a>
 															</div>
 														</article>
@@ -934,8 +812,8 @@
 																		<h5 itemprop="name"
 																			class="edgt-instructor-name entry-title">
 																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/instructor/preston-marshall/">{{
-																				teacher.user }}
+																				href="https://educator.qodeinteractive.com/instructor/preston-marshall/">
+																				{{teacher.user }}
 																			</a>
 																		</h5>
 																		<span
