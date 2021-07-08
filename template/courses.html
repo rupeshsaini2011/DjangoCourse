@@ -208,7 +208,7 @@ Click the help icon above to learn more.
 																		</h4>
 																		<div class="edgt-ci-price-holder clearfix">
 																			<span class="edgt-ci-price-value">
-																				{{course.price}} </span>
+																				{{course.currency}} {{course.price}} </span>
 																		</div>
 																		<a itemprop="url"
 																			href=""
@@ -224,13 +224,13 @@ Click the help icon above to learn more.
 																			<span aria-hidden="true"
 																				class="lnr lnr-users edgt-student-icon"></span>
 																			<span>
-																				1 </span>
+																				{{course.lectures}} </span>
 																		</div>
 																		<div class="edgt-cli-duration-holder">
 																			<span
 																				class="edgt-duration-icon icon_clock_alt"></span>
-																			<span class="edgt-duration-period">2
-																				hours</span>
+																			<span class="edgt-duration-period"> {{course.duration}}
+																				</span>
 																		</div>
 																	</div>
 																</div>

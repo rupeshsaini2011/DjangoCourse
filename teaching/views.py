@@ -1,4 +1,4 @@
-from django.shortcuts import  *
+from django.shortcuts import  HttpResponseRedirect, render
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView, View, DetailView
 from .models import *
@@ -44,7 +44,7 @@ class IndexTemplateView2(TemplateView):
 
 
 class CourseTemplateView(ListView):
-	template_name = 'courses.html'
+	template_name = 'courses.html' 
 	model = Course
 	context_object_name = "courses"
 
@@ -57,6 +57,21 @@ class CourseTemplateView(ListView):
 
 		
 		return context
+
+
+class Category_CourseView(DetailView):
+	template_name = 'category_course.html' 
+	model = Course
+	context_object_name = "course"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+
+	   
+		context['categories'] = Category.objects.all()
+		
+		return context
+
 
 class CourseDetailView(DetailView):
 	template_name = 'coursedetail.html'
@@ -101,32 +116,37 @@ class SubjectListView(ListView):
 	model = Subject
 	template_name = 'subject_list.html'
 
-reg_type = ('I','T','S')
-
+    	
 def registeration(data, reg_type):
 	username = data['username']
-	phone_number=data['phone_number']
+	phone_number = data['phone_number']
 	email = data['email']
 	password = data['password']
-	first_name =data['first_name']
+	first_name = data['first_name']
 	last_name = data['last_name']
 	with transaction.atomic():
 		user = User.objects.create_user(username=username,password=password, email=email, first_name=first_name, last_name=last_name)
 		if reg_type=='I':
-				name =data['name']
-				address = data['address']
-				Institute.objects.create(user=user, contact=phone_number, address=address,name=name)
+			name =data['name']
+			address = data['address']
+			Institute.objects.create(user=user, contact=phone_number, address=address,name=name)
 		elif reg_type=='T':
-				institue= data['institue']
-				Teacher.objects.create(user=user, contact=phone_number,institue=institue)
+			Teacher.objects.create(user=user, contact=phone_number)
 		elif reg_type=='S':
-				Course = data['course']
-				Student.objects.create(user=user, contact=phone_number,course=course)
+			Student.objects.create(user=user, contact=phone_number)
 		
 					
 
-
+class RegistrationView(TemplateView):
+	template_name = 'registration.html'
+	
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		return context
+	
 # ---------------------------------registration for institutions---------------------------------------  
+
+
 class InstituteRegisterView(FormView):
 	form_class=InstituteRegistrationForm
 	template_name='signup_institute.html'
@@ -138,9 +158,6 @@ class InstituteRegisterView(FormView):
 
 	
 # ----------------------------------registration for Teacher------------------------------------------    
-# in template use hidden field reg_type
-#('T', 'S', 'I')
-#<input type="hidden" value='T">
 
 class TeacherRegistration(FormView):
 	form_class=TeacherRegistrationForm
@@ -181,7 +198,7 @@ class LoginFormView(FormView):
 			if user.is_active:
 				login(self.request, user)  
 				messages.error(self.request, "success", extra_tags='alert alert-success')
-				return HttpResponseRedirect(reverse('index'))
+				return HttpResponseRedirect('index')
 			else:
 				# If account is not active:
 				messages.error(self.request, 'pls check username and password!',extra_tags='alert alert-danger')
@@ -193,5 +210,5 @@ class LoginFormView(FormView):
 class LogoutView(View):
 	def get(self, request):
 		logout(request)
-		return HttpResponseRedirect(reverse('index'))
+		return HttpResponseRedirect('index')
 		

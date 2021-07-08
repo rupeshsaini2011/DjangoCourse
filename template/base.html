@@ -86,6 +86,9 @@
 	</style>
 
 
+	<script src="{% static 'js/sdk.js' %}" async="" crossorigin="anonymous"></script>
+	<script type="text/javascript" async="" src="{% static 'js/analytics.js' %}"></script>
+	<script id="facebook-jssdk" src="{% static 'js/sdk1.js' %}"></script>
 	<script data-cfasync="false" data-pagespeed-no-defer="" type="text/javascript">
 	</script>
 
@@ -134,8 +137,12 @@
 		media="all">
 
 	<link rel="stylesheet" href="{% static 'css/36f66.css' %}" media="all">
+	<script src="{% static 'js/df983.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/platform.js' %}" gapi_processed="true"></script>
-	
+	<script src="{% static 'js/143ef.js' %}"></script>
+	<script type="text/javascript"></script>
+
+	<script src="{% static 'js/f1253.js' %}"></script>
 
 
 	<script data-cfasync="false">
@@ -1347,7 +1354,8 @@ Click the help icon above to learn more.
 			}
 		}
 	</style>
-
+	<script type="text/javascript" charset="UTF-8" src="{% static 'js/common.js' %}"></script>
+	<script type="text/javascript" charset="UTF-8" src="{% static 'js/util.js' %}"></script>
 	<style type="text/css">
 		@media only screen and (max-width: 680px) {
 			.edgt-custom-font-holder.edgt-cf-2121 {
@@ -1426,9 +1434,13 @@ Click the help icon above to learn more.
 									</div>
 								</div>
 							</div>
-							<div class="widget edgt-login-register-widget edgt-user-not-logged-in"><a href="#"
-									class="edgt-modal-opener edgt-login-opener" data-modal="login">Login</a><a href="#"
-									class="edgt-modal-opener edgt-register-opener" data-modal="register">Register</a>
+							<div class="widget edgt-login-register-widget edgt-user-not-logged-in">
+								{% if request.user.is_authenticated %}
+								   <a class="nav-link text-black font-weight-bold" href="{% url 'teaching:logout' %}">Logout</a>
+								{% else %}
+								   <a class="nav-link text-black font-weight-bold" href="{% url 'teaching:login' %}">Login</a>
+								{% endif %}
+								<a href={% url 'teaching:registration' %} class="edgt-modal-opener edgt-register-opener" data-modal="register">Register</a>
 							</div>
 						</div>
 					</div>
@@ -2715,8 +2727,7 @@ Click the help icon above to learn more.
 					<div class="edgt-social-login-holder">
 						<div class="edgt-social-login-holder-outer">
 							<div class="edgt-social-login-holder-inner">
-								<form action = {% url 'teaching:login' %}   method="post" class="edgt-login-form">
-									{% csrf_token % }
+								<form method="post" class="edgt-login-form">
 									<fieldset>
 										<div>
 											<label class="edgt-username-label">Username</label>
@@ -2848,6 +2859,182 @@ Click the help icon above to learn more.
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var wpcf7 = {
+			"apiSettings": {
+				"root": "https:\/\/educator.qodeinteractive.com\/wp-json\/contact-form-7\/v1",
+				"namespace": "contact-form-7\/v1"
+			},
+			"cached": "1"
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/1749a.js' %}"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var edgtGlobalVars = {
+			"vars": {
+				"edgtAddForAdminBar": 0,
+				"edgtElementAppearAmount": -100,
+				"edgtAjaxUrl": "https:\/\/educator.qodeinteractive.com\/wp-admin\/admin-ajax.php",
+				"edgtAddingToCart": "Adding...",
+				"edgtStickyHeaderHeight": 0,
+				"edgtStickyHeaderTransparencyHeight": 70,
+				"edgtTopBarHeight": 50,
+				"edgtLogoAreaHeight": 0,
+				"edgtMenuAreaHeight": 130,
+				"edgtMobileHeaderHeight": 80
+			}
+		};
+		var edgtPerPageVars = {
+			"vars": {
+				"edgtStickyScrollAmount": 0,
+				"edgtHeaderTransparencyHeight": 80
+			}
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/45375.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/rbt-modules.js' %}"></script>
+	<script src="{% static 'js/f1f50.js' %}"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var woocommerce_params = {
+			"ajax_url": "\/wp-admin\/admin-ajax.php",
+			"wc_ajax_url": "\/online-courses?wc-ajax=%%endpoint%%"
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/63a69.js' %}"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var wc_cart_fragments_params = {
+			"ajax_url": "\/wp-admin\/admin-ajax.php",
+			"wc_ajax_url": "\/online-courses?wc-ajax=%%endpoint%%",
+			"fragment_name": "wc_fragments_bb8cf2b6c0a6a02a175515a8043f9f7f"
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/d4e07.js' %}"></script>
+	<script type="text/javascript">
+		var mejsL10n = {
+			"language": "en",
+			"strings": {
+				"mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/",
+				"mejs.fullscreen-off": "Turn off Fullscreen",
+				"mejs.fullscreen-on": "Go Fullscreen",
+				"mejs-video": "Download Video",
+				"mejs.fullscreen": "Fullscreen",
+				"mejs.time-jump-forward": ["Jump forward 1 second", "Jump forward %1 seconds"],
+				"mejs.loop": "Toggle Loop",
+				"mejs.play": "Play",
+				"mejs.pause": "Pause",
+				"mejs.close": "Close",
+				"mejs.time-slider": "Time Slider",
+				"mejs.time-help-text": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.",
+				"mejs.time-skip-back": ["Skip back 1 second", "Skip back %1 seconds"],
+				"mejs.captions-subtitles": "Captions\/Subtitles",
+				"mejs.captions-chapters": "Chapters",
+				"mejs.none": "None",
+				"mejs.mute-toggle": "Mute Toggle",
+				"mejs.volume-help-text": "Use Up\/Down Arrow keys to increase or decrease volume.",
+				"mejs.unmute": "Unmute",
+				"mejs.mute": "Mute",
+				"mejs.volume-slider": "Volume Slider",
+				"mejs.video-player": "Video Player",
+				"mejs.audio-player": "Audio Player",
+				"mejs.ad-skip": "Skip ad",
+				"mejs.ad-skip-info": ["Skip in 1 second", "Skip in %1 seconds"],
+				"mejs.source-chooser": "Source Chooser",
+				"mejs.stop": "Stop",
+				"mejs.speed-rate": "Speed Rate",
+				"mejs.live-broadcast": "Live Broadcast",
+				"mejs.afrikaans": "Afrikaans",
+				"mejs.albanian": "Albanian",
+				"mejs.arabic": "Arabic",
+				"mejs.belarusian": "Belarusian",
+				"mejs.bulgarian": "Bulgarian",
+				"mejs.catalan": "Catalan",
+				"mejs.chinese": "Chinese",
+				"mejs.chinese-simplified": "Chinese (Simplified)",
+				"mejs.chinese-traditional": "Chinese (Traditional)",
+				"mejs.croatian": "Croatian",
+				"mejs.czech": "Czech",
+				"mejs.danish": "Danish",
+				"mejs.dutch": "Dutch",
+				"mejs.english": "English",
+				"mejs.estonian": "Estonian",
+				"mejs.filipino": "Filipino",
+				"mejs.finnish": "Finnish",
+				"mejs.french": "French",
+				"mejs.galician": "Galician",
+				"mejs.german": "German",
+				"mejs.greek": "Greek",
+				"mejs.haitian-creole": "Haitian Creole",
+				"mejs.hebrew": "Hebrew",
+				"mejs.hindi": "Hindi",
+				"mejs.hungarian": "Hungarian",
+				"mejs.icelandic": "Icelandic",
+				"mejs.indonesian": "Indonesian",
+				"mejs.irish": "Irish",
+				"mejs.italian": "Italian",
+				"mejs.japanese": "Japanese",
+				"mejs.korean": "Korean",
+				"mejs.latvian": "Latvian",
+				"mejs.lithuanian": "Lithuanian",
+				"mejs.macedonian": "Macedonian",
+				"mejs.malay": "Malay",
+				"mejs.maltese": "Maltese",
+				"mejs.norwegian": "Norwegian",
+				"mejs.persian": "Persian",
+				"mejs.polish": "Polish",
+				"mejs.portuguese": "Portuguese",
+				"mejs.romanian": "Romanian",
+				"mejs.russian": "Russian",
+				"mejs.serbian": "Serbian",
+				"mejs.slovak": "Slovak",
+				"mejs.slovenian": "Slovenian",
+				"mejs.spanish": "Spanish",
+				"mejs.swahili": "Swahili",
+				"mejs.swedish": "Swedish",
+				"mejs.tagalog": "Tagalog",
+				"mejs.thai": "Thai",
+				"mejs.turkish": "Turkish",
+				"mejs.ukrainian": "Ukrainian",
+				"mejs.vietnamese": "Vietnamese",
+				"mejs.welsh": "Welsh",
+				"mejs.yiddish": "Yiddish"
+			}
+		};
+	</script>
+	<script src="{% static 'js/864c2.js' %}"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var _wpmejsSettings = {
+			"pluginPath": "\/wp-includes\/js\/mediaelement\/",
+			"classPrefix": "mejs-",
+			"stretching": "responsive"
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/a2333.js' %}"></script>
+
+	<script src="{% static 'js/13d7d.js' %}"></script>
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		var icl_vars = {
+			"current_language": "en",
+			"icl_home": "https:\/\/educator.qodeinteractive.com",
+			"ajax_url": "https:\/\/educator.qodeinteractive.com\/wp-admin\/admin-ajax.php",
+			"url_type": "3"
+		};
+		/* ]]> */
+	</script>
+	<script src="{% static 'js/1d6ee.js' %}"></script>
+
+
+
 
 
 

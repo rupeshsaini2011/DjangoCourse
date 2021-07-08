@@ -105,7 +105,7 @@
 																</div>
 																<div class="edgt-cc-holder light-skin">
 																	<a
-																		href="https://educator.qodeinteractive.com/course-category/it-software/">
+																		href="{% url 'teaching:category_course' pk=cat.id %}"></a>
 																		<div class="edgt-cc-image">
 																			<img width="748" height="285"
 																				src="{% static 'images/h4-courses-1.jpg' %}"
@@ -117,8 +117,10 @@
 																		<div class="edgt-cc-text-wrapper">
 																			<div class="edgt-cc-text-holder">
 																				<div class="edgt-cc-text">
-																					<h3 class="edgt-cc-category-title">
+																					<a href="{% url 'teaching:category_course' pk=cat.id %}" style="cursor: pointer !important;" >
+																					<h3 class="edgt-cc-category-title" >
 																						{{cat.category}} </h3>
+																					</a>
 																					<div class="edgt-cc-number">
 																						{{cat.category_courses.count }}
 																					</div>
@@ -656,26 +658,22 @@
 																				name="_wpcf7_posted_data_hash" value="">
 																		</div>
 																		<div class="edgt-signup-home-4">
-																			<label
-																				style="color:#000; font-weight:600; font-size:12px;">Name*</label><span
-																				class="wpcf7-form-control-wrap your-name"><input
-																					type="text" name="your-name"
-																					value="" size="40"
-																					class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-																					aria-required="true"
-																					aria-invalid="false"
-																					placeholder="Your Name"></span><label
-																				style="color:#000; font-weight:600; font-size:12px;">Email*</label><span
-																				class="wpcf7-form-control-wrap your-email"><input
-																					type="email" name="your-email"
-																					value="" size="40"
-																					class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
-																					aria-required="true"
-																					aria-invalid="false"
-																					placeholder="Your Email Address"></span><input
-																				type="submit" value="GET IT NOW"
-																				class="wpcf7-form-control wpcf7-submit"><span
-																				class="ajax-loader"></span>
+																			<head>
+																				<meta name="viewport" content="width=device-width, initial-scale=1">
+																				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+																				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+																				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+																			  </head>
+																			<a href="{% url 'teaching:register_institute' %}"
+           																	 <button  style="margin:10px;" type="button" class="btn btn-primary">Institute Registration</button>
+																				</a>
+																			<a href="{% url 'teaching:register_teacher' %}" 
+																			<button  style="margin:10px;" type="button" class="btn btn-primary">Teacher Registration</button>
+																		</a>
+																			<a  href="{% url 'teaching:register_student' %}"
+																			<button style="margin:10px;" type="button" class="btn btn-primary">Student Registration</button>
+																		  </a>
+																				<span class="ajax-loader"></span>
 																		</div>
 																		<div class="wpcf7-response-output" role="alert"
 																			aria-hidden="true">

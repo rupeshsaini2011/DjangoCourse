@@ -33,7 +33,7 @@ class Category(models.Model):
 
 	def __str__(self):
 		return self.category 
-	
+
 
 class Course(models.Model):
 	name = models.CharField(max_length=127)
@@ -43,14 +43,17 @@ class Course(models.Model):
 	currency= models.ForeignKey(Currency, on_delete=models.CASCADE, related_name="currency_courses")
 	category= models.ForeignKey(Category, on_delete=models.CASCADE, related_name="category_courses" , null = True, blank= True)
 	is_popular = models.BooleanField(default=False)
-	#related_course = models.M(Course, on_delete=models.CASCADE, related_name="related_courses" )
-	
+	curriculum = models.TextField()
+	duration = models.PositiveSmallIntegerField(default=3)    
+	lectures = models.PositiveSmallIntegerField(default=10)    
+	quizzes = models.PositiveSmallIntegerField(default=5) 
+	pass_percentage = models.DecimalField(max_digits=12, decimal_places=2, default=50) 
+	related = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name='related_courses')
 
 	
 	def __str__(self):
 		return self.name 
 
- 
 
 class Subject(models.Model):
 	name = models.CharField(max_length=127)

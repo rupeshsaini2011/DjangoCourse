@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<div class="edgt-content">
+    <div class="edgt-content-inner">
+        <div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image"
+            style="height: 175px;background-image:url(https://educator.qodeinteractive.com/wp-content/uploads/2017/07/breadcrumb-img-1.png);"
+            data-height="175">
+            <div class="edgt-title-image">
+                <img itemprop="image" src="./category_course – Educator_files/breadcrumb-img-1.png" alt="a">
+            </div>
+            <div class="edgt-title-wrapper" style="height: 175px">
+                <div class="edgt-title-inner">
+                    <div class="edgt-grid">
+                        <div class="edgt-title-inner-holder">
+                            <div class="edgt-title-info">
+                                <h3 class="edgt-page-title entry-title">Archive</h3>
+                            </div>
+                            <div class="edgt-breadcrumbs-info">
+                                <div itemprop="breadcrumb" class="edgt-breadcrumbs "><a itemprop="url"
+                                        href="https://educator.qodeinteractive.com/">Home</a><span
+                                        class="edgt-delimiter">&nbsp; / &nbsp;</span><span class="edgt-current">
+                                        {{course.category}} </span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edgt-container edgt-default-page-template">
+            <div class="edgt-container-inner clearfix">
+                <div class="edgt-course-list-holder edgt-cl-gallery edgt-normal-space edgt-cl-four-columns edgt-cl-standard edgt-cl-pag-load-more     "
+                    data-number-of-columns="4" data-space-between-items="normal" data-number-of-items="12"
+                    data-enable-image="yes" data-image-proportions="landscape" data-order-by="date" data-order="DESC"
+                    data-item-layout="standard" data-enable-title="yes" data-title-tag="h4" data-enable-instructor="yes"
+                    data-enable-price="yes" data-enable-excerpt="yes" data-excerpt-length="60"
+                    data-enable-students="yes" data-enable-category="no" data-enable-duration="yes"
+                    data-pagination-type="load-more" data-filter="no" data-enable-article-animation="no"
+                    data-course-slider-on="no" data-enable-loop="yes" data-enable-autoplay="yes"
+                    data-slider-speed="5000" data-slider-speed-animation="600" data-enable-navigation="yes"
+                    data-enable-pagination="yes" data-widget="no" data-max-num-pages="2" data-next-page="2">
+                    <div class="edgt-cl-inner  clearfix">
+                        <article
+                            class="edgt-cl-item post-2060 course type-course status-publish has-post-thumbnail hentry course-tag-professional"
+                            data-name="weekend-music-lessons" data-date="1501200000">
+                            <div class="edgt-cl-item-inner">
+                                <div class="edgt-cli-image-wrapper">
+                                    <div class="edgt-cli-image">
+                                        <img width="965" height="550"
+                                            src="./category_course – Educator_files/course-img-20-965x550.jpg"
+                                            class="attachment-educator_edge_landscape size-educator_edge_landscape wp-post-image"
+                                            alt="a">
+                                    </div><a href="javascript:void(0)" class="edgt-course-wishlist edgt-icon-only"
+                                        data-course-id="2060">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                                
+                                <div class="edgt-cli-text-holder">
+                                    <div class="edgt-cli-text-wrapper">
+                                        <div class="edgt-cli-text">
+                                            <div class="edgt-cli-top-info">
+                                                <h4 itemprop="name" class="edgt-cli-title entry-title">
+                                                    <a itemprop="url"
+                                                        href="{% url 'teaching:coursedetail' pk=course.id %}"
+                                                        target="_self">
+                                                        {{course.name}} </a>
+                                                </h4>
+                                                <div class="edgt-ci-price-holder clearfix">
+                                                    <span class="edgt-ci-price-value">
+                                                        {{course.currency}} {{course.price}} </span>
+                                                </div>
+                                                <a itemprop="url"
+                                                    href="https://educator.qodeinteractive.com/instructor/melissa-jones/"
+                                                    target="_self">
+                                                    <span class="edgt-instructor-name">
+                                                        {{course.main_teacher}} </span>
+                                                </a>
+                                            </div>
+                                            <p itemprop="description" class="edgt-cli-excerpt"> {{course.curriculum}} </p>
+                                            <div class="edgt-cli-bottom-info">
+                                                <div class="edgt-students-number-holder">
+                                                    <span aria-hidden="true"
+                                                        class="lnr lnr-users edgt-student-icon"></span>
+                                                    <span>
+                                                        {{course.lectures}} </span>
+                                                </div>
+                                                <div class="edgt-cli-duration-holder">
+                                                    <span class="edgt-duration-icon icon_clock_alt"></span>
+                                                    <span class="edgt-duration-period"> {{course.duration}} Months </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <a itemprop="url" class="edgt-cli-link edgt-block-drag-link"
+                                    href="https://educator.qodeinteractive.com/course/weekend-music-lessons/"
+                                    target="_self"></a>
+                            </div>
+                        </article>
+
+                    </div>
+                    <div class="edgt-cl-loading">
+                        <div class="edgt-cl-loading-bounce1"></div>
+                        <div class="edgt-cl-loading-bounce2"></div>
+                        <div class="edgt-cl-loading-bounce3"></div>
+                    </div>
+                    <div class="edgt-cl-load-more-holder">
+                        <div class="edgt-cl-load-more">
+                            <a itemprop="url"
+                                href="https://educator.qodeinteractive.com/course-category/it-software/?_ga=2.87432792.1530524582.1624859043-1553863291.1624518581"
+                                target="_self" class="edgt-btn edgt-btn-large edgt-btn-solid"> <span
+                                    class="edgt-btn-text">Load more</span> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock main %}

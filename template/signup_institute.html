@@ -1,16 +1,19 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load static %}
 
-<div class="jumbotron">
-   <form method="POST" class="register-form" id="register-form" > 
-      {% csrf_token %}		
-         {{form}}
-         <br>
-         <div class="form-group form-button">
-            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
-        </div>
+
+{% block main %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<div class="login"></div>
+   <div class="form">
+     <form method="POST" class="login-form">
+        {% csrf_token %}		
+        {{form.as_p}}
+        <div class="form-group form-button"></div>
+        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+      </div>
     </form>
-      </form>         
-         </div>
+  </div>
 </div>
 {% endblock %}

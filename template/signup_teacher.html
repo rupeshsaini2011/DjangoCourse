@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
-{% block content %}
+{% load static %}
 
-<div class="jumbotron">
-   <form action="" method="post">
-      {% csrf_token %}
-      {{form}}
-      <input type="submit" value="Register">
-   </form>
+
+{% block main %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+<div class="login">
+   <div class="form">
+     <form method="POST" class="login-form">
+        {% csrf_token %}		
+        {{form.as_p}}
+        <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+    </form>
+  </div>
 </div>
 
-{% endblock %}
+{% endblock main %}s
