@@ -9,7 +9,7 @@ class Institute(models.Model):
 	address = models.CharField(max_length=127)
 	contact = models.SmallIntegerField()    
 	user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='user_institute')   
-
+	about = models.TextField(blank=True,null=True)
 	def __str__(self):
 		return str(self.name)   
 
@@ -18,7 +18,11 @@ class Teacher(models.Model):
 	contact = models.SmallIntegerField()    
 	user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="user_teacher")
 	about = models.TextField(blank=True,null=True)
-
+	biography = models.TextField(blank=True,null=True)
+	experience = models.TextField(blank=True,null=True)
+	skills = models.TextField(blank=True,null=True)
+	
+	 
 	def __str__(self):
 		return str(self.user) 
 
@@ -87,6 +91,10 @@ class Period(models.Model):
 class Student(models.Model): 
 	contact = models.SmallIntegerField()
 	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_student")
+	about = models.TextField(blank=True,null=True)
+	education = models.TextField(blank=True,null=True)
+	skills =  models.TextField(blank=True,null=True)
+
 
 	def __str__(self):
 		return self.name 

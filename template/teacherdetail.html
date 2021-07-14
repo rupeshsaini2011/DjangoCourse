@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+
+<a id="edgt-back-to-top"
+    href="https://educator.qodeinteractive.com/instructor/preston-marshall/?_ga=2.113056580.1958535680.1625548280-1553863291.1624518581#"
+    class="off">
+    <span class="edgt-icon-stack">
+        <i class="edgt-icon-font-awesome fa fa-angle-up "></i> </span>
+    <span class="edgt-back-to-top-inner">
+        <span class="edgt-back-to-top-text">Top</span>
+    </span>
+</a>
+<div class="edgt-content">
+    <div class="edgt-content-inner">
+        <div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image"
+            style="height: 175px;background-image:url(https://educator.qodeinteractive.com/wp-content/uploads/2017/07/breadcrumb-img-1.png);"
+            data-height="175">
+            <div class="edgt-title-image">
+                <img itemprop="image" src="{% static 'images/breadcrumb-img-1.png" alt="a">
+            </div>
+            <div class="edgt-title-wrapper" style="height: 175px">
+                <div class="edgt-title-inner">
+                    <div class="edgt-grid">
+                        <div class="edgt-title-inner-holder">
+                            <div class="edgt-title-info">
+                                <h3 class="edgt-page-title entry-title"> {{teacher.user}} </h3>
+                            </div>
+                            <div class="edgt-breadcrumbs-info">
+                                <div itemprop="breadcrumb" class="edgt-breadcrumbs "><a itemprop="url"
+                                        href="https://educator.qodeinteractive.com/">Home</a><span
+                                        class="edgt-delimiter">&nbsp; / &nbsp;</span><span class="edgt-current"> {{teacher.user}} </span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edgt-container">
+            <div class="edgt-container-inner clearfix">
+                <div class="edgt-instructor-single-holder">
+                    <div class="edgt-grid-row">
+                        <div class="edgt-page-content-holder edgt-grid-col-12">
+                            <div class="edgt-instructor-single-outer">
+                                <div class="edgt-instructor-single-info-holder">
+                                    <div class="edgt-grid-row">
+                                        <div class="edgt-ts-info-holder edgt-grid-col-3">
+                                            <div class="edgt-instructor-image">
+                                                <img width="600" height="600"
+                                                    src="{% static 'images/instructor-img-2.jpg' %}"
+                                                    class="attachment-post-thumbnail size-post-thumbnail wp-post-image"
+                                                    alt="a"
+                                                    srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2.jpg' %} 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-150x150.jpg' %} 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-300x300.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-180x180.jpg' %} 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/instructor-img-2-550x550.jpg' %} 550w"
+                                                    sizes="(max-width: 600px) 100vw, 600px">
+                                            </div>
+                                            <div class="edgt-ts-insturctor-bio-holder">
+                                                <h3 itemprop="name" class="edgt-name entry-title"> {{teacher.user}} </h3>
+                                                <p class="edgt-title">
+                                                    Professor </p>
+                                                    <span class="address-icon fa fa-map-marker"></span> address
+                                                </p>
+                                                <p class="edgt-si-phone-number">
+                                                    <span class="phone-icon fa fa-phone"></span> {{teacher.contact}}
+                                                </p>
+                                                <div class="edgt-ts-info-row">
+                                                    <span aria-hidden="true"
+                                                        class="icon_mail_alt edgt-ts-bio-icon"></span>
+                                                    <a href="mailto:educator@qode.com"
+                                                        class="edgt-ts-bio-info"> email </a>
+                                                </div>
+                                                <p class="edgt-social">
+                                                    <span class="edgt-icon-shortcode edgt-normal   ">
+                                                        <a class="" href="https://www.facebook.com/QodeInteractive/"
+                                                            target="_blank">
+                                                            <i
+                                                                class="edgt-icon-font-awesome fa fa-facebook edgt-icon-element"></i>
+                                                        </a>
+                                                    </span>
+                                                    <span class="edgt-icon-shortcode edgt-normal   ">
+                                                        <a class="" href="https://www.linkedin.com/company/qode-themes/"
+                                                            target="_blank">
+                                                            <i
+                                                                class="edgt-icon-font-awesome fa fa-linkedin edgt-icon-element"></i>
+                                                        </a>
+                                                    </span>
+                                                    <span class="edgt-icon-shortcode edgt-normal   ">
+                                                        <a class="" href="https://www.pinterest.com/qodeinteractive/"
+                                                            target="_blank">
+                                                            <i
+                                                                class="edgt-icon-font-awesome fa fa-pinterest edgt-icon-element"></i>
+                                                        </a>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="edgt-ts-content-holder edgt-grid-col-9">
+                                            <div class="edgt-tabs edgt-tabs-standard ui-tabs ui-widget ui-widget-content ui-corner-all">
+                                              <div class="edgt-tab-container ui-tabs-panel ui-widget-content ui-corner-bottom edgt-visible"
+                                                    id="tab-curriculum" aria-labelledby="ui-id-1" role="tabpanel"
+                                                    aria-hidden="false" style="display: inline-block;">
+                                                    <div class="edgt-instructor-single-content">
+                                                        <div
+                                                            class="vc_row wpb_row vc_row-fluid vc_custom_1499948824479">
+                                                            <div class="wpb_column vc_column_container vc_col-sm-12">
+                                                                <div class="vc_column-inner">
+                                                                    <div class="wpb_wrapper">
+                                                                        <div
+                                                                            class="wpb_text_column wpb_content_element  vc_custom_1499944462948">
+                                                                            <div class="wpb_wrapper">
+                                                                                <h4>Biography</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="vc_empty_space"
+                                                                            style="height: 16px"><span
+                                                                                class="vc_empty_space_inner"></span>
+                                                                        </div>
+                                                                        <div
+                                                                            class="wpb_text_column wpb_content_element ">
+                                                                            <div class="wpb_wrapper">
+                                                                                <p> {{teacher.biography}} </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div
+                                                                        class="wpb_text_column wpb_content_element  vc_custom_1499944462948">
+                                                                        <div class="wpb_wrapper">
+                                                                            <h4>Courses</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="vc_empty_space"
+                                                                        style="height: 16px"><span
+                                                                            class="vc_empty_space_inner"></span>
+                                                                    </div>
+                                                                    <div
+                                                                        class="wpb_text_column wpb_content_element ">
+                                                                        <div class="wpb_wrapper">
+                                                                            <p> course.name </p>
+                                                                        </div>
+                                                                    </div>
+                                                                        <div
+                                                                            class="wpb_text_column wpb_content_element  vc_custom_1499944850956">
+                                                                            <div class="wpb_wrapper">
+                                                                                <h4>About me</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="vc_empty_space"
+                                                                            style="height: 20px"><span
+                                                                                class="vc_empty_space_inner"></span>
+                                                                        </div>
+                                                                        <div class="edgt-icon-list-holder ">
+                                                                            <div class="edgt-il-icon-holder">
+                                                                                <i class="edgt-icon-font-awesome fa fa-check "
+                                                                                    style="color: #2d76b2;font-size: 17px"></i>
+                                                                            </div>
+                                                                            <p class="edgt-il-text"
+                                                                                style="color: #212121;font-size: 15px;padding-left: 20px">
+                                                                                 {{teacher.about}} </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                    
+{% endblock main %}

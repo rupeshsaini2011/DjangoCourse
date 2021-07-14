@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+
+<div class="edgt-content">
+    <div class="edgt-content-inner">
+        <div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image edgt-bg-parallax"
+            style="height: 281px; background-image: url(&quot;https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-us-title-area.jpg&quot;); background-position: center -9.4416px;"
+            data-height="281">
+            <div class="edgt-title-image">
+                <img itemprop="image" src="{% static 'images/about-us-title-area.jpg' %}" alt="a">
+            </div>       
+						<div class="edgt-title-wrapper" style="height: 281px">
+							<div class="edgt-title-inner">
+								<div class="edgt-grid">
+									<div class="edgt-title-inner-holder">
+										<div class="edgt-title-info">
+											<h3 class="edgt-page-title entry-title" style="color: #ffffff">Profile</h3>
+										</div>
+										<div class="edgt-breadcrumbs-info">
+											<div itemprop="breadcrumb" class="edgt-breadcrumbs edgt-has-inline-style"
+												style="color: #e1e0e0"><a itemprop="url"
+													href="https://educator.qodeinteractive.com/">Home</a><span
+													class="edgt-delimiter">&nbsp; / &nbsp;</span><span
+													class="edgt-current">Profile</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="edgt-full-width">
+						<div class="edgt-full-width-inner">
+							<div class="edgt-grid-row">
+								<div class="edgt-page-content-holder edgt-grid-col-12">
+									<div class="edgt-row-grid-section-wrapper ">
+										<div class="edgt-row-grid-section">
+											<div class="vc_row wpb_row vc_row-fluid vc_custom_1502265164997">
+												<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7">
+													<div class="vc_column-inner vc_custom_1502264905689">
+														<div class="wpb_wrapper">
+															<div class="wpb_text_column wpb_content_element ">
+																<div class="wpb_wrapper">
+																	<h2>{{teacher.user}}</h2>
+																</div>
+															</div>
+															<div class="vc_empty_space" style="height: 4px"><span
+																	class="vc_empty_space_inner"></span></div>
+															<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+																style="text-align: left">
+																<div class="edgt-st-inner">
+																	<p class="edgt-st-text"
+																		style="color: #888;font-size: 18px;line-height: 33px">
+																		{{teacher.about}} </p>
+																</div>
+															</div>
+															<div class="vc_empty_space" style="height: 30px"><span
+																	class="vc_empty_space_inner"></span></div>
+															<div
+																class="wpb_text_column wpb_content_element  vc_custom_1499862522227">
+																<div class="wpb_wrapper">
+																	<h4>Experience</h4>
+																</div>
+															</div>
+															<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+																style="text-align: left">
+																<div class="edgt-st-inner">
+																	<p class="edgt-st-text"
+																		style="color: #888;font-size: 15px;line-height: 27px;margin-top: 21px">
+																		{{teacher.experience}} </p>
+																</div>
+															</div>
+															<div class="vc_empty_space" style="height: 21px"><span
+																	class="vc_empty_space_inner"></span></div>
+															<div class="wpb_text_column wpb_content_element ">
+																<div class="wpb_wrapper">
+																	<h4>Skills</h4>
+																</div>
+															</div>
+															<div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+																style="text-align: left">
+																<div class="edgt-st-inner">
+																	<p class="edgt-st-text"
+																		style="color: #888;font-size: 15px;line-height: 27px;margin-top: 16px">
+																		{{teacher.skills}} </p>
+																</div>
+															</div>
+                                                        <div class="vc_empty_space" style="height: 33px"><span
+                                                            class="vc_empty_space_inner"></span></div>
+                                                    <div class="wpb_text_column wpb_content_element ">
+                                                        <div class="wpb_wrapper">
+                                                            <h4>Contact Number</h4>
+                                                            <div class="edgt-section-title-holder  edgt-st-standard edgt-st-title-left edgt-st-normal-space "
+                                                                style="text-align: left">
+                                                                <div class="edgt-st-inner">
+                                                                    <p class="edgt-st-text"
+                                                                        style="color: #888;font-size: 15px;line-height: 27px;margin-top: 16px">
+                                                                        {{teacher.contact}} </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+															<div class="vc_empty_space" style="height: 33px"><span
+																	class="vc_empty_space_inner"></span></div>
+														</div>
+													</div>
+												</div>
+												<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5">
+													<div class="vc_column-inner">
+														<div class="wpb_wrapper">
+															<div class="vc_empty_space" style="height: 30px"><span
+																	class="vc_empty_space_inner"></span></div>
+															<div
+																class="wpb_single_image wpb_content_element vc_align_left">
+																<figure class="wpb_wrapper vc_figure">
+																	<div
+																		class="vc_single_image-wrapper   vc_box_border_grey">
+																		<img width="600" height="600"
+																			src="{% static 'images/about-teacher.jpg' %}"
+																			class="vc_single_image-img attachment-full"
+																			alt="a"
+																			srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-teacher.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-teacher-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-teacher-300x300.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-teacher-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/about-teacher-550x550.jpg 550w"
+																			sizes="(max-width: 600px) 100vw, 600px">
+																	</div>
+																</figure>
+															</div>
+															<div class="vc_empty_space" style="height: 46px"><span
+																	class="vc_empty_space_inner"></span></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+{% endblock main %}									

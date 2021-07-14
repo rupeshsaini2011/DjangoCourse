@@ -6,14 +6,16 @@ app_name='teaching'
 
 
 urlpatterns = [   
-path('', IndexTemplateView.as_view(), name='index'), 
-path('login/index/', IndexTemplateView.as_view(), name='index'), 
+path('', IndexTemplateView.as_view(), name='index'),
 path('index2/', IndexTemplateView2.as_view(), name='index2'), 
 path('courses/',  CourseTemplateView.as_view(), name='courses'),
 path('categorycourse/<int:pk>',  Category_CourseView.as_view(), name='category_course'),
 path('coursedetail/<int:pk>/', CourseDetailView.as_view(), name='coursedetail'),
 path('registration/', RegistrationView.as_view(), name='registration'),
-
+path('treacherdetail/<int:pk>/', TeacherDetailView.as_view(), name='teacherdetail'),
+path('studenthome/<int:pk>/', StudentHomeView.as_view(), name='studenthome'),
+path('teacherhome/<int:pk>/', TeacherHomeView.as_view(), name='teacherhome'),
+path('institutehome/<int:pk>/', InstituteHomeView.as_view(), name='institutehome'),
 # path('searchresults/',views.SearchResultsView.as_view(), name='search-results'),
 # path('teacher/', views.TeacherListView.as_view(), name='teacher'),
 # path('course/', views.CoursesListView.as_view(), name='course'),

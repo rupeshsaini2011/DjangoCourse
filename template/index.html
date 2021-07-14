@@ -54,9 +54,9 @@
 																					class="edgt-post-type-search-field"
 																					value="" placeholder="Search here">
 																				<span class="edgt-seach-icon-holder">
-																					<i class="edgt-search-icon fa fa-search"
+																					<i  class="edgt-search-icon fa fa-search"
 																						aria-hidden="true"></i>
-																					<i class="edgt-search-loading fa fa-spinner fa-spin edgt-hidden"
+																					<i  class="edgt-search-loading fa fa-spinner fa-spin edgt-hidden"
 																						aria-hidden="true"></i>
 																				</span>
 																			</div>
@@ -105,7 +105,7 @@
 																</div>
 																<div class="edgt-cc-holder light-skin">
 																	<a
-																		href="{% url 'teaching:category_course' pk=cat.id %}"></a>
+																		href="{% url 'teaching:courses' %}?category_id={{cat.id}}"></a>
 																		<div class="edgt-cc-image">
 																			<img width="748" height="285"
 																				src="{% static 'images/h4-courses-1.jpg' %}"
@@ -117,7 +117,7 @@
 																		<div class="edgt-cc-text-wrapper">
 																			<div class="edgt-cc-text-holder">
 																				<div class="edgt-cc-text">
-																					<a href="{% url 'teaching:category_course' pk=cat.id %}" style="cursor: pointer !important;" >
+																					<a href="{% url 'teaching:courses' %}?category_id={{cat.id}}" style="cursor: pointer !important;" >
 																					<h3 class="edgt-cc-category-title" >
 																						{{cat.category}} </h3>
 																					</a>
@@ -795,8 +795,8 @@
 														<div class="edgt-instructor simple">
 															<div class="edgt-instructor-inner">
 																<div class="edgt-instructor-image">
-																	<a itemprop="url"
-																		href="https://educator.qodeinteractive.com/instructor/preston-marshall/">
+																	<a 
+																		href="{% url 'teaching:teacherdetail' teacher.pk %}"{{ teacher.user }}>
 																		<img width="600" height="600"
 																			src="{% static 'images/instructor-img-2.jpg' %}"
 																			class="attachment-full size-full wp-post-image"
@@ -809,8 +809,8 @@
 																	<div class="edgt-instructor-title-holder">
 																		<h5 itemprop="name"
 																			class="edgt-instructor-name entry-title">
-																			<a itemprop="url"
-																				href="https://educator.qodeinteractive.com/instructor/preston-marshall/">
+																			<a 
+																				href="{% url 'teaching:teacherdetail' teacher.pk %}"{{ teacher.user }}></a>
 																				{{teacher.user }}
 																			</a>
 																		</h5>
@@ -818,8 +818,9 @@
 																			class="edgt-instructor-position">Professor</span>
 																	</div>
 																</div>
-																<a itemprop="url"
-																	href="https://educator.qodeinteractive.com/instructor/preston-marshall/"
+																<a
+																	href="{% url 'teaching:teacherdetail' teacher.pk %}"{{ teacher.user }}
+																	
 																	class="edgt-instructor-link"></a>
 															</div>
 														</div>

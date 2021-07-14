@@ -802,7 +802,7 @@ Click the help icon above to learn more.
                                                                         <h6 itemprop="name"
                                                                             class="edgt-cli-title entry-title">
                                                                             <a itemprop="url"
-                                                                                href="https://educator.qodeinteractive.com/course/fun-yoga-for-toddlers/"
+                                                                                href="{% url 'teaching:coursedetail' pk=course.related.id %}"
                                                                                 target="_self">
                                                                                 {{course.related}} </a>
                                                                         </h6>
@@ -826,7 +826,7 @@ Click the help icon above to learn more.
                                                 {% for cat in categories %}
                                                 <li>
                                                     <h6 class="edgt-course-categories-list-title"><a
-                                                            href="https://educator.qodeinteractive.com/course-category/art-design/"
+                                                            href="{% url 'teaching:category_course' pk=cat.id %}"
                                                             target="_self" itemprop="url">{{cat.category}} </a></h6>
                                                 </li>
                                                 {% endfor %}

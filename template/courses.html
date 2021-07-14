@@ -101,7 +101,7 @@ Click the help icon above to learn more.
 					<div class="edgt-grid">
 						<div class="edgt-title-inner-holder">
 							<div class="edgt-title-info">
-								<h2 class="edgt-page-title entry-title" style="color: #ffffff">Courses List 3 Columns
+								<h2 class="edgt-page-title entry-title" style="color: #ffffff">Courses 
 								</h2>
 							</div>
 							<div class="edgt-breadcrumbs-info">
@@ -109,7 +109,7 @@ Click the help icon above to learn more.
 									style="color: #ffffff"><a itemprop="url"
 										href="https://educator.qodeinteractive.com/">Home</a><span
 										class="edgt-delimiter">&nbsp; / &nbsp;</span><span class="edgt-current">Courses
-										List 3 Columns</span></div>
+										</span></div>
 							</div>
 						</div>
 					</div>
@@ -294,7 +294,7 @@ Click the help icon above to learn more.
 									{% for cat in categories %}
 									<li>
 										<h6 class="edgt-course-categories-list-title"><a
-												href="#"
+												href="{% url 'teaching:courses' %}?category_id={{cat.id}}"
 												target="_self" itemprop="url">{{cat.category}} </a></h6>
 									</li>
 									{% endfor %}
@@ -335,7 +335,7 @@ Click the help icon above to learn more.
 														<div class="edgt-cli-text">
 															<h6 itemprop="name" class="edgt-cli-title entry-title">
 																<a itemprop="url"
-																	href="https://educator.qodeinteractive.com/course/photography/"
+																	href="{% url 'teaching:coursedetail' pk=course.id %}"
 																	target="_self">
 																	{{course.name}} </a>
 															</h6>

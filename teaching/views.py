@@ -1,11 +1,11 @@
-from django.shortcuts import  HttpResponseRedirect, render
+from django.shortcuts import  HttpResponseRedirect, render,  redirect
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView, View, DetailView
 from .models import *
 from django.contrib.auth import *
 from .forms import *
 from django.db import transaction 
-from django.urls import *
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponse
 # Create your views here.
 from django.contrib import messages
@@ -50,14 +50,20 @@ class CourseTemplateView(ListView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-
-	   
 		context['categories'] = Category.objects.all()
 		context['popular_courses'] = Course.objects.filter(is_popular=True)
-
-		
 		return context
+	
 
+	def get_queryset(self):
+		qs = Course.objects.all()
+		request = self.request
+		category_id = request.GET.get('category_id', None)
+		if category_id:		
+			qs = qs.filter(category__id = category_id)
+
+		return qs
+		
 
 class Category_CourseView(DetailView):
 	template_name = 'category_course.html' 
@@ -90,6 +96,50 @@ class CourseDetailView(DetailView):
 		return context
 
 
+class TeacherDetailView(DetailView):
+	template_name = 'teacherdetail.html'
+	model = Teacher
+	context_object_name = "teacher"
+	
+
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['course'] = Course.objects.all() 
+		return context
+
+
+class StudentHomeView(DetailView):
+	template_name = 'studenthome.html'
+	model = Student
+	context_object_name = "student"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		
+		return context
+
+class TeacherHomeView(DetailView):
+	template_name = 'teacherhome.html'
+	model = Teacher
+	context_object_name = "teacher"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		
+		return context
+
+
+class InstituteHomeView(DetailView):
+	template_name = 'institutehome.html'
+	model = Institute
+	context_object_name = "institute"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		
+		return context
+
 
 #------------------------------------------search results----------------------------------------------	  
 class SearchResultView(ListView):
@@ -116,7 +166,7 @@ class SubjectListView(ListView):
 	model = Subject
 	template_name = 'subject_list.html'
 
-    	
+		
 def registeration(data, reg_type):
 	username = data['username']
 	phone_number = data['phone_number']
@@ -183,12 +233,13 @@ class StudentRegistration(FormView):
 #ERROR IN course=course
 # --------------------------------------------login part----------------------------------------------
 
-#class loginview (View): it shoud be post
 class LoginFormView(FormView):
 	form_class=LoginForm
 	template_name= 'login.html'
 	success_url='/login' 
-# lms dashbord
+
+
+
 	def form_valid(self, form):
 		username=form.cleaned_data['username']
 		password= form.cleaned_data['password']
@@ -198,11 +249,11 @@ class LoginFormView(FormView):
 			if user.is_active:
 				login(self.request, user)  
 				messages.error(self.request, "success", extra_tags='alert alert-success')
-				return HttpResponseRedirect('index')
+				return redirect(reverse_lazy("teaching:index"))
 			else:
 				# If account is not active:
 				messages.error(self.request, 'pls check username and password!',extra_tags='alert alert-danger')
-				return render()
+				return render('')
 
 		messages.error(self.request, 'pls check username and password!',extra_tags='alert alert-danger')
 		return super().form_valid(form)
@@ -210,5 +261,5 @@ class LoginFormView(FormView):
 class LogoutView(View):
 	def get(self, request):
 		logout(request)
-		return HttpResponseRedirect('index')
+		return redirect(reverse_lazy("teaching:index"))
 		
