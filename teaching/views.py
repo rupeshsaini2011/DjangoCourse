@@ -43,7 +43,7 @@ class IndexTemplateView2(TemplateView):
 		return context
 
 
-class CourseTemplateView(ListView):
+class CourseView(ListView):
 	template_name = 'courses.html' 
 	model = Course
 	context_object_name = "courses"
@@ -63,7 +63,30 @@ class CourseTemplateView(ListView):
 			qs = qs.filter(category__id = category_id)
 
 		return qs
-		
+
+
+class TeacherView(ListView):
+	model = Teacher
+	template_name='teachers.html'
+	context_object_name = "teachers"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['categories'] = Category.objects.all()
+		context['popular_courses'] = Course.objects.filter(is_popular=True)
+		return context
+
+
+class InstituteView(ListView):
+	model = Institute
+	template_name = 'institutes.html'
+	context_object_name = "institutes"
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['categories'] = Category.objects.all()
+		context['popular_courses'] = Course.objects.filter(is_popular=True)
+		return context
 
 class Category_CourseView(DetailView):
 	template_name = 'category_course.html' 
@@ -153,18 +176,9 @@ class SearchResultView(ListView):
 			sechedule= sechedule.filter(subject__course=course)
 		return render(self.request, self.template_name, context={'sechedule': sechedule})    
 #------------------------------------------------------------------------------------------------------
+	
 
-class TeacherListView(ListView):
-	model = Teacher
-	template_name='teacher_list.html'
 
-class CoursesListView(ListView):
-	model = Course
-	template_name = 'course_list.html'		
-
-class SubjectListView(ListView):
-	model = Subject
-	template_name = 'subject_list.html'
 
 		
 def registeration(data, reg_type):

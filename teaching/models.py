@@ -21,7 +21,8 @@ class Teacher(models.Model):
 	biography = models.TextField(blank=True,null=True)
 	experience = models.TextField(blank=True,null=True)
 	skills = models.TextField(blank=True,null=True)
-	
+	city = models.CharField(max_length=127, blank=True,null=True)
+	email = models.EmailField(blank=True,null=True)
 	 
 	def __str__(self):
 		return str(self.user) 
