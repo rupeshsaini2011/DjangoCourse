@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block main %}
+
+<style type="text/css" id="wp-custom-css">
+	/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+	/* Chrome Fix */
+	.edgt-vertical-align-containers .edgt-position-center:before,
+	.edgt-vertical-align-containers .edgt-position-left:before,
+	.edgt-vertical-align-containers .edgt-position-right:before {
+		margin-right: 0;
+	}
+
+	@media only screen and (min-width: 600px) {
+
+		.edgt-mobile-header .edgt-mobile-side-area.opened .edgt-mobile-nav,
+		.edgt-mobile-header .edgt-mobile-side-area .edgt-mobile-side-area-inner {
+			height: 100vh !important;
+		}
+
+		.edgt-mobile-header .edgt-mobile-side-area {
+			padding: 70px;
+		}
+	}
+
+	.edgt-parallax-row-holder {
+		transform: translateZ(0);
+	}
+
+	#tribe-events-content-wrapper #tribe-bar-views-toggle {
+		display: none;
+	}
+
+	#tribe-events-content-wrapper .tribe-bar-views-list li span {
+
+		font-size: 14px;
+		font-family: 'Montserrat', sans-serif;
+		color: #969696;
+		padding: 0 7px;
+	}
+
+	#tribe-events-content-wrapper .tribe-bar-views-list li.tribe-bar-active {
+		color: #2d76b2 !important;
+	}
+
+	#tribe-events-content-wrapper .tribe-bar-views-list li:hover {
+		color: #2d76b2 !important;
+		cursor: pointer;
+	}
+
+	#tribe-events-content-wrapper .tribe-events-calendar .tribe-events-tooltip .entry-title {
+		font-size: 17px !important;
+		font-weight: 700 !important;
+		margin-bottom: 5px !important;
+	}
+
+	#tribe-events-content-wrapper .tribe-events-calendar .tribe-events-tooltip {
+		box-shadow: none !important;
+		border: 1px solid #e1e1e1 !important;
+	}
+
+	article.format-audio .mejs-time-hovered,
+	article.format-audio .mejs-time-handle,
+	article.format-audio .mejs-time-float-corner,
+	article.format-audio .mejs-time-buffering {
+		display: none !important;
+	}
+
+	article.format-audio .mejs-time-total {
+		margin: 16px 0px !important;
+	}
+
+	article.format-audio .mejs-horizontal-volume-total {
+		top: 16px !important;
+	}
+
+	article.format-audio .mejs-horizontal-volume-current {
+		top: 0 !important;
+	}
+</style>
+
+
+
+<div class="edgt-content">
+	<div class="edgt-content-inner">
+		<div class="edgt-title-holder edgt-standard-with-breadcrumbs-type edgt-has-bg-image edgt-bg-parallax"
+			style="height: 262px; background-image: url(&quot;{% static 'images/coursebanner.jpg' %}&quot;); background-position: center 0px;"
+			data-height="262">
+			<div class="edgt-title-image">
+				<img itemprop="image" src="{% static 'images/course-tittle-area.jpg' %}" alt="a">
+			</div>
+			<div class="edgt-title-wrapper" style="height: 262px">
+				<div class="edgt-title-inner">
+					<div class="edgt-grid">
+						<div class="edgt-title-inner-holder">
+							<div class="edgt-title-info">
+								<h2 class="edgt-page-title entry-title" style="color: #ffffff">Institutes
+								</h2>
+							</div>
+							<div class="edgt-breadcrumbs-info">
+								<div itemprop="breadcrumb" class="edgt-breadcrumbs edgt-has-inline-style"
+									style="color: #ffffff"><a itemprop="url"
+										href="https://educator.qodeinteractive.com/">Home</a><span
+										class="edgt-delimiter">&nbsp; / &nbsp;</span><span class="edgt-current">Institutes
+										</span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="edgt-container edgt-default-page-template">
+			<div class="edgt-container-inner clearfix">
+				<div class="edgt-grid-row">
+					<div class="edgt-page-content-holder edgt-grid-col-9 edgt-content-left">
+						<div class="vc_row wpb_row vc_row-fluid vc_custom_1502096336278">
+							<div class="wpb_column vc_column_container vc_col-sm-12">
+								<div class="vc_column-inner">
+									<div class="wpb_wrapper">
+										<div class="edgt-course-list-holder edgt-cl-gallery edgt-normal-space edgt-cl-three-columns edgt-cl-standard edgt-cl-pag-standard  edgt-cl-has-filter   "
+											data-number-of-columns="3" data-space-between-items="normal"
+											data-number-of-items="6" data-enable-image="yes"
+											data-image-proportions="full" data-order-by="date" data-order="ASC"
+											data-item-layout="standard" data-enable-title="yes" data-title-tag="h4"
+											data-enable-instructor="yes" data-enable-price="yes"
+											data-enable-excerpt="yes" data-excerpt-length="70"
+											data-enable-students="yes" data-enable-category="no"
+											data-enable-duration="yes" data-pagination-type="standard" data-filter="yes"
+											data-enable-article-animation="no" data-course-slider-on="no"
+											data-enable-loop="yes" data-enable-autoplay="yes" data-slider-speed="5000"
+											data-slider-speed-animation="600" data-enable-navigation="yes"
+											data-enable-pagination="yes" data-widget="no" data-max-num-pages="4"
+											data-next-page="2">
+											<div class="edgt-cl-filter-holder">
+												<div class="edgt-course-layout-filter">
+													<span class="edgt-active" data-type="gallery"><i
+															class=" icon_grid-2x2" aria-hidden="true"></i></span>
+													<span data-type="simple"><i class="icon_ul"
+															aria-hidden="true"></i></span>
+												</div>
+												<div class="edgt-course-items-counter">
+													<span class="counter-label">Showing</span>
+													<span class="counter-min-value">1</span>
+													<span class="counter-dash">–</span>
+													<span class="counter-max-value">6</span>
+													<span class="counter-label">of</span>
+													<span class="counter-total">23</span>
+												</div>
+												<div class="edgt-course-items-order">
+													<select class="edgt-course-order-filter select2-hidden-accessible"
+														tabindex="-1" aria-hidden="true" style="">
+														<option data-type="date" data-order="DESC">Newly Publised
+														</option>
+														<option data-type="name" data-order="ASC">A-Z</option>
+														<option data-type="name" data-order="DESC">Z-A</option>
+													</select><span
+														class="select2 select2-container select2-container--default"
+														dir="ltr" style="width: 160px;"><span class="selection"><span
+																class="select2-selection select2-selection--single"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0"
+																aria-labelledby="select2-2u3k-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-2u3k-container"
+																	title="Newly Publised">Newly Publised</span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+												</div>
+											</div>
+											<div class="edgt-cl-inner  clearfix">
+												{% for institute in institutes %}
+												<article
+													class="edgt-cl-item post-804 course type-course status-publish has-post-thumbnail hentry course-category-it-software course-tag-digital"
+													data-name="development" data-date="1500508800">
+													<div class="edgt-cl-item-inner">
+														<div class="edgt-cli-image-wrapper">
+															<div class="edgt-cli-image">
+																<img width="965" height="617"
+																	src="{% static 'images/course-img-1.jpg' %}"
+																	class="attachment-full size-full wp-post-image"
+																	alt="a"
+																	sizes="(max-width: 965px) 100vw, 965px">
+															</div><a href="#"
+																class="edgt-course-wishlist edgt-icon-only"
+																data-course-id="804">
+																<i class="fa fa-heart-o" aria-hidden="true"></i>
+															</a>
+														</div>
+														<div class="edgt-cli-text-holder">
+															<div class="edgt-cli-text-wrapper">
+																<div class="edgt-cli-text">
+																	<div class="edgt-cli-top-info">
+																		<h4 itemprop="name"
+																			class="edgt-cli-title entry-title">
+																			<a itemprop="url"
+																				href="# "
+																				target="_self">
+																				{{institute.name}} </a>
+																		</h4>
+																		
+																		<a 
+																			target="_self">
+																			<span class="edgt-instructor-name">
+																				{{institute.address}} </span>
+																		</a>
+																	</div>
+																	<p itemprop="description" class="edgt-cli-excerpt">
+																		{{institute.contact}} </p>
+																	<div class="edgt-cli-bottom-info">
+																		<div class="edgt-students-number-holder">
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div> <a itemprop="url"
+															class="edgt-cli-link edgt-block-drag-link"
+															href="#"
+															target="_self"></a>
+													</div>
+												</article>
+												{% endfor %}
+											</div>
+											<div class="edgt-cl-loading">
+												<div class="edgt-cl-loading-bounce1"></div>
+												<div class="edgt-cl-loading-bounce2"></div>
+												<div class="edgt-cl-loading-bounce3"></div>
+											</div>
+											<div class="edgt-cl-standard-pagination">
+												<ul>
+													<li class="edgt-cl-pag-prev">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="1"><span
+																class="lnr lnr-chevron-left"></span></a>
+													</li>
+													<li class="edgt-cl-pag-number edgt-cl-pag-active">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="1">1</a>
+													</li>
+													<li class="edgt-cl-pag-number ">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="2">2</a>
+													</li>
+													<li class="edgt-cl-pag-number ">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="3">3</a>
+													</li>
+													<li class="edgt-cl-pag-number ">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="4">4</a>
+													</li>
+													<li class="edgt-cl-pag-next">
+														<a href="https://educator.qodeinteractive.com/courses-list-3-columns/#"
+															data-paged="2"><span
+																class="lnr lnr-chevron-right"></span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="edgt-sidebar-holder edgt-grid-col-3 edgt-sidebar-right">
+						<aside class="edgt-sidebar">
+							<div class="widget edgt-course-categories-widget">
+								<div class="edgt-widget-title-holder">
+									<h4 class="edgt-widget-title">Categories</h4>
+								</div>
+								<ul class="edgt-course-categories-list">
+									{% for cat in categories %}
+									<li>
+										<h6 class="edgt-course-categories-list-title"><a
+												href="{% url 'teaching:courses' %}?category_id={{cat.id}}"
+												target="_self" itemprop="url">{{cat.category}} </a></h6>
+									</li>
+									{% endfor %}
+								</ul>
+							</div>
+							<div class="widget edgt-course-list-widget">
+								<div class="edgt-widget-title-holder">
+									<h4 class="edgt-widget-title">Popular Courses</h4>
+								</div>
+								<div class="edgt-course-list-holder edgt-cl-gallery edgt-normal-space edgt-cl-one-column edgt-cl-minimal edgt-cl-pag-no-pagination     "
+									data-number-of-columns="1" data-space-between-items="normal"
+									data-number-of-items="3" data-enable-image="yes" data-image-proportions="medium"
+									data-category="art-design" data-order-by="date" data-order="ASC"
+									data-item-layout="minimal" data-enable-title="yes" data-title-tag="h6"
+									data-enable-instructor="no" data-enable-price="yes" data-enable-excerpt="yes"
+									data-excerpt-length="60" data-enable-students="yes" data-enable-category="no"
+									data-enable-duration="yes" data-pagination-type="no-pagination" data-filter="no"
+									data-enable-article-animation="no" data-course-slider-on="no" data-enable-loop="yes"
+									data-enable-autoplay="yes" data-slider-speed="5000"
+									data-slider-speed-animation="600" data-enable-navigation="yes"
+									data-enable-pagination="yes" data-widget="yes" data-max-num-pages="2"
+									data-next-page="2">
+									<div class="edgt-cl-inner  clearfix">
+										{% for course in popular_courses %}
+										<article
+											class="edgt-cl-item post-1104 course type-course status-publish has-post-thumbnail hentry course-category-art-design course-tag-creative"
+											data-name="photography" data-date="1500595200">
+											<div class="edgt-cl-item-inner">
+												<div class="edgt-cli-image">
+													<img width="300" height="192"
+														src="{% static 'images/course-img-2-300x192.jpg' %}"
+														class="attachment-medium size-medium wp-post-image" alt="a"
+														srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-768x491.jpg' %} 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2.jpg' %} 965w"
+														sizes="(max-width: 300px) 100vw, 300px">
+												</div>
+												<div class="edgt-cli-text-holder">
+													<div class="edgt-cli-text-wrapper">
+														<div class="edgt-cli-text">
+															<h6 itemprop="name" class="edgt-cli-title entry-title">
+																<a itemprop="url"
+																	href="#"
+																	target="_self">
+																	{{course.name}} </a>
+															</h6>
+															<div class="edgt-ci-price-holder clearfix">
+																<span class="edgt-ci-price-value">
+																	{{course.price}} </span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</article>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock main %}
