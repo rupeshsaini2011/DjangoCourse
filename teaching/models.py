@@ -5,7 +5,7 @@ import uuid
 # Create your models here.
 
 class Institute(models.Model):
-	name = models.CharField(max_length=127)
+	name = models.CharField(max_length=127, null=True)
 	address = models.CharField(max_length=127)
 	contact = models.SmallIntegerField()    
 	user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='user_institute')   
@@ -14,7 +14,7 @@ class Institute(models.Model):
 		return str(self.name)   
 
 class Teacher(models.Model):   
-	institution = models.ForeignKey(Institute,on_delete=models.CASCADE, related_name="teachers") 
+	institute = models.ForeignKey(Institute,on_delete=models.CASCADE, related_name="institute_teachers") 
 	contact = models.SmallIntegerField()    
 	user = models.OneToOneField(User,on_delete=models.CASCADE, related_name="user_teacher")
 	about = models.TextField(blank=True,null=True)
@@ -41,6 +41,7 @@ class Category(models.Model):
 
 
 class Course(models.Model):
+	id = models.AutoField(primary_key=True)
 	name = models.CharField(max_length=127)
 	institution= models.ForeignKey(Institute, on_delete=models.CASCADE, related_name='institutes')
 	main_teacher= models.ForeignKey(Teacher, on_delete=models.CASCADE,related_name="teacher_courses") 
@@ -54,7 +55,7 @@ class Course(models.Model):
 	quizzes = models.PositiveSmallIntegerField(default=5) 
 	pass_percentage = models.DecimalField(max_digits=12, decimal_places=2, default=50) 
 	related = models.ForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name='related_courses')
-
+	
 	
 	def __str__(self):
 		return self.name 
@@ -91,26 +92,28 @@ class Period(models.Model):
 
 class Student(models.Model): 
 	contact = models.SmallIntegerField()
-	user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user_student")
+	user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='user_student')
+	email = models.EmailField(blank=True,null=True)
 	about = models.TextField(blank=True,null=True)
 	education = models.TextField(blank=True,null=True)
 	skills =  models.TextField(blank=True,null=True)
 
-
 	def __str__(self):
-		return self.name 
+		return self.user
+
 
 class Enrollment(models.Model):
-	student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="student_enrollments")
-	course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='course_enrollments')
+	student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="student_enrollment")
+	course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='course_enrollment')
 	order_id = models.CharField(max_length=127)
-	payment_id = models.CharField(max_length=127)
-	date_time = models.DateTimeField(auto_now_add=True)
-	amount = models.DecimalField(max_digits=11, decimal_places=2)
-	currency= models.ForeignKey(Currency, on_delete=models.CASCADE, related_name="currency_enrollments")
-
+	payment_id = models.CharField(max_length=127, null = True)
+	payment_sing =  models.CharField(max_length=1023, null = True)
+	enrollment_date = models.DateTimeField(auto_now_add=True)
+	price =  models.DecimalField(max_digits=11, decimal_places=2)
+	currency= models.ForeignKey(Currency, on_delete=models.CASCADE, related_name="currency_enrollment")
+	
 	def __str__(self):
-		return self.order_id 
+		return "{} & {}".format(str(self.student.user), str( self.course.name))
 	
 
 class Testimonial(models.Model):
@@ -124,8 +127,13 @@ class Testimonial(models.Model):
 class Blog(models.Model):
 	date = models.DateField()
 	blog_subject = models.CharField(max_length=127)
-	context =  models.TextField(blank=True,null=True)
+	context =  models.TextField(blank=False,null=False)
 	name = models.CharField(max_length=127)
+	is_popular = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.name
+
+			
+
+

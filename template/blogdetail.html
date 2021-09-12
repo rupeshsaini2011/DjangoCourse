@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<body 
+<div class="edgt-content">
+	<div class="edgt-content-inner">
+		<div class="edgt-title-holder edgt-standard-type edgt-has-bg-image"
+			style="height: 372px;background-image:url(https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-title-area-1.jpg);"
+			data-height="372">
+			<div class="edgt-title-image">
+				<img itemprop="image"
+					src="{% static 'images/blog-title-area-1.jpg' %} alt="a">
+			</div>
+			<div class="edgt-title-wrapper" style="height: 372px">
+				<div class="edgt-title-inner">
+					<div class="edgt-grid">
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="vc_empty_space" style="height: 28px"><span
+            class="vc_empty_space_inner"></span>
+    </div>
+		<div class="edgt-container">
+			<div class="edgt-container-inner clearfix">
+				<div class="edgt-grid-row edgt-content-has-sidebar edgt-grid-large-gutter">
+					<div class="edgt-page-content-holder edgt-grid-col-9 edgt-content-left">
+						<div class="edgt-blog-holder edgt-blog-single edgt-blog-single-standard">
+							<article id="post-638"
+								class="post-638 post type-post status-publish format-standard has-post-thumbnail hentry category-education tag-library tag-physics">
+								<div class="edgt-post-content">
+									<div class="edgt-post-text">
+										<div class="edgt-post-text-inner">
+											<h2 itemprop="name" class="entry-title edgt-post-title">
+												{{blog.blog_subject}} </h2>
+											<div class="edgt-post-info-top">
+												<div itemprop="dateCreated"
+													class="edgt-post-info-date entry-date published updated">
+													<a itemprop="url"
+														href="https://educator.qodeinteractive.com/2017/07/">
+														{{blog.date}} </a>
+													<meta itemprop="interactionCount" content="UserComments: 3">
+											</div>
+											<div class="edgt-post-text-main">
+												<div class="vc_row wpb_row vc_row-fluid vc_custom_1501229928397">
+													<div class="wpb_column vc_column_container vc_col-sm-12">
+														<div class="vc_column-inner">
+															<div class="wpb_wrapper">
+																<div class="wpb_text_column wpb_content_element ">
+																	<div class="wpb_wrapper">
+																		<p> {{blog.context}} </p>
+																	</div>
+																</div>
+																<div class="vc_empty_space" style="height: 50px"><span
+																		class="vc_empty_space_inner"></span>
+																</div>
+																<div
+																	class="wpb_single_image wpb_content_element vc_align_left">
+																	<figure class="wpb_wrapper vc_figure">
+																		<div
+																			class="vc_single_image-wrapper   vc_box_border_grey">
+																			<img width="1024" height="595"
+																				src="{% static 'images/blog-img-1.jpg' %}
+																				class="vc_single_image-img attachment-full"
+																				alt="a"
+																				srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-img-1.jpg 1024w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-img-1-300x174.jpg 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-img-1-768x446.jpg 768w"
+																				sizes="(max-width: 1024px) 100vw, 1024px">
+																		</div>
+																	</figure>
+																</div>
+																
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</article>
+							<div class="edgt-comment-holder clearfix" id="comments">
+								<div class="edgt-comment-holder-inner">
+									<div class="edgt-comments-title">
+										<h4>Comments</h4>
+									</div>
+								</div>
+							</div>
+							<div class="edgt-comment-form">
+								<div class="edgt-comment-form-inner">
+									<div id="respond" class="comment-respond">
+										<h4 id="reply-title" class="comment-reply-title">Post a Comment
+											<small><a rel="nofollow" id="cancel-comment-reply-link"
+													href="https://educator.qodeinteractive.com/studying-to-accomplish-the-greatest-goals/#respond"
+													style="display:none;">cancel reply</a></small>
+										</h4>
+										<form action="https://educator.qodeinteractive.com/wp-comments-post.php"
+											method="post" id="commentform" class="comment-form"><textarea id="comment"
+												placeholder="Your comment" name="comment" cols="45" rows="6"
+												aria-required="true"></textarea><input id="author" name="author"
+												placeholder="Your Name" type="text" value="" aria-required="true">
+											<input id="email" name="email" placeholder="Your Email" type="text" value=""
+												aria-required="true">
+											<input id="url" name="url" placeholder="Website" type="text" value=""
+												size="30" maxlength="200">
+											<p class="comment-form-cookies-consent"><input
+													id="wp-comment-cookies-consent" name="wp-comment-cookies-consent"
+													type="checkbox" value="yes"> <label
+													for="wp-comment-cookies-consent">Save my name, email,
+													and website in this browser for the next time I
+													comment.</label></p>
+											<p class="form-submit"><input name="submit" type="submit"
+													id="submit_comment" class="submit" value="Submit">
+												<input type="hidden" name="comment_post_ID" value="638"
+													id="comment_post_ID">
+												<input type="hidden" name="comment_parent" id="comment_parent"
+													value="0">
+											</p>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="edgt-sidebar-holder edgt-grid-col-3 edgt-sidebar-right">
+						<aside class="edgt-sidebar">
+							<div class="widget edgt-blog-list-widget">
+								<div class="edgt-widget-title-holder">
+									<h4 class="edgt-widget-title">Popular Blogs</h4>
+								</div>
+								<div class="edgt-blog-list-holder edgt-bl-simple edgt-bl-one-column edgt-bl-normal-space edgt-bl-pag-no-pagination"
+									data-type="simple" data-number-of-posts="3" data-number-of-columns="1"
+									data-space-between-columns="normal" data-category="Culture" data-order-by="date"
+									data-order="ASC" data-image-size="thumbnail" data-title-tag="h6"
+									data-excerpt-length="0" data-post-info-section="yes" data-post-info-image="yes"
+									data-post-info-author="no" data-post-info-date="yes" data-post-info-category="no"
+									data-post-info-comments="no" data-post-info-like="no" data-post-info-share="no"
+									data-pagination-type="no-pagination" data-max-num-pages="1" data-next-page="2">
+									<div class="edgt-bl-wrapper">
+										<ul class="edgt-blog-list">
+                                            {% for blog in popular_blogs %}
+											<li class="edgt-bl-item clearfix">
+												<div class="edgt-bli-inner">
+													<div class="edgt-post-image">
+														<a itemprop="url"
+															href="{% url 'teaching:blogdetail' pk=blog.id %} "
+															>
+															<img width="150" height="150"
+																src="{% static 'images/blog-featured-13-150x150.jpg' %}
+																class="attachment-thumbnail size-thumbnail wp-post-image"
+																alt="a"
+																srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-featured-13-150x150.jpg 150w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-featured-13-180x180.jpg 180w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-featured-13-600x600.jpg 600w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/blog-featured-13-550x550.jpg 550w"
+																sizes="(max-width: 150px) 100vw, 150px">
+														</a>
+													</div>
+													<div class="edgt-bli-content">
+														<h6 itemprop="name" class="entry-title edgt-post-title">
+															<a itemprop="url"
+																href="{% url 'teaching:blogdetail' pk=blog.id %} "
+																>
+																{{blog.blog_subject}} </a>
+														</h6>
+														<div class="edgt-bli-excerpt">
+														</div>
+													</div>
+												</div>
+											</li>
+                                            {% endfor %}
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="widget edgt-separator-widget">
+								<div
+									class="edgt-separator-holder clearfix  edgt-separator-center edgt-separator-normal">
+									<div class="edgt-separator" style="border-style: solid;margin-top: 20px"></div>
+								</div>
+							</div>
+							<div class="widget edgt-blog-categories-widget">
+								<div class="edgt-widget-title-holder">
+									<h4 class="edgt-widget-title">Categories</h4>
+								</div>
+								<ul class="edgt-blog-categories-list">
+                                    {% for cat in categories %}
+									<li>
+										<h6 class="edgt-blog-categories-list-title"><a
+												href="https://educator.qodeinteractive.com/category/business/"
+												target="_self" itemprop="url">{{cat.category}}</a></h6>
+									</li>
+                                    {% endfor %}
+								</ul>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+</body>
+
+{% endblock main %}

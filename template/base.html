@@ -142,7 +142,7 @@
 	<script src="{% static 'js/143ef.js' %}"></script>
 	<script type="text/javascript"></script>
 
-	<script src="{% static 'js/f1253.js' %}"></script>
+
 
 
 	<script data-cfasync="false">
@@ -1354,8 +1354,7 @@ Click the help icon above to learn more.
 			}
 		}
 	</style>
-	<script type="text/javascript" charset="UTF-8" src="{% static 'js/common.js' %}"></script>
-	<script type="text/javascript" charset="UTF-8" src="{% static 'js/util.js' %}"></script>
+
 	<style type="text/css">
 		@media only screen and (max-width: 680px) {
 			.edgt-custom-font-holder.edgt-cf-2121 {
@@ -1495,8 +1494,8 @@ Click the help icon above to learn more.
 											</li>
 											<li id="nav-menu-item-624"
 												class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  has_sub narrow">
-												<a href="#" class=""><span class="item_outer"><span
-															class="item_text">Blog</span><i
+												<a href="{% url 'teaching:blogs' %}" class=""><span class="item_outer"><span
+															class="item_text">Blogs</span><i
 															class="edgt-menu-arrow fa fa-angle-down"></i></span></a>
 											</li>
 										</ul>
@@ -1990,6 +1989,7 @@ Click the help icon above to learn more.
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		var wpcf7 = {
@@ -2028,7 +2028,7 @@ Click the help icon above to learn more.
 	</script>
 	<script src="{% static 'js/45375.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/rbt-modules.js' %}"></script>
-	<script src="{% static 'js/f1f50.js' %}"></script>
+	
 	<script type="text/javascript">
 		/* <![CDATA[ */
 		var woocommerce_params = {
@@ -2166,7 +2166,9 @@ Click the help icon above to learn more.
 
 
 
-
+	{% block extrascripts %}
+			
+	{% endblock extrascripts %}
 
 
 	<input type="file" id="" name="file" style="display: none;">

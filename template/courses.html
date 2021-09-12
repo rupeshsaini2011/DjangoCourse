@@ -187,9 +187,10 @@ Click the help icon above to learn more.
 																<img width="965" height="617"
 																	src="{% static 'images/course-img-1.jpg' %}"
 																	class="attachment-full size-full wp-post-image"
+																	href="{% url 'teaching:coursedetail' pk=course.pk %}"
 																	alt="a"
 																	sizes="(max-width: 965px) 100vw, 965px">
-															</div><a href="{% url 'teaching:coursedetail' pk=course.id %}"
+															</div><a href="{% url 'teaching:coursedetail' pk=course.pk %}"
 																class="edgt-course-wishlist edgt-icon-only"
 																data-course-id="804">
 																<i class="fa fa-heart-o" aria-hidden="true"></i>
@@ -202,7 +203,7 @@ Click the help icon above to learn more.
 																		<h4 itemprop="name"
 																			class="edgt-cli-title entry-title">
 																			<a itemprop="url"
-																				href="{% url 'teaching:coursedetail' pk=course.id %} "
+																			href="{% url 'teaching:coursedetail' pk=course.pk %}"
 																				target="_self">
 																				{{course.name}} </a>
 																		</h4>
@@ -326,6 +327,7 @@ Click the help icon above to learn more.
 												<div class="edgt-cli-image">
 													<img width="300" height="192"
 														src="{% static 'images/course-img-2-300x192.jpg' %}"
+														href="{% url 'teaching:coursedetail' course.pk %}"
 														class="attachment-medium size-medium wp-post-image" alt="a"
 														srcset="https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-300x192.jpg' %} 300w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2-768x491.jpg' %} 768w, https://educator.qodeinteractive.com/wp-content/uploads/2017/07/course-img-2.jpg' %} 965w"
 														sizes="(max-width: 300px) 100vw, 300px">

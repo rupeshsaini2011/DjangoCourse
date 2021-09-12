@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
 
 {% block main %}
 
@@ -321,14 +321,14 @@ Click the help icon above to learn more.
                             <div class="edgt-grid">
                                 <div class="edgt-title-inner-holder">
                                     <div class="edgt-title-info">
-                                        <h3 class="edgt-page-title entry-title" > {{course.name}} </h3>
+                                        <h3 class="edgt-page-title entry-title"> {{course.name}} </h3>
                                     </div>
                                     <div class="edgt-breadcrumbs-info">
                                         <div itemprop="breadcrumb" class="edgt-breadcrumbs "> <a itemprop="url"
                                                 href="https://educator.qodeinteractive.com/">Home</a><span
                                                 class="edgt-delimiter">&nbsp; / &nbsp;</span><a
                                                 href="https://educator.qodeinteractive.com/course-category/it-software/">{{course.category}}
-                                                </a><span class="edgt-delimiter">&nbsp; /
+                                            </a><span class="edgt-delimiter">&nbsp; /
                                                 &nbsp;</span><span class="edgt-current">{{course.name}}</span></div>
                                     </div>
                                 </div>
@@ -372,7 +372,7 @@ Click the help icon above to learn more.
                                                                             href="https://educator.qodeinteractive.com/instructor/amy-drufesne/"
                                                                             target="_self">
                                                                             <span class="edgt-instructor-name">
-                                                                             {{course.main_teacher}} </span>
+                                                                                {{course.main_teacher}} </span>
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -386,7 +386,7 @@ Click the help icon above to learn more.
                                                                             <a itemprop="url"
                                                                                 class="edgt-course-category"
                                                                                 href="https://educator.qodeinteractive.com/course-category/it-software/">
-                                                                                 {{course.category}} </a>
+                                                                                {{course.category}} </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -398,14 +398,14 @@ Click the help icon above to learn more.
                                                             <span class="edgt-course-single-type ">
                                                                 {{course.currency}} {{course.price}} </span>
                                                             <div class="edgt-course-action ">
-                                                                <form method="post" class="edgt-buy-item-form">
-                                                                    <input name="add-to-cart" type="hidden" value="804">
-                                                                    <input name="quantity" type="hidden" value="1">
+                                                                
+                                                                    <a href="{% url 'teaching:payment' cid=course.id %}">
                                                                     <button type="submit"
                                                                         class="edgt-btn edgt-btn-medium edgt-btn-solid">
-                                                                        <span class="edgt-btn-text">Buy Course</span>
+                                                                        <span class="edgt-btn-text">Buy Course
                                                                     </button>
-                                                                </form>
+                                                                </a>
+                                                               
                                                             </div>
                                                         </div>
                                                     </div>
@@ -746,7 +746,8 @@ Click the help icon above to learn more.
                                                                 class="lnr lnr-clock"
                                                                 aria-hidden="true"></i></span><span
                                                             class="edgt-item-label">Duration</span><span
-                                                            class="edgt-item-value"> {{course.duration}} Months </span></li>
+                                                            class="edgt-item-value"> {{course.duration}} Months </span>
+                                                    </li>
                                                     <li class="edgt-feature-item"><span class="edgt-item-icon"><i
                                                                 class="lnr lnr-alarm"
                                                                 aria-hidden="true"></i></span><span
@@ -760,7 +761,8 @@ Click the help icon above to learn more.
                                                                 class="lnr lnr-graduation-hat"
                                                                 aria-hidden="true"></i></span><span
                                                             class="edgt-item-label">Pass Percentage</span><span
-                                                            class="edgt-item-value"> {{course.pass_percentage}} </span></li>
+                                                            class="edgt-item-value"> {{course.pass_percentage}} </span>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -808,7 +810,8 @@ Click the help icon above to learn more.
                                                                         </h6>
                                                                         <div class="edgt-ci-price-holder clearfix">
                                                                             <span class="edgt-ci-price-value">
-                                                                                {{course.related.currency}} {{course.related.price}} </span>
+                                                                                {{course.related.currency}}
+                                                                                {{course.related.price}} </span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -840,5 +843,4 @@ Click the help icon above to learn more.
                 </div>
             </div>
         </div>
-
         {% endblock main %}

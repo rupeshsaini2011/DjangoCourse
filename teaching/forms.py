@@ -1,4 +1,4 @@
-from django import forms
+from django import forms 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms.models import *
@@ -24,6 +24,7 @@ class TeacherRegistrationForm(forms.Form):
 	phone_number = forms.IntegerField()
 	about = forms.CharField(max_length=121,required = True)
 	password = forms.CharField(widget=forms.PasswordInput)
+	
 
 
 class StudentRegistrationForm(forms.Form):
